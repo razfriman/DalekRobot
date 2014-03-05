@@ -167,9 +167,17 @@ public class MainForm {
         dispenseBallsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 setup();
+
                 lastLocation = SALINITY_DISPENSER_BOTTOM;
+
                 activateDispenser();
+
+                activateDispenser();
+
+                activateDispenser();
+
             }
 
         });
@@ -183,13 +191,16 @@ public class MainForm {
                 // Stop to insert the balls
                 r.sleep(10000);
 
-                // Move forward
-                move(BUCKET_FORWARD, 1000);
-                lastLocation = DROP_OFF_LOCATION;
+
+                lastLocation = AFTER_CROSS_BRIDGE_LEFT;
+
+                // Move to dropoff location
+                goToLocation(lastLocation, DROP_OFF_LOCATION);
                 updateGuiLocation();
 
                 // Release the balls
                 openBucket();
+
             }
         });
         turbiditySensorTextField.addActionListener(new ActionListener() {

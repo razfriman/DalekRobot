@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04ed5312-f06d-47df-b961-12a8179df15f" name="Default" comment="" />
+    <list default="true" id="04ed5312-f06d-47df-b961-12a8179df15f" name="Default" comment="Initial commit&#10;">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/small.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="DalekRobot.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,7 +71,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="797" column="0" selection-start="24875" selection-end="24875" vertical-scroll-proportion="1.5828221" vertical-offset="9366" max-vertical-offset="10365">
+            <state line="674" column="16" selection-start="20726" selection-end="20726" vertical-scroll-proportion="0.33333334" vertical-offset="9092" max-vertical-offset="10695">
               <folding>
                 <element signature="e#1940#2783#0" expanded="true" />
                 <element signature="e#2772#2773#0" expanded="true" />
@@ -85,31 +89,30 @@
                 <element signature="e#4570#4571#0" expanded="true" />
                 <element signature="e#4623#4820#0" expanded="true" />
                 <element signature="e#4809#4810#0" expanded="true" />
-                <element signature="e#4871#5117#0" expanded="true" />
-                <element signature="e#5105#5106#0" expanded="true" />
-                <element signature="e#5170#5630#0" expanded="true" />
-                <element signature="e#5619#5620#0" expanded="true" />
-                <element signature="e#5684#6181#0" expanded="true" />
-                <element signature="e#6170#6171#0" expanded="true" />
-                <element signature="e#6234#6729#0" expanded="true" />
-                <element signature="e#6718#6719#0" expanded="true" />
+                <element signature="e#4871#5197#0" expanded="true" />
+                <element signature="e#5185#5186#0" expanded="true" />
+                <element signature="e#5250#5750#0" expanded="true" />
+                <element signature="e#5739#5740#0" expanded="true" />
+                <element signature="e#5804#6301#0" expanded="true" />
+                <element signature="e#6290#6291#0" expanded="true" />
+                <element signature="e#6354#6849#0" expanded="true" />
+                <element signature="e#6838#6839#0" expanded="true" />
                 <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-                <element signature="e#7062#9701#0" expanded="true" />
-                <element signature="e#9690#9691#0" expanded="true" />
-                <element signature="e#10157#10177#0" expanded="false" />
-                <element signature="e#12122#12142#0" expanded="false" />
-                <element signature="e#12833#12853#0" expanded="false" />
+                <element signature="e#7182#9821#0" expanded="true" />
+                <element signature="e#9810#9811#0" expanded="true" />
+                <element signature="e#10277#10297#0" expanded="false" />
+                <element signature="e#12242#12262#0" expanded="false" />
+                <element signature="e#12953#12973#0" expanded="false" />
                 <element signature="method#setup#0;class#MainForm#0" expanded="false" />
                 <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
                 <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
                 <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
                 <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
                 <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-                <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
                 <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
                 <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
                 <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-                <element signature="e#22977#23058#0" expanded="false" />
+                <element signature="e#23097#23178#0" expanded="false" />
                 <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
                 <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
               </folding>
@@ -700,12 +703,12 @@
       <workItem from="1393966221603" duration="787000" />
       <workItem from="1393971361883" duration="1420000" />
       <workItem from="1393992677649" duration="154000" />
-      <workItem from="1394024966709" duration="914000" />
+      <workItem from="1394024966709" duration="1151000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14945000" />
+    <option name="totallyTimeSpent" value="15182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -782,31 +785,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -838,31 +840,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -894,31 +895,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -950,31 +950,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1006,31 +1005,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1062,31 +1060,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1118,31 +1115,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1169,31 +1165,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1225,31 +1220,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1281,31 +1275,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1317,21 +1310,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/small.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/src.zip!/javax/swing/ImageIcon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="204" column="0" selection-start="6414" selection-end="6414" vertical-scroll-proportion="0.0" vertical-offset="2244" max-vertical-offset="9660">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/map.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.form">
@@ -1341,7 +1324,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="797" column="0" selection-start="24875" selection-end="24875" vertical-scroll-proportion="1.5828221" vertical-offset="9366" max-vertical-offset="10365">
+        <state line="674" column="16" selection-start="20726" selection-end="20726" vertical-scroll-proportion="0.33333334" vertical-offset="9092" max-vertical-offset="10695">
           <folding>
             <element signature="e#1940#2783#0" expanded="true" />
             <element signature="e#2772#2773#0" expanded="true" />
@@ -1359,31 +1342,30 @@
             <element signature="e#4570#4571#0" expanded="true" />
             <element signature="e#4623#4820#0" expanded="true" />
             <element signature="e#4809#4810#0" expanded="true" />
-            <element signature="e#4871#5117#0" expanded="true" />
-            <element signature="e#5105#5106#0" expanded="true" />
-            <element signature="e#5170#5630#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5684#6181#0" expanded="true" />
-            <element signature="e#6170#6171#0" expanded="true" />
-            <element signature="e#6234#6729#0" expanded="true" />
-            <element signature="e#6718#6719#0" expanded="true" />
+            <element signature="e#4871#5197#0" expanded="true" />
+            <element signature="e#5185#5186#0" expanded="true" />
+            <element signature="e#5250#5750#0" expanded="true" />
+            <element signature="e#5739#5740#0" expanded="true" />
+            <element signature="e#5804#6301#0" expanded="true" />
+            <element signature="e#6290#6291#0" expanded="true" />
+            <element signature="e#6354#6849#0" expanded="true" />
+            <element signature="e#6838#6839#0" expanded="true" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
-            <element signature="e#7062#9701#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#10157#10177#0" expanded="false" />
-            <element signature="e#12122#12142#0" expanded="false" />
-            <element signature="e#12833#12853#0" expanded="false" />
+            <element signature="e#7182#9821#0" expanded="true" />
+            <element signature="e#9810#9811#0" expanded="true" />
+            <element signature="e#10277#10297#0" expanded="false" />
+            <element signature="e#12242#12262#0" expanded="false" />
+            <element signature="e#12953#12973#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#closeBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#openBucket#0;class#MainForm#0" expanded="false" />
             <element signature="method#raiseCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#lowerCrane#0;class#MainForm#0" expanded="false" />
             <element signature="method#getBridgeRobotLocation#0;class#MainForm#0" expanded="false" />
-            <element signature="method#getBridgeRobotLocation#1;class#MainForm#0" expanded="false" />
             <element signature="method#crossBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#findBridge#0;class#MainForm#0" expanded="false" />
             <element signature="method#checkBridge#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22977#23058#0" expanded="false" />
+            <element signature="e#23097#23178#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#stopMotors#0;class#MainForm#0" expanded="false" />
           </folding>
