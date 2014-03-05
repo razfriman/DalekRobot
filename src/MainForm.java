@@ -13,6 +13,22 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+
+
+
+
+//400 = 27 inches
+//300 = 21 inches
+//250 = 17.5
+//200 = 14 inches
+//150 = 11 inches
+//100 = 7
+
+// start to water well = 39 inches
+// dispensers = 24 inches apart
+
+
+
 public class MainForm {
     private JButton connectButton;
     private JPanel panel1;
@@ -111,7 +127,11 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
 
                 setup();
-                testWater();
+                //testWater();
+
+                move(CRANE_FORWARD, 600);
+                turnLeft(BUCKET_FORWARD);
+                move(BUCKET_FORWARD, 300);
             }
         });
         debugModeCheckBox.addActionListener(new ActionListener() {
@@ -192,11 +212,9 @@ public class MainForm {
                 r.sleep(10000);
 
 
-                lastLocation = AFTER_CROSS_BRIDGE_LEFT;
+                int ticks = 600;
+                move(BUCKET_FORWARD, ticks);
 
-                // Move to dropoff location
-                goToLocation(lastLocation, DROP_OFF_LOCATION);
-                updateGuiLocation();
 
                 // Release the balls
                 openBucket();
@@ -357,7 +375,7 @@ public class MainForm {
     public static final int AFTER_CROSS_BRIDGE_RIGHT = 12;
     public static final int DROP_OFF_LOCATION = 12; // The same as AFTER_CROSS_BRIDGE_RIGHT
 
-    public static final int TURN_90_TICKS = 150;
+    public static final int TURN_90_TICKS = 170;
     public static final int TURN_180_TICKS = 350;
 
     public static final int QUICK_DELAY = 300;
@@ -512,7 +530,7 @@ public class MainForm {
             if (fromLocation == START_LOCATION) {
 
                 // Move forward to the water
-                move(CRANE_FORWARD, 300);
+                move(CRANE_FORWARD, 600);
 
                 lastLocation = toLocation;
 
@@ -685,6 +703,8 @@ public class MainForm {
         // Move back a little bit to release the pressure from the dispenser
         move(CRANE_FORWARD, reverseTicks);
 
+        r.sleep(500);
+
     }
 
     private  int getBridgeRobotLocation(boolean isBeforeCrossBridge) {
@@ -808,8 +828,8 @@ public class MainForm {
     public void turn180() {
 
         r.runEncodedMotor(
-                RXTXRobot.MOTOR1, motorSpeed * CRANE_FORWARD, TURN_180_TICKS,
-                RXTXRobot.MOTOR2, motorSpeed * BUCKET_FORWARD, TURN_180_TICKS
+                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * CRANE_FORWARD, TURN_180_TICKS,
+                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * BUCKET_FORWARD, TURN_180_TICKS
         );
 
         r.sleep(QUICK_DELAY);
