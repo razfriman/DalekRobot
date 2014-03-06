@@ -88,7 +88,8 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Arduino Port:"/>
+              <labelFor value="ed74f"/>
+              <text value="&amp;Arduino Port:"/>
             </properties>
           </component>
           <component id="c2a84" class="javax.swing.JLabel">
@@ -96,7 +97,8 @@
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Turbidity Dispenser Location"/>
+              <labelFor value="d7a6b"/>
+              <text value="&amp;Turbidity Dispenser Location"/>
             </properties>
           </component>
           <component id="d7a6b" class="javax.swing.JComboBox" binding="turbidityComboBox">
@@ -115,7 +117,8 @@
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Salinity Dispenser Location"/>
+              <labelFor value="dbc5c"/>
+              <text value="&amp;Salinity Dispenser Location"/>
             </properties>
           </component>
           <component id="f4f7d" class="javax.swing.JButton" binding="connectButton" default-binding="true">
@@ -123,7 +126,7 @@
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Connect"/>
+              <text value="&amp;Connect"/>
             </properties>
           </component>
           <component id="dbc5c" class="javax.swing.JComboBox" binding="salinityComboBox">
@@ -148,7 +151,8 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Motor Speed"/>
+              <labelFor value="ae5e8"/>
+              <text value="&amp;Motor Speed"/>
             </properties>
           </component>
           <component id="ae5e8" class="javax.swing.JComboBox" binding="motorSpeedComboBox">
@@ -168,7 +172,7 @@
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Debug Mode"/>
+              <text value="&amp;Debug Mode"/>
             </properties>
           </component>
         </children>
@@ -210,7 +214,8 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="  Forward Direction:"/>
+              <labelFor value="e9c32"/>
+              <text value="  &amp;Forward Direction:"/>
             </properties>
           </component>
           <component id="e9c32" class="javax.swing.JComboBox" binding="debugDirectionComboBox">
@@ -230,7 +235,7 @@
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Move Forward"/>
+              <text value="Mo&amp;ve Forward"/>
             </properties>
           </component>
           <component id="e58c5" class="javax.swing.JButton" binding="moveBackwardButton" default-binding="true">
@@ -238,7 +243,7 @@
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Move Backward"/>
+              <text value="Move Bac&amp;kward"/>
             </properties>
           </component>
           <component id="929b9" class="JNumberTextField" binding="movementTicksTextField">
@@ -286,7 +291,7 @@
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Turn Right"/>
+              <text value="Turn R&amp;ight"/>
             </properties>
           </component>
           <component id="9ae8f" class="javax.swing.JButton" binding="turnLeftButton" default-binding="true">
@@ -294,7 +299,7 @@
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Turn Left"/>
+              <text value="Tur&amp;n Left"/>
             </properties>
           </component>
           <component id="3eca4" class="javax.swing.JButton" binding="craneUpButton" default-binding="true">
@@ -302,7 +307,7 @@
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Crane Up"/>
+              <text value="Crane U&amp;p"/>
             </properties>
           </component>
           <component id="74d61" class="javax.swing.JButton" binding="craneDownButton" default-binding="true">
@@ -336,7 +341,7 @@
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Read Turbidity"/>
+          <text value="Read T&amp;urbidity"/>
         </properties>
       </component>
       <component id="85de2" class="javax.swing.JButton" binding="readSalinityButton" default-binding="true">
@@ -344,7 +349,7 @@
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Read Salinity"/>
+          <text value="Read Sa&amp;linity"/>
         </properties>
       </component>
       <component id="cbad6" class="javax.swing.JButton" binding="runButton1" default-binding="true">
@@ -352,7 +357,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Run All"/>
+          <text value="&amp;Run All"/>
         </properties>
       </component>
       <component id="94e67" class="javax.swing.JButton" binding="testWaterButton" default-binding="true">
@@ -360,7 +365,7 @@
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Test Water"/>
+          <text value="Test &amp;Water"/>
         </properties>
       </component>
       <component id="27cda" class="javax.swing.JButton" binding="dispenseBallsButton" default-binding="true">
@@ -368,7 +373,7 @@
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Dispense Balls"/>
+          <text value="Dispense &amp;Balls"/>
         </properties>
       </component>
       <component id="677ca" class="javax.swing.JButton" binding="deliverMaterialsButton" default-binding="true">
@@ -376,7 +381,7 @@
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Deliver Materials"/>
+          <text value="D&amp;eliver Materials"/>
         </properties>
       </component>
       <component id="ad629" class="javax.swing.JButton" binding="crossBridgeButton" default-binding="true">
@@ -384,7 +389,7 @@
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Cross Bridge"/>
+          <text value="Cr&amp;oss Bridge"/>
         </properties>
       </component>
     </children>

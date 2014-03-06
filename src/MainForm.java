@@ -1,20 +1,13 @@
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.text.PlainDocument;
-
 /**
  * Created by raz on 3/2/14.
  */
 
 import rxtxrobot.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.text.DecimalFormat;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 
 //400 = 27 inches
@@ -23,7 +16,7 @@ import java.text.DecimalFormat;
 //200 = 14 inches
 //150 = 11 inches
 //100 = 7
-// CONVERSION + TICKS * .07 = INCHES
+// CONVERSION:  TICKS * .07 = INCHES
 
 
 // start to water well = 39 inches
@@ -131,8 +124,6 @@ public class MainForm {
                     if (r.isConnected()) {
 
                         r.close();
-
-                        connectButton.setText("Connect");
                         updateRunButtons(false);
 
                     } else {
@@ -144,9 +135,6 @@ public class MainForm {
                         updateRunButtons(true);
 
                         updateGuiLocation();
-
-                        connectButton.setText("Disconnect");
-
                     }
                 } catch (Exception ex) {
                     System.out.println("Cannot connect to port");
@@ -158,16 +146,31 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                runAll();
+                Thread t = new Thread() {
+                    @Override
+                    public void run() {
+                        updateRunButtons(false);
+                        runAll();
+                    }
+                };
+
+                t.start();
             }
         });
         testWaterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                setup();
+                Thread t = new Thread() {
+                    @Override
+                    public void run() {
+                        setup();
+                        testWater();
+                    }
+                };
 
-                testWater();
+                t.start();
+
             }
         });
         debugModeCheckBox.addActionListener(new ActionListener() {
@@ -226,16 +229,23 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                setup();
 
-                lastLocation = SALINITY_DISPENSER_BOTTOM;
+                Thread t = new Thread() {
+                    @Override
+                    public void run() {
+                        setup();
 
-                activateDispenser();
+                        lastLocation = SALINITY_DISPENSER_BOTTOM;
 
-                activateDispenser();
+                        activateDispenser();
 
-                activateDispenser();
+                        activateDispenser();
 
+                        activateDispenser();
+                    }
+                };
+
+                t.start();
             }
 
         });
@@ -244,18 +254,27 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                setup();
+                Thread t = new Thread() {
+                    @Override
+                    public void run() {
+                        setup();
 
-                // Stop to insert the balls
-                r.sleep(10000);
+                        // Stop to insert the balls
+                        r.sleep(10000);
 
 
-                int ticks = 600;
-                move(BUCKET_FORWARD, ticks);
+                        int ticks = 600;
+                        move(BUCKET_FORWARD, ticks);
 
 
-                // Release the balls
-                openBucket();
+                        // Release the balls
+                        openBucket();
+                    }
+                };
+
+                t.start();
+
+
 
             }
         });
@@ -326,6 +345,7 @@ public class MainForm {
         moveForwardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 move(-1 * debugDirection, debugTicks, debugSpeed);
             }
         });
@@ -417,86 +437,102 @@ public class MainForm {
         }
     }
 
-    public void updateRunButtons(boolean isEnabled) {
-        runButton1.setEnabled(isEnabled);
-        testWaterButton.setEnabled(isEnabled);
-        dispenseBallsButton.setEnabled(isEnabled);
-        deliverMaterialsButton.setEnabled(isEnabled);
+    public void updateRunButtons(final boolean isEnabled) {
 
-        moveForwardButton.setEnabled(isEnabled);
-        moveBackwardButton.setEnabled(isEnabled);
-        turnLeftButton.setEnabled(isEnabled);
-        turnRightButton.setEnabled(isEnabled);
-        uTurnButton.setEnabled(isEnabled);
-        craneUpButton.setEnabled(isEnabled);
-        craneDownButton.setEnabled(isEnabled);
-        bucketOpenButton.setEnabled(isEnabled);
-        bucketCloseButton.setEnabled(isEnabled);
-        crossBridgeButton.setEnabled(isEnabled);
 
+        Runnable runnable = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+
+                connectButton.setText(isEnabled ? "Disconnect" : "Connect");
+
+                runButton1.setEnabled(isEnabled);
+                testWaterButton.setEnabled(isEnabled);
+                dispenseBallsButton.setEnabled(isEnabled);
+                deliverMaterialsButton.setEnabled(isEnabled);
+
+                moveForwardButton.setEnabled(isEnabled);
+                moveBackwardButton.setEnabled(isEnabled);
+                turnLeftButton.setEnabled(isEnabled);
+                turnRightButton.setEnabled(isEnabled);
+                uTurnButton.setEnabled(isEnabled);
+                craneUpButton.setEnabled(isEnabled);
+                craneDownButton.setEnabled(isEnabled);
+                bucketOpenButton.setEnabled(isEnabled);
+                bucketCloseButton.setEnabled(isEnabled);
+                crossBridgeButton.setEnabled(isEnabled);
+                readTurbidityButton.setEnabled(isEnabled);
+                readSalinityButton.setEnabled(isEnabled);
+            }
+        };
+
+        SwingUtilities.invokeLater(runnable);
     }
 
     public void updateGuiLocation() {
 
-        Runnable aRunnable = new Runnable()
+        Runnable runnable = new Runnable()
         {
+            @Override
             public void run()
             {
                 // UI related code
 
-        try {
-            switch (lastLocation) {
-                case START_LOCATION:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/center.png"))));
-                    break;
-                case WATER_WELL:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/water.png"))));
-                    break;
-                case  SALINITY_DISPENSER_BOTTOM:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/salinity bottom.png"))));
-                    break;
-                case  SALINITY_DISPENSER_TOP:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/salinity top.png"))));
-                    break;
-                case  TURBIDITY_DISPENSER_BOTTOM:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/turbidity bottom.png"))));
-                    break;
-                case  TURBIDITY_DISPENSER_TOP:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/turbidity top.png"))));
-                    break;
-                case  BEFORE_CROSS_BRIDGE_LEFT:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge left.png"))));
-                    break;
-                case  BEFORE_CROSS_BRIDGE_MIDDLE:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge middle.png"))));
-                    break;
-                case  BEFORE_CROSS_BRIDGE_RIGHT:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge right.png"))));
-                    break;
-                case  AFTER_CROSS_BRIDGE_LEFT:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge left.png"))));
-                    break;
-                case  AFTER_CROSS_BRIDGE_MIDDLE:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge middle.png"))));
-                    break;
-                case  AFTER_CROSS_BRIDGE_RIGHT:
-                    mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge right.png"))));
-                    break;
-            }
-        } catch (Exception e) {
-            // Cannot load icon
-            e.printStackTrace();
-        }
+                try {
+                    switch (lastLocation) {
+                        case START_LOCATION:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/center.png"))));
+                            break;
+                        case WATER_WELL:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/water.png"))));
+                            break;
+                        case  SALINITY_DISPENSER_BOTTOM:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/salinity bottom.png"))));
+                            break;
+                        case  SALINITY_DISPENSER_TOP:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/salinity top.png"))));
+                            break;
+                        case  TURBIDITY_DISPENSER_BOTTOM:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/turbidity bottom.png"))));
+                            break;
+                        case  TURBIDITY_DISPENSER_TOP:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/turbidity top.png"))));
+                            break;
+                        case  BEFORE_CROSS_BRIDGE_LEFT:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge left.png"))));
+                            break;
+                        case  BEFORE_CROSS_BRIDGE_MIDDLE:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge middle.png"))));
+                            break;
+                        case  BEFORE_CROSS_BRIDGE_RIGHT:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge right.png"))));
+                            break;
+                        case  AFTER_CROSS_BRIDGE_LEFT:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge left.png"))));
+                            break;
+                        case  AFTER_CROSS_BRIDGE_MIDDLE:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge middle.png"))));
+                            break;
+                        case  AFTER_CROSS_BRIDGE_RIGHT:
+                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge right.png"))));
+                            break;
+                    }
+                } catch (Exception e) {
+                    // Cannot load icon
+                    e.printStackTrace();
+                }
 
             }
         };
-        SwingUtilities.invokeLater(aRunnable);
+        SwingUtilities.invokeLater(runnable);
     }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("MainForm");
         frame.setContentPane(new MainForm(frame).panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
 
         frame.setResizable(false);
@@ -562,7 +598,7 @@ public class MainForm {
     // VARIABLES
     ////////////////////
 
-    public  RXTXRobot r = new RXTXRobot();
+    public  final RXTXRobot r = new RXTXRobot();
     public  int lastLocation = START_LOCATION;
 
     public  int salinityLargeLocation = SALINITY_DISPENSER_TOP;
@@ -585,7 +621,7 @@ public class MainForm {
     public int debugTicks = 100;
     public double debugInches = 7;
 
-    public int debugSpeed = MOTOR_SPEED_MEDIUM;
+    public final int debugSpeed = MOTOR_SPEED_MEDIUM;
 
 
     ////////////////////
@@ -607,6 +643,8 @@ public class MainForm {
         collectRemediationMaterials();
 
         dropOffMaterials();
+
+        updateRunButtons(true);
     }
 
     public void setup() {
@@ -865,7 +903,7 @@ public class MainForm {
 
     public void collectMaterial(boolean isSalinity, boolean isLargeAmount) {
 
-        int targetLocation = 0;
+        int targetLocation;
 
         if (isSalinity) {
             targetLocation = isLargeAmount ? salinityLargeLocation : salinitySmallLocation;
@@ -895,7 +933,7 @@ public class MainForm {
 
     }
 
-    private  int getBridgeRobotLocation(boolean isBeforeCrossBridge) {
+    private int getBridgeRobotLocation(boolean isBeforeCrossBridge) {
         return  getBridgeRobotLocation(bridgePosition, isBeforeCrossBridge);
     }
 

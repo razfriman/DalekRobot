@@ -78,7 +78,7 @@ public class JNumberTextField extends JTextField
 
     public Number getNumber()
     {
-        Number number = null;
+        Number number;
 
         if ( format == NUMERIC )
             number = new Integer(getText());
@@ -105,7 +105,7 @@ public class JNumberTextField extends JTextField
 
     public float getFloat()
     {
-        return ( new Float( getText() ) ).floatValue();
+        return new Float(getText());
     }
 
     public void setFloat(float value)
@@ -115,7 +115,7 @@ public class JNumberTextField extends JTextField
 
     public double getDouble()
     {
-        return ( new Double( getText() ) ).doubleValue();
+        return new Double(getText());
     }
 
     public void setDouble(double value)
