@@ -1,5 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.text.PlainDocument;
 
 /**
  * Created by raz on 3/2/14.
@@ -10,6 +11,7 @@ import rxtxrobot.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -23,9 +25,13 @@ import java.io.File;
 //200 = 14 inches
 //150 = 11 inches
 //100 = 7
+// CONVERSION + TICKS * .07 = INCHES
+
 
 // start to water well = 39 inches
 // dispensers = 24 inches apart
+
+
 
 
 
@@ -46,6 +52,18 @@ public class MainForm {
     private JLabel mapLabel;
     private JButton dispenseBallsButton;
     private JButton deliverMaterialsButton;
+    private JButton turnLeftButton;
+    private JPanel debugPanel;
+    private JButton turnRightButton;
+    private JButton moveForwardButton;
+    private JButton moveBackwardButton;
+    private JButton uTurnButton;
+    private JTextField movementTicksTextField;
+    private JTextField movementInchesTextField;
+    private JButton craneUpButton;
+    private JButton craneDownButton;
+    private JButton bucketCloseButton;
+    private JButton bucketOpenButton;
     private JTextField portTextField;
 
     private final JFrame frame;
@@ -79,6 +97,16 @@ public class MainForm {
 
         turbidityMaterialTextField.setText("0");
         salinityMaterialTextField.setText("0");
+
+        movementTicksTextField.setText("100");
+        movementInchesTextField.setText("7");
+
+        ((PlainDocument) turbiditySensorTextField.getDocument()).setDocumentFilter(new IntegerFilter());
+        ((PlainDocument) salinitySensorTextField.getDocument()).setDocumentFilter(new IntegerFilter());
+        ((PlainDocument) turbidityMaterialTextField.getDocument()).setDocumentFilter(new IntegerFilter());
+        ((PlainDocument) salinityMaterialTextField.getDocument()).setDocumentFilter(new IntegerFilter());
+        ((PlainDocument) movementTicksTextField.getDocument()).setDocumentFilter(new IntegerFilter());
+        ((PlainDocument) movementInchesTextField.getDocument()).setDocumentFilter(new IntegerFilter());
 
 
         updateRunButtons(false);
@@ -127,11 +155,12 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
 
                 setup();
-                //testWater();
 
-                move(CRANE_FORWARD, 600);
-                turnLeft(BUCKET_FORWARD);
-                move(BUCKET_FORWARD, 300);
+                testWater();
+
+                //move(CRANE_FORWARD, 600);
+                //turnLeft(BUCKET_FORWARD);
+                //move(BUCKET_FORWARD, 300);
             }
         });
         debugModeCheckBox.addActionListener(new ActionListener() {
@@ -140,6 +169,8 @@ public class MainForm {
 
                 debugMode = debugModeCheckBox.isSelected();
                 r.setVerbose(debugMode);
+
+                setDebugView(debugMode);
             }
         });
         salinityComboBox.addActionListener(new ActionListener() {
@@ -241,18 +272,100 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try{
+                try {
 
                     String input = salinitySensorTextField.getText();
                     salinitySensorReading = Integer.parseInt(input);
 
                     calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
 
-                }catch(NumberFormatException ex){
+                } catch (NumberFormatException ex) {
                     // Not a valid number
                 }
             }
         });
+
+        movementTicksTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int movementTicks = Integer.parseInt(movementTicksTextField.getText());
+
+            }
+        });
+
+        movementInchesTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int movementInches = Integer.parseInt(movementInchesTextField.getText());
+
+            }
+        });
+        moveForwardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                move(-1 * debugDirection, debugTicks, debugSpeed);
+            }
+        });
+
+        moveBackwardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                move(-1 * debugDirection, debugTicks, debugSpeed);
+            }
+        });
+
+        turnLeftButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                turnLeft(debugDirection);
+            }
+        });
+        turnRightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                turnRight(debugDirection);
+            }
+        });
+        uTurnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                turn180();
+            }
+        });
+        craneUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                raiseCrane();
+            }
+        });
+        craneDownButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lowerCrane();
+            }
+        });
+        bucketCloseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                closeBucket();
+            }
+        });
+        bucketOpenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openBucket();
+            }
+        });
+    }
+
+    public void setDebugView(boolean showDebugView) {
+        if(showDebugView) {
+            frame.setSize(new Dimension(840, 550));
+        } else {
+            frame.setSize(new Dimension(840, 420));
+        }
     }
 
     public void updateRunButtons(boolean isEnabled) {
@@ -260,6 +373,17 @@ public class MainForm {
         testWaterButton.setEnabled(isEnabled);
         dispenseBallsButton.setEnabled(isEnabled);
         deliverMaterialsButton.setEnabled(isEnabled);
+
+        moveForwardButton.setEnabled(isEnabled);
+        moveBackwardButton.setEnabled(isEnabled);
+        turnLeftButton.setEnabled(isEnabled);
+        turnRightButton.setEnabled(isEnabled);
+        uTurnButton.setEnabled(isEnabled);
+        craneUpButton.setEnabled(isEnabled);
+        craneDownButton.setEnabled(isEnabled);
+        bucketOpenButton.setEnabled(isEnabled);
+        bucketCloseButton.setEnabled(isEnabled);
+
     }
 
     public void updateGuiLocation() {
@@ -326,9 +450,10 @@ public class MainForm {
         frame.pack();
 
         frame.setResizable(false);
-        frame.setSize(new Dimension(780, 420));
         frame.setVisible(true);
         frame.setTitle("Dalek Robot");
+
+        frame.setSize(new Dimension(840, 420));
     }
 
     ////////////////////
@@ -378,7 +503,10 @@ public class MainForm {
     public static final int TURN_90_TICKS = 170;
     public static final int TURN_180_TICKS = 350;
 
-    public static final int QUICK_DELAY = 300;
+    public static final int QUICK_DELAY = 3;
+
+    public static final double TICK_TO_INCH_CONVERSION = 0.07;
+    public static final double INCH_TO_TICK_CONVERSION = 14.28571428571429;
 
     ////////////////////
     // VARIABLES
@@ -392,7 +520,7 @@ public class MainForm {
     public  int turbidityLargeLocation = TURBIDITY_DISPENSER_TOP;
     public  int turbiditySmallLocation = TURBIDITY_DISPENSER_BOTTOM;
 
-    // Between 1-120
+    // Between 0-12,000
     public int salinityRemediationAmount = 0;
 
     // Between 5-750
@@ -403,6 +531,9 @@ public class MainForm {
 
     public int bridgePosition = BRIDGE_POSITION_UNKNOWN;
 
+    public int debugDirection = BUCKET_FORWARD;
+    public int debugTicks = 100;
+    public int debugSpeed = MOTOR_SPEED_MEDIUM;
 
 
     ////////////////////
@@ -500,12 +631,8 @@ public class MainForm {
         turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 1016.1);
 
 
-        // TODO - CALIBRATION EQUATION UNKNOWN
-        double salinityAmount = .1 * conductivityValue + 0;
-        int salinityAmountFixed = (int) Math.round(salinityAmount * 10);
-
-        salinityRemediationAmount = salinityAmountFixed;
-
+        //-7.249x+4800.5
+        salinityRemediationAmount = (int) Math.round(-7.249 * conductivityValue + 4800.5);
 
         salinityMaterialTextField.setText(Integer.toString(salinityRemediationAmount));
         turbidityMaterialTextField.setText(Integer.toString(turbidityRemediationAmount));
@@ -664,15 +791,19 @@ public class MainForm {
 
         int materialLeft = isSalinity ? salinityRemediationAmount : turbidityRemediationAmount;
 
-        while(materialLeft >= (isSalinity ? 10 : 47)) {
+        // 0 - 750 NTU
+        while(materialLeft >= (isSalinity ? 1000 : 47)) {
             collectMaterial(isSalinity, true);
-            materialLeft -= isSalinity ?  10 : 50;
+            materialLeft -= isSalinity ?  1000 : 50;
         }
 
-        while(materialLeft >= (isSalinity? 1 : 4)) {
+        // 0 - 12,000 us
+        while(materialLeft >= (isSalinity? 100 : 4)) {
             collectMaterial(isSalinity, false);
-            materialLeft -= isSalinity ? 1 : 5;
+            materialLeft -= isSalinity ? 100 : 5;
         }
+
+
     }
 
     public void collectMaterial(boolean isSalinity, boolean isLargeAmount) {
