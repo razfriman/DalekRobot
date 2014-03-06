@@ -14,9 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
-
-
+import java.text.DecimalFormat;
 
 
 //400 = 27 inches
@@ -39,10 +37,10 @@ public class MainForm {
     private JButton connectButton;
     private JPanel panel1;
     private JButton testWaterButton;
-    private JTextField turbiditySensorTextField;
-    private JTextField salinityMaterialTextField;
-    private JTextField turbidityMaterialTextField;
-    private JTextField salinitySensorTextField;
+    private JNumberTextField turbiditySensorTextField;
+    private JNumberTextField salinityMaterialTextField;
+    private JNumberTextField turbidityMaterialTextField;
+    private JNumberTextField salinitySensorTextField;
     private JButton runButton1;
     private JComboBox portComboBox;
     private JComboBox turbidityComboBox;
@@ -58,13 +56,16 @@ public class MainForm {
     private JButton moveForwardButton;
     private JButton moveBackwardButton;
     private JButton uTurnButton;
-    private JTextField movementTicksTextField;
-    private JTextField movementInchesTextField;
+    private JNumberTextField movementTicksTextField;
+    private JNumberTextField movementInchesTextField;
     private JButton craneUpButton;
     private JButton craneDownButton;
     private JButton bucketCloseButton;
     private JButton bucketOpenButton;
-    private JTextField portTextField;
+    private JComboBox debugDirectionComboBox;
+    private JButton readTurbidityButton;
+    private JButton readSalinityButton;
+    private JButton crossBridgeButton;
 
     private final JFrame frame;
 
@@ -92,21 +93,31 @@ public class MainForm {
 
         robotPort = portComboBox.getSelectedItem().toString();
 
-        turbiditySensorTextField.setText("0");
-        salinitySensorTextField.setText("0");
+        turbiditySensorTextField.setFormat(JNumberTextField.NUMERIC);
+        turbiditySensorTextField.setAllowNegative(false);
+        turbiditySensorTextField.setInt(0);
 
-        turbidityMaterialTextField.setText("0");
-        salinityMaterialTextField.setText("0");
+        salinitySensorTextField.setFormat(JNumberTextField.NUMERIC);
+        salinitySensorTextField.setAllowNegative(false);
+        salinitySensorTextField.setInt(0);
 
-        movementTicksTextField.setText("100");
-        movementInchesTextField.setText("7");
+        turbidityMaterialTextField.setFormat(JNumberTextField.NUMERIC);
+        salinityMaterialTextField.setAllowNegative(true);
+        turbidityMaterialTextField.setInt(0);
 
-        ((PlainDocument) turbiditySensorTextField.getDocument()).setDocumentFilter(new IntegerFilter());
-        ((PlainDocument) salinitySensorTextField.getDocument()).setDocumentFilter(new IntegerFilter());
-        ((PlainDocument) turbidityMaterialTextField.getDocument()).setDocumentFilter(new IntegerFilter());
-        ((PlainDocument) salinityMaterialTextField.getDocument()).setDocumentFilter(new IntegerFilter());
-        ((PlainDocument) movementTicksTextField.getDocument()).setDocumentFilter(new IntegerFilter());
-        ((PlainDocument) movementInchesTextField.getDocument()).setDocumentFilter(new IntegerFilter());
+
+        salinityMaterialTextField.setFormat(JNumberTextField.NUMERIC);
+        salinityMaterialTextField.setAllowNegative(true);
+        salinityMaterialTextField.setInt(0);
+
+
+        movementTicksTextField.setFormat(JNumberTextField.NUMERIC);
+        movementTicksTextField.setAllowNegative(false);
+        movementTicksTextField.setInt(100);
+
+        movementInchesTextField.setFormat(JNumberTextField.DECIMAL);
+        movementInchesTextField.setAllowNegative(false);
+        movementInchesTextField.setDouble(7.0);
 
 
         updateRunButtons(false);
@@ -157,10 +168,6 @@ public class MainForm {
                 setup();
 
                 testWater();
-
-                //move(CRANE_FORWARD, 600);
-                //turnLeft(BUCKET_FORWARD);
-                //move(BUCKET_FORWARD, 300);
             }
         });
         debugModeCheckBox.addActionListener(new ActionListener() {
@@ -256,32 +263,26 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try{
-
-                    String input = turbiditySensorTextField.getText();
-                    turbiditySensorReading = Integer.parseInt(input);
-
-                    calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
-
-                }catch(NumberFormatException ex){
-                    // Not a valid number
+                if (turbiditySensorTextField.getText().isEmpty()) {
+                    return;
                 }
+
+                turbiditySensorReading = turbiditySensorTextField.getInt();
+
+                calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
             }
         });
         salinitySensorTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try {
-
-                    String input = salinitySensorTextField.getText();
-                    salinitySensorReading = Integer.parseInt(input);
-
-                    calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
-
-                } catch (NumberFormatException ex) {
-                    // Not a valid number
+                if (salinitySensorTextField.getText().isEmpty()) {
+                    return;
                 }
+
+                salinitySensorReading = salinitySensorTextField.getInt();
+
+                calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
             }
         });
 
@@ -289,7 +290,16 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                int movementTicks = Integer.parseInt(movementTicksTextField.getText());
+                if(movementTicksTextField.getText().isEmpty()) {
+                    return;
+                }
+
+                int movementTicks = movementTicksTextField.getInt();
+
+                debugTicks = movementTicks;
+                debugInches = movementTicks * TICK_TO_INCH_CONVERSION;
+
+                movementInchesTextField.setDouble(debugInches);
 
             }
         });
@@ -298,7 +308,18 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                int movementInches = Integer.parseInt(movementInchesTextField.getText());
+                if(movementInchesTextField.getText().isEmpty()) {
+                    return;
+                }
+
+                double movementInches = movementInchesTextField.getDouble();
+
+                debugInches = movementInches;
+                debugTicks = (int) (movementInches * INCH_TO_TICK_CONVERSION);
+
+                movementTicksTextField.setInt(debugTicks);
+
+
 
             }
         });
@@ -358,13 +379,41 @@ public class MainForm {
                 openBucket();
             }
         });
+        debugDirectionComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (debugDirectionComboBox.getSelectedItem().toString().equals("BUCKET")) {
+                    debugDirection = BUCKET_FORWARD;
+                } else {
+                    debugDirection = CRANE_FORWARD;
+                }
+            }
+        });
+        crossBridgeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Sorry, this feature is not implemented yet.");
+            }
+        });
+        readTurbidityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                readTurbiditySensor();
+            }
+        });
+        readSalinityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                readSalinitySensor();
+            }
+        });
     }
 
     public void setDebugView(boolean showDebugView) {
         if(showDebugView) {
-            frame.setSize(new Dimension(840, 550));
+            frame.setSize(new Dimension(840, 570));
         } else {
-            frame.setSize(new Dimension(840, 420));
+            frame.setSize(new Dimension(840, 440));
         }
     }
 
@@ -383,6 +432,7 @@ public class MainForm {
         craneDownButton.setEnabled(isEnabled);
         bucketOpenButton.setEnabled(isEnabled);
         bucketCloseButton.setEnabled(isEnabled);
+        crossBridgeButton.setEnabled(isEnabled);
 
     }
 
@@ -453,7 +503,7 @@ public class MainForm {
         frame.setVisible(true);
         frame.setTitle("Dalek Robot");
 
-        frame.setSize(new Dimension(840, 420));
+        frame.setSize(new Dimension(840, 440));
     }
 
     ////////////////////
@@ -533,6 +583,8 @@ public class MainForm {
 
     public int debugDirection = BUCKET_FORWARD;
     public int debugTicks = 100;
+    public double debugInches = 7;
+
     public int debugSpeed = MOTOR_SPEED_MEDIUM;
 
 
@@ -588,21 +640,26 @@ public class MainForm {
 
         r.sleep(5000);
 
-        r.refreshAnalogPins();
-        r.refreshDigitalPins();
-
-        // Get the values from the water sensors
-        salinitySensorReading = r.getConductivity();
-        turbiditySensorReading = r.getAnalogPin(TURBIDITY_PIN).getValue();
-
-        salinitySensorTextField.setText(Integer.toString(salinitySensorReading));
-        turbiditySensorTextField.setText(Integer.toString(turbiditySensorReading));
-
+        readSalinitySensor();
+        readTurbiditySensor();
 
         // calculate the amount of remediation materials needed
         calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
 
         raiseCrane();
+    }
+
+    public void readSalinitySensor() {
+        salinitySensorReading = r.getConductivity();
+        salinitySensorTextField.setText(Integer.toString(salinitySensorReading));
+    }
+
+    public void readTurbiditySensor() {
+
+        r.refreshAnalogPins();
+
+        turbiditySensorReading = r.getAnalogPin(TURBIDITY_PIN).getValue();
+        turbiditySensorTextField.setText(Integer.toString(turbiditySensorReading));
     }
 
     public void raiseCrane() {
