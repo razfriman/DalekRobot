@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DalekRobot:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DalekRobot_jar</output-path>
+    <root id="archive" name="DalekRobot.jar">
+      <element id="module-output" name="DalekRobot" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/Java/RXTXRobot.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
