@@ -113,6 +113,7 @@ public class MainForm {
         movementInchesTextField.setDouble(7.0);
 
 
+
         updateRunButtons(false);
 
         connectButton.addActionListener(new ActionListener() {
@@ -130,6 +131,8 @@ public class MainForm {
 
                         r.setPort(robotPort);
                         r.connect();
+
+
 
                         // Enable the buttons
                         updateRunButtons(true);
@@ -346,7 +349,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                move(-1 * debugDirection, debugTicks, debugSpeed);
+                move(1 * debugDirection, debugTicks, debugSpeed);
             }
         });
 
@@ -918,11 +921,11 @@ public class MainForm {
 
     public void activateDispenser() {
 
-        int pushTicks = 300;
+        int pushTicks = 200;
         int reverseTicks = 100;
 
         // Push the dispenser
-        move(BUCKET_FORWARD, pushTicks, 500);
+        move(BUCKET_FORWARD, pushTicks, MOTOR_SPEED_FAST);
 
         r.sleep(500);
 

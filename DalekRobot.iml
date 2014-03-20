@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="RXTXRobot (1)" level="project" />
+    <orderEntry type="library" name="RXTXRobot" level="project" />
   </component>
 </module>
 
