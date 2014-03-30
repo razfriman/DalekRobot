@@ -412,12 +412,6 @@ public class MainForm {
                 }
             }
         });
-        crossBridgeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Sorry, this feature is not implemented yet.");
-            }
-        });
         readTurbidityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -550,6 +544,7 @@ public class MainForm {
     ////////////////////
 
     public static final int TURBIDITY_PIN = 2;
+    public static final int BRIDGE_COLOR_SENSOR_PIN = 3;
 
     public static final int MOTOR_SPEED_FAST = 450;
     public static final int MOTOR_SPEED_MEDIUM = 300;
@@ -767,8 +762,7 @@ public class MainForm {
 
                 turnLeft(BUCKET_FORWARD);
 
-                //TODO - CALCULATE THE DISTANCE TO THE DISPENSER
-                int ticks = 300;
+                int ticks = 600;
                 move(BUCKET_FORWARD, ticks);
 
                 lastLocation = toLocation;
@@ -838,8 +832,7 @@ public class MainForm {
 
                 turnRight(BUCKET_FORWARD);
 
-                // TODO - CALCULATE DISTANCE TO LOCATION
-                int ticks = 1000;
+                int ticks = 620;
                 move(BUCKET_FORWARD, ticks);
 
                 lastLocation = toLocation;
@@ -847,8 +840,7 @@ public class MainForm {
 
                 turnRight(BUCKET_FORWARD);
 
-                // TODO - CALCULATE DISTANCE TO LOCATION
-                int ticksToLocation = 500;
+                int ticksToLocation = 200;
                 move(BUCKET_FORWARD, ticksToLocation);
 
                 lastLocation = toLocation;
@@ -866,8 +858,7 @@ public class MainForm {
             turnRight(BUCKET_FORWARD);
         }
 
-        // TODO - CALCULATE TICKS
-        int ticks = 300;
+        int ticks = 350;
         move(BUCKET_FORWARD, ticks);
 
         if(turnLeftFirst) {
@@ -880,8 +871,7 @@ public class MainForm {
     public void goToNextDispenserType() {
         turn180();
 
-        // TODO - CALCULATE TICKS
-        int ticks = 600;
+        int ticks = 1200;
         move(BUCKET_FORWARD, ticks);
     }
 
@@ -960,22 +950,32 @@ public class MainForm {
         if (bridgePosition == BRIDGE_POSITION_UNKNOWN) {
 
             // Check the left/middle/right positions for the bridge
-            findBridge();
+            checkBridgeLocationsAndCross();
+        } else {
+
+            // Manually input the bridge location
+
+            // Cross the bridge
+            goToLocation(lastLocation, getBridgeRobotLocation(false));
         }
 
-        // Cross the bridge
-        goToLocation(lastLocation, getBridgeRobotLocation(false));
+
     }
 
-    public void findBridge() {
+    public void checkBridgeLocationsAndCross() {
         if (bridgePosition == BRIDGE_POSITION_UNKNOWN) {
 
             if(checkBridge(BRIDGE_POSITION_LEFT)) {
                 bridgePosition = BRIDGE_POSITION_LEFT;
+                lastLocation = AFTER_CROSS_BRIDGE_LEFT;
+
             } else if (checkBridge(BRIDGE_POSITION_MIDDLE)) {
                 bridgePosition = BRIDGE_POSITION_MIDDLE;
+                lastLocation = AFTER_CROSS_BRIDGE_MIDDLE;
+
             } else if (checkBridge(BRIDGE_POSITION_RIGHT)) {
                 bridgePosition = BRIDGE_POSITION_RIGHT;
+                lastLocation = AFTER_CROSS_BRIDGE_RIGHT;
             }
         }
     }
@@ -986,13 +986,35 @@ public class MainForm {
             return false;
         }
 
+        boolean foundBridge = false;
+
         // Approach the bridge
         goToLocation(lastLocation, getBridgeRobotLocation(bridgeCheckPosition, true));
 
-        // TODO - GO UP THE RAMP AND USE A SENSOR TO CHECK FOR THE PRESENCE OF THE BRIDGE
-        // TODO - GO BACK DOWN AND REPORT WHETHER THE BRIDGE WAS FOUND
 
-        return true;
+        int rampTicks = 300;
+        int crossBridgeTicks = 600;
+
+        // Move up the ramp
+        move(BUCKET_FORWARD, rampTicks);
+
+        // TODO - FIND A VALUE FOR A COLOR REPRESENTING THE BRIDGE
+        r.refreshAnalogPins();
+        foundBridge = r.getAnalogPin(BRIDGE_COLOR_SENSOR_PIN).getValue() > 0;
+
+
+        if(foundBridge) {
+
+            // Continue along the bridge
+            move(BUCKET_FORWARD, crossBridgeTicks);
+
+        } else {
+
+            // Move back down and report the bridge was not found at this location
+            move(CRANE_FORWARD, rampTicks);
+        }
+
+        return foundBridge;
 
     }
 
