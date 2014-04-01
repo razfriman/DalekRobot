@@ -58,6 +58,8 @@ public class MainForm {
     private JComboBox debugDirectionComboBox;
     private JButton readTurbidityButton;
     private JButton readSalinityButton;
+    private JButton readPingSensorButton;
+    private JLabel distanceLabel;
     private JButton crossBridgeButton;
 
     private final JFrame frame;
@@ -132,6 +134,7 @@ public class MainForm {
                         r.setPort(robotPort);
                         r.connect();
 
+                        r.setMotorRampUpTime(0);
 
 
                         // Enable the buttons
@@ -424,13 +427,20 @@ public class MainForm {
                 readSalinitySensor();
             }
         });
+
+        readPingSensorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                readPingSensor();
+            }
+        });
     }
 
     public void setDebugView(boolean showDebugView) {
         if(showDebugView) {
-            frame.setSize(new Dimension(840, 570));
+            frame.setSize(new Dimension(840, 600));
         } else {
-            frame.setSize(new Dimension(840, 440));
+            frame.setSize(new Dimension(840, 470));
         }
     }
 
@@ -462,6 +472,7 @@ public class MainForm {
                 crossBridgeButton.setEnabled(isEnabled);
                 readTurbidityButton.setEnabled(isEnabled);
                 readSalinityButton.setEnabled(isEnabled);
+                readPingSensorButton.setEnabled(isEnabled);
             }
         };
 
@@ -526,6 +537,18 @@ public class MainForm {
         SwingUtilities.invokeLater(runnable);
     }
 
+    public void updateDistanceLabel() {
+        Runnable runnable = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                distanceLabel.setText(currentDistance + " cm");
+            }
+        };
+        SwingUtilities.invokeLater(runnable);
+    }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("MainForm");
         frame.setContentPane(new MainForm(frame).panel1);
@@ -536,7 +559,7 @@ public class MainForm {
         frame.setVisible(true);
         frame.setTitle("Dalek Robot");
 
-        frame.setSize(new Dimension(840, 440));
+        frame.setSize(new Dimension(840, 470));
     }
 
     ////////////////////
@@ -603,6 +626,8 @@ public class MainForm {
     public  int salinitySmallLocation = SALINITY_DISPENSER_BOTTOM;
     public  int turbidityLargeLocation = TURBIDITY_DISPENSER_TOP;
     public  int turbiditySmallLocation = TURBIDITY_DISPENSER_BOTTOM;
+
+    public int currentDistance = 0;
 
     // Between 0-12,000
     public int salinityRemediationAmount = 0;
@@ -1084,5 +1109,12 @@ public class MainForm {
         );
 
         r.sleep(QUICK_DELAY);
+    }
+
+    public void readPingSensor() {
+
+        currentDistance = r.getPing();
+
+        updateDistanceLabel();
     }
 }
