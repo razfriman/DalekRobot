@@ -424,12 +424,36 @@
           <text value="Extend Arm"/>
         </properties>
       </component>
-      <component id="faa80" class="javax.swing.JButton" binding="detractArmButton" default-binding="true">
+      <component id="faa80" class="javax.swing.JButton" binding="retractArmButton">
         <constraints>
           <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Detract Arm"/>
+          <text value="Retract Arm"/>
+        </properties>
+      </component>
+      <component id="b93a8" class="javax.swing.JButton" binding="findBridgeButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Find Bridge"/>
+        </properties>
+      </component>
+      <component id="9f8e2" class="javax.swing.JButton" binding="crossBridgeButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cross Bridge"/>
+        </properties>
+      </component>
+      <component id="1cee1" class="javax.swing.JButton" binding="soccerBallButton" default-binding="true">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Soccer Ball"/>
         </properties>
       </component>
     </children>

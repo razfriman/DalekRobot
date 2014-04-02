@@ -63,8 +63,10 @@ public class MainForm {
     private JButton readLightSensorButton;
     private JLabel lightLabel;
     private JButton extendArmButton;
-    private JButton detractArmButton;
+    private JButton retractArmButton;
+    private JButton findBridgeButton;
     private JButton crossBridgeButton;
+    private JButton soccerBallButton;
 
     private final JFrame frame;
 
@@ -267,15 +269,14 @@ public class MainForm {
                 Thread t = new Thread() {
                     @Override
                     public void run() {
+
                         setup();
 
-                        // Stop to insert the balls
-                        //r.sleep(10000);
-                        //int ticks = 600;
-                        //move(BUCKET_FORWARD, ticks);
-                        //openBucket();
-
-                        findAndCrossBridge();
+                        //Stop to insert the balls
+                        r.sleep(10000);
+                        int ticks = 600;
+                        move(BUCKET_FORWARD, ticks);
+                        openBucket();
                     }
                 };
 
@@ -447,17 +448,52 @@ public class MainForm {
         extendArmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                r.runMotor(RXTXRobot.MOTOR3, 500, 2000);
+                extendArm();
             }
         });
 
 
-        detractArmButton.addActionListener(new ActionListener() {
+        retractArmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                r.runMotor(RXTXRobot.MOTOR3, -500, 2000);
+                retractArm();
             }
         });
+
+        findBridgeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setup();
+                findAndCrossBridge();
+            }
+        });
+
+        crossBridgeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setup();
+                move(BUCKET_FORWARD, 600);
+            }
+        });
+
+        soccerBallButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setup();
+
+                extendArm();
+
+                r.sleep(1000);
+
+                move(BUCKET_FORWARD, 200);
+
+                retractArm();
+
+
+            }
+        });
+
     }
 
     public void setDebugView(boolean showDebugView) {
@@ -483,6 +519,9 @@ public class MainForm {
                 testWaterButton.setEnabled(isEnabled);
                 dispenseBallsButton.setEnabled(isEnabled);
                 deliverMaterialsButton.setEnabled(isEnabled);
+                findBridgeButton.setEnabled(isEnabled);
+                crossBridgeButton.setEnabled(isEnabled);
+                soccerBallButton.setEnabled(isEnabled);
 
                 moveForwardButton.setEnabled(isEnabled);
                 moveBackwardButton.setEnabled(isEnabled);
@@ -498,6 +537,8 @@ public class MainForm {
                 readSalinityButton.setEnabled(isEnabled);
                 readPingSensorButton.setEnabled(isEnabled);
                 readLightSensorButton.setEnabled(isEnabled);
+                extendArmButton.setEnabled(isEnabled);
+                retractArmButton.setEnabled(isEnabled);
             }
         };
 
@@ -536,19 +577,7 @@ public class MainForm {
                         case  BEFORE_CROSS_BRIDGE_LEFT:
                             mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge left.png"))));
                             break;
-                        case  BEFORE_CROSS_BRIDGE_MIDDLE:
-                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge middle.png"))));
-                            break;
-                        case  BEFORE_CROSS_BRIDGE_RIGHT:
-                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/before bridge right.png"))));
-                            break;
-                        case  AFTER_CROSS_BRIDGE_LEFT:
-                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge left.png"))));
-                            break;
-                        case  AFTER_CROSS_BRIDGE_MIDDLE:
-                            mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge middle.png"))));
-                            break;
-                        case  AFTER_CROSS_BRIDGE_RIGHT:
+                        case  AFTER_CROSS_BRIDGE:
                             mapLabel.setIcon(new ImageIcon( ImageIO.read(getClass().getResource("images/after bridge right.png"))));
                             break;
                     }
@@ -603,8 +632,9 @@ public class MainForm {
     // CONSTANTS
     ////////////////////
 
-    public static final int LINE_SENSOR_ANALOG_PIN = 0;
-    public static final int TURBIDITY_PIN = 2;
+    public static final int LINE_SENSOR_ANALOG_PIN = 0; // A0
+
+    public static final int TURBIDITY_PIN = 2; // A2
 
 
     public static final int MOTOR_SPEED_FAST = 450;
@@ -622,13 +652,13 @@ public class MainForm {
     public static final int CARGO_CLOSED_POSITION = 120;
     public static final int CARGO_OPEN_POSITION = 90;
 
-    public static final int BRIDGE_POSITION_UNKNOWN = 0;
-    public static final int BRIDGE_POSITION_LEFT = 1;
-    public static final int BRIDGE_POSITION_MIDDLE = 2;
-    public static final int BRIDGE_POSITION_RIGHT = 3;
-
     public static final int CRANE_SERVO = RXTXRobot.SERVO1; // D9
     public static final int CARGO_SERVO = RXTXRobot.SERVO2; // D10
+
+    public static final int SOCCER_BALL_ARM_MOTOR = RXTXRobot.MOTOR3; // D7
+
+    public static final int SOCCER_BALL_ARM_EXTEND = 1;
+    public static final int SOCCER_BALL_ARM_RETRACT = -1;
 
     public static final int START_LOCATION = 1;
     public static final int WATER_WELL = 2;
@@ -637,11 +667,7 @@ public class MainForm {
     public static final int TURBIDITY_DISPENSER_BOTTOM = 5;
     public static final int TURBIDITY_DISPENSER_TOP = 6;
     public static final int BEFORE_CROSS_BRIDGE_LEFT = 7;
-    public static final int BEFORE_CROSS_BRIDGE_MIDDLE = 8;
-    public static final int BEFORE_CROSS_BRIDGE_RIGHT = 9;
-    public static final int AFTER_CROSS_BRIDGE_LEFT = 10;
-    public static final int AFTER_CROSS_BRIDGE_MIDDLE = 11;
-    public static final int AFTER_CROSS_BRIDGE_RIGHT = 12;
+    public static final int AFTER_CROSS_BRIDGE = 12;
     public static final int DROP_OFF_LOCATION = 12; // The same as AFTER_CROSS_BRIDGE_RIGHT
 
     public static final int TURN_90_TICKS = 170;
@@ -683,8 +709,6 @@ public class MainForm {
 
     public int salinitySensorReading = -1;
     public int turbiditySensorReading = -1;
-
-    public int bridgePosition = BRIDGE_POSITION_UNKNOWN;
 
     public int debugDirection = BUCKET_FORWARD;
     public int debugTicks = 100;
@@ -747,6 +771,14 @@ public class MainForm {
 
         r.sleep(5000);
 
+
+        // TODO - Take an average???
+
+        readSalinitySensor();
+        readTurbiditySensor();
+
+        readSalinitySensor();
+        readTurbiditySensor();
         readSalinitySensor();
         readTurbiditySensor();
 
@@ -758,7 +790,17 @@ public class MainForm {
 
     public void readSalinitySensor() {
         salinitySensorReading = r.getConductivity();
-        salinitySensorTextField.setText(Integer.toString(salinitySensorReading));
+
+        Runnable runnable = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                salinitySensorTextField.setText(Integer.toString(salinitySensorReading));
+
+            }
+        };
+        SwingUtilities.invokeLater(runnable);
     }
 
     public void readTurbiditySensor() {
@@ -766,7 +808,18 @@ public class MainForm {
         r.refreshAnalogPins();
 
         turbiditySensorReading = r.getAnalogPin(TURBIDITY_PIN).getValue();
-        turbiditySensorTextField.setText(Integer.toString(turbiditySensorReading));
+
+        Runnable runnable = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                turbiditySensorTextField.setText(Integer.toString(turbiditySensorReading));
+
+            }
+        };
+        SwingUtilities.invokeLater(runnable);
+
     }
 
     public void raiseCrane() {
@@ -901,7 +954,7 @@ public class MainForm {
         if(toLocation == DROP_OFF_LOCATION) {
 
             // Start moving forward
-            move(BUCKET_FORWARD, 0);
+            r.runMotor(RXTXRobot.MOTOR1, 300, RXTXRobot.MOTOR2, 300, 0);
 
             readPingSensor();
 
@@ -910,7 +963,7 @@ public class MainForm {
                 readPingSensor();
             }
 
-            move(BUCKET_FORWARD, 1, 0);
+            stopMotors();
 
             lastLocation = toLocation;
         }
@@ -996,31 +1049,27 @@ public class MainForm {
 
     public void findAndCrossBridge() {
 
-        //goToLocation(lastLocation, BEFORE_CROSS_BRIDGE_LEFT);
+        goToLocation(lastLocation, BEFORE_CROSS_BRIDGE_LEFT);
 
-        //turnRight(BUCKET_FORWARD);
-
-        // Move forward and look for the bridge
-        // Use the light sensor
-        //move(BUCKET_FORWARD, 0);
+        turnRight(BUCKET_FORWARD);
 
         r.runMotor(RXTXRobot.MOTOR1, 300, RXTXRobot.MOTOR2, 300, 0);
 
         readLightSensor();
 
-
         while(currentLightValue < BRIDGE_LIGHT_MARKER_THRESHOLD) {
             readLightSensor();
         }
 
-        r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
-
+        stopMotors();
 
         // Face the bridge
         turnLeft(BUCKET_FORWARD);
 
         // Cross the bridge
-        move(BUCKET_FORWARD, 600);
+        move(BUCKET_FORWARD, 1200);
+
+        lastLocation = AFTER_CROSS_BRIDGE;
     }
 
     public void dropOffMaterials() {
@@ -1103,5 +1152,13 @@ public class MainForm {
         r.refreshAnalogPins();
         currentLightValue = r.getAnalogPin(LINE_SENSOR_ANALOG_PIN).getValue();
         updateLightLabel();
+    }
+
+    public void extendArm() {
+        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_EXTEND * MOTOR_SPEED_FAST, 2000);
+    }
+
+    public void retractArm() {
+        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_RETRACT * MOTOR_SPEED_FAST, 2000);
     }
 }
