@@ -62,6 +62,8 @@ public class MainForm {
     private JLabel distanceLabel;
     private JButton readLightSensorButton;
     private JLabel lightLabel;
+    private JButton extendArmButton;
+    private JButton detractArmButton;
     private JButton crossBridgeButton;
 
     private final JFrame frame;
@@ -268,15 +270,12 @@ public class MainForm {
                         setup();
 
                         // Stop to insert the balls
-                        r.sleep(10000);
+                        //r.sleep(10000);
+                        //int ticks = 600;
+                        //move(BUCKET_FORWARD, ticks);
+                        //openBucket();
 
-
-                        int ticks = 600;
-                        move(BUCKET_FORWARD, ticks);
-
-
-                        // Release the balls
-                        openBucket();
+                        findAndCrossBridge();
                     }
                 };
 
@@ -441,6 +440,22 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 readLightSensor();
+            }
+        });
+
+
+        extendArmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                r.runMotor(RXTXRobot.MOTOR3, 500, 2000);
+            }
+        });
+
+
+        detractArmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                r.runMotor(RXTXRobot.MOTOR3, -500, 2000);
             }
         });
     }
@@ -614,7 +629,6 @@ public class MainForm {
 
     public static final int CRANE_SERVO = RXTXRobot.SERVO1; // D9
     public static final int CARGO_SERVO = RXTXRobot.SERVO2; // D10
-    public static final int EXTRA_SERVO = RXTXRobot.SERVO3;
 
     public static final int START_LOCATION = 1;
     public static final int WATER_WELL = 2;
@@ -642,7 +656,9 @@ public class MainForm {
     // white = 50
     // grey = 25
     // black = 2,3,4
-    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 25;
+    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 15;
+
+    public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 25;
 
     ////////////////////
     // VARIABLES
@@ -890,7 +906,7 @@ public class MainForm {
             readPingSensor();
 
             // Stop when within 25cm of the wall
-            while(currentDistance < 25) {
+            while(currentDistance < DROP_OFF_LOCATION_DISTANCE_THRESHOLD) {
                 readPingSensor();
             }
 
@@ -980,24 +996,25 @@ public class MainForm {
 
     public void findAndCrossBridge() {
 
-        goToLocation(lastLocation, BEFORE_CROSS_BRIDGE_LEFT);
+        //goToLocation(lastLocation, BEFORE_CROSS_BRIDGE_LEFT);
 
-        turnRight(BUCKET_FORWARD);
+        //turnRight(BUCKET_FORWARD);
 
         // Move forward and look for the bridge
         // Use the light sensor
-        move(BUCKET_FORWARD, 0);
+        //move(BUCKET_FORWARD, 0);
+
+        r.runMotor(RXTXRobot.MOTOR1, 300, RXTXRobot.MOTOR2, 300, 0);
 
         readLightSensor();
+
+
         while(currentLightValue < BRIDGE_LIGHT_MARKER_THRESHOLD) {
             readLightSensor();
         }
 
-        // Found the bridge
+        r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
 
-
-        // Stop
-        move(BUCKET_FORWARD,1,0);
 
         // Face the bridge
         turnLeft(BUCKET_FORWARD);
