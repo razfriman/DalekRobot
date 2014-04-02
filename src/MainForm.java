@@ -6,6 +6,7 @@ import rxtxrobot.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -68,6 +69,7 @@ public class MainForm {
     private JButton crossBridgeButton;
     private JButton soccerBallButton;
     private JComboBox soccerBallComboBox;
+    private JButton goToDispensersButton;
 
     private final JFrame frame;
 
@@ -260,7 +262,7 @@ public class MainForm {
                     public void run() {
                         setup();
 
-                        lastLocation = SALINITY_DISPENSER_BOTTOM;
+                        lastLocation = FieldDirection.SALINITY_DISPENSER_BOTTOM;
 
                         activateDispenser();
 
@@ -279,22 +281,11 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Thread t = new Thread() {
-                    @Override
-                    public void run() {
+                setup();
 
-                        setup();
+                goToLocation(FieldDirection.DROP_OFF_LOCATION);
 
-                        //Stop to insert the balls
-                        r.sleep(10000);
-                        int ticks = 600;
-                        move(BUCKET_FORWARD, ticks);
-                        openBucket();
-                    }
-                };
-
-                t.start();
-
+                openBucket();
 
 
             }
@@ -434,12 +425,14 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 readTurbiditySensor();
+                calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
             }
         });
         readSalinityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 readSalinitySensor();
+                calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
             }
         });
 
@@ -502,6 +495,23 @@ public class MainForm {
                 move(BUCKET_FORWARD, 200);
 
                 retractArm();
+
+
+            }
+        });
+
+        goToDispensersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setup();
+
+                lastLocation = FieldDirection.WATER_WELL;
+                goToLocation(FieldDirection.SALINITY_DISPENSER_BOTTOM);
+                goToLocation(FieldDirection.SALINITY_DISPENSER_TOP);
+                goToLocation(FieldDirection.TURBIDITY_DISPENSER_BOTTOM);
+                goToLocation(FieldDirection.TURBIDITY_DISPENSER_TOP);
+                goToLocation(FieldDirection.BEFORE_CROSS_BRIDGE_LEFT);
 
 
             }
@@ -673,16 +683,6 @@ public class MainForm {
     public static final int SOCCER_BALL_ARM_EXTEND = 1;
     public static final int SOCCER_BALL_ARM_RETRACT = -1;
 
-    public static final int START_LOCATION = 1;
-    public static final int WATER_WELL = 2;
-    public static final int SALINITY_DISPENSER_BOTTOM = 3;
-    public static final int SALINITY_DISPENSER_TOP = 4;
-    public static final int TURBIDITY_DISPENSER_BOTTOM = 5;
-    public static final int TURBIDITY_DISPENSER_TOP = 6;
-    public static final int BEFORE_CROSS_BRIDGE_LEFT = 7;
-    public static final int AFTER_CROSS_BRIDGE = 12;
-    public static final int DROP_OFF_LOCATION = 12; // The same as AFTER_CROSS_BRIDGE_RIGHT
-
     public static final int TURN_90_TICKS = 170;
     public static final int TURN_180_TICKS = 350;
 
@@ -696,19 +696,19 @@ public class MainForm {
     // black = 2,3,4
     public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 15;
 
-    public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 25;
+    public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
 
     ////////////////////
     // VARIABLES
     ////////////////////
 
     public  final RXTXRobot r = new RXTXRobot();
-    public  int lastLocation = START_LOCATION;
+    public  FieldDirection lastLocation = FieldDirection.START_LOCATION;
 
-    public  int salinityLargeLocation = SALINITY_DISPENSER_TOP;
-    public  int salinitySmallLocation = SALINITY_DISPENSER_BOTTOM;
-    public  int turbidityLargeLocation = TURBIDITY_DISPENSER_TOP;
-    public  int turbiditySmallLocation = TURBIDITY_DISPENSER_BOTTOM;
+    public  FieldDirection salinityLargeLocation = FieldDirection.SALINITY_DISPENSER_TOP;
+    public FieldDirection salinitySmallLocation = FieldDirection.SALINITY_DISPENSER_BOTTOM;
+    public  FieldDirection turbidityLargeLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
+    public  FieldDirection turbiditySmallLocation = FieldDirection.TURBIDITY_DISPENSER_BOTTOM;
 
     public int currentDistance = 0;
     public int currentLightValue = 0;
@@ -756,13 +756,13 @@ public class MainForm {
 
     public void setup() {
 
-        lastLocation = START_LOCATION;
+        lastLocation = FieldDirection.START_LOCATION;
 
-        salinityLargeLocation = salinityLargeOnTop ? SALINITY_DISPENSER_TOP : SALINITY_DISPENSER_BOTTOM;
-        salinitySmallLocation = salinityLargeOnTop ? SALINITY_DISPENSER_BOTTOM : SALINITY_DISPENSER_TOP;
+        salinityLargeLocation = salinityLargeOnTop ? FieldDirection.SALINITY_DISPENSER_TOP : FieldDirection.SALINITY_DISPENSER_BOTTOM;
+        salinitySmallLocation = salinityLargeOnTop ? FieldDirection.SALINITY_DISPENSER_BOTTOM : FieldDirection.SALINITY_DISPENSER_TOP;
 
-        turbidityLargeLocation = turbidityLargeOnTop ? TURBIDITY_DISPENSER_TOP : TURBIDITY_DISPENSER_BOTTOM;
-        turbiditySmallLocation = turbidityLargeOnTop ? TURBIDITY_DISPENSER_BOTTOM : TURBIDITY_DISPENSER_TOP;
+        turbidityLargeLocation = turbidityLargeOnTop ? FieldDirection.TURBIDITY_DISPENSER_TOP : FieldDirection.TURBIDITY_DISPENSER_BOTTOM;
+        turbiditySmallLocation = turbidityLargeOnTop ? FieldDirection.TURBIDITY_DISPENSER_BOTTOM : FieldDirection.TURBIDITY_DISPENSER_TOP;
 
         raiseCrane();
 
@@ -779,7 +779,7 @@ public class MainForm {
 
     public void testWater() {
 
-        goToLocation(lastLocation, WATER_WELL);
+        goToLocation(lastLocation, FieldDirection.WATER_WELL);
 
         lowerCrane();
 
@@ -865,27 +865,42 @@ public class MainForm {
         //-7.249x+4800.5
         salinityRemediationAmount = (int) Math.round(-7.249 * conductivityValue + 4800.5);
 
-        salinityMaterialTextField.setText(Integer.toString(salinityRemediationAmount));
-        turbidityMaterialTextField.setText(Integer.toString(turbidityRemediationAmount));
+
+        Runnable runnable = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                salinityMaterialTextField.setText(Integer.toString(salinityRemediationAmount));
+                turbidityMaterialTextField.setText(Integer.toString(turbidityRemediationAmount));
+            }
+        };
+        SwingUtilities.invokeLater(runnable);
     }
 
     public void collectRemediationMaterials() {
 
-        goToLocation(lastLocation, SALINITY_DISPENSER_BOTTOM);
+        goToLocation(lastLocation, FieldDirection.SALINITY_DISPENSER_BOTTOM);
         collectMaterials(true);
 
         goToLocation(lastLocation, turbidityLargeLocation);
         collectMaterials(false);
     }
 
-    public void goToLocation(int fromLocation, int toLocation) {
+    public void goToLocation(FieldDirection toLocation) {
+        goToLocation(lastLocation, toLocation);
+    }
+
+    public void goToLocation(FieldDirection fromLocation, FieldDirection toLocation) {
+
+        System.out.println("LOCATION: " + toLocation);
 
         if(fromLocation == toLocation) {
             return;
         }
 
-        if(toLocation == WATER_WELL) {
-            if (fromLocation == START_LOCATION) {
+        if(toLocation == FieldDirection.WATER_WELL) {
+            if (fromLocation == FieldDirection.START_LOCATION) {
 
                 // Move forward to the water
                 move(CRANE_FORWARD, 600);
@@ -895,45 +910,45 @@ public class MainForm {
             }
         }
 
-        if (toLocation == SALINITY_DISPENSER_BOTTOM) {
-            if (fromLocation == WATER_WELL) {
+        if (toLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
+            if (fromLocation == FieldDirection.WATER_WELL) {
 
-                turnLeft(BUCKET_FORWARD);
+                turnRight(BUCKET_FORWARD);
 
                 int ticks = 600;
                 move(BUCKET_FORWARD, ticks);
 
                 lastLocation = toLocation;
-            } else if (fromLocation == SALINITY_DISPENSER_TOP) {
+            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
 
                 switchDispensers(false);
                 lastLocation = toLocation;
             }
         }
 
-        if (toLocation == SALINITY_DISPENSER_TOP) {
-            if (fromLocation == SALINITY_DISPENSER_BOTTOM) {
+        if (toLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
+            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
 
                 switchDispensers(true);
                 lastLocation = toLocation;
             }
         }
 
-        if(toLocation == TURBIDITY_DISPENSER_BOTTOM) {
-            if (fromLocation == SALINITY_DISPENSER_BOTTOM) {
+        if(toLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
+            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
 
                 goToNextDispenserType();
 
                 lastLocation = toLocation;
 
-            } else if (fromLocation == SALINITY_DISPENSER_TOP) {
+            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
 
                 goToNextDispenserType();
                 switchDispensers(true);
 
                 lastLocation = toLocation;
 
-            } else if (fromLocation == TURBIDITY_DISPENSER_TOP) {
+            } else if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
 
                 switchDispensers(true);
 
@@ -941,8 +956,8 @@ public class MainForm {
             }
         }
 
-        if(toLocation == TURBIDITY_DISPENSER_TOP) {
-            if (fromLocation == SALINITY_DISPENSER_BOTTOM) {
+        if(toLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
+            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
 
 
                 goToNextDispenserType();
@@ -950,13 +965,13 @@ public class MainForm {
 
                 lastLocation = toLocation;
 
-            } else if (fromLocation == SALINITY_DISPENSER_TOP) {
+            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
 
                 goToNextDispenserType();
 
                 lastLocation = toLocation;
 
-            } else if (fromLocation == TURBIDITY_DISPENSER_BOTTOM) {
+            } else if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
 
                 switchDispensers(false);
 
@@ -965,21 +980,39 @@ public class MainForm {
         }
 
 
-        if(toLocation == DROP_OFF_LOCATION) {
+        if(toLocation == FieldDirection.DROP_OFF_LOCATION) {
 
             // Start moving forward
             r.runMotor(RXTXRobot.MOTOR1, 300, RXTXRobot.MOTOR2, 300, 0);
 
             readPingSensor();
 
+            System.out.println(currentDistance);
+
             // Stop when within 25cm of the wall
-            while(currentDistance < DROP_OFF_LOCATION_DISTANCE_THRESHOLD) {
+            while(currentDistance > DROP_OFF_LOCATION_DISTANCE_THRESHOLD) {
                 readPingSensor();
+                System.out.println(currentDistance);
             }
 
             stopMotors();
 
             lastLocation = toLocation;
+        }
+
+        if(toLocation == FieldDirection.BEFORE_CROSS_BRIDGE_LEFT) {
+
+            turnRight(BUCKET_FORWARD);
+            move(BUCKET_FORWARD, 200);
+
+            lastLocation = toLocation;
+        }
+
+        if(toLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
+
+            // Cross the bridge
+            move(BUCKET_FORWARD, 1200);
+
         }
 
         updateGuiLocation();
@@ -1031,7 +1064,7 @@ public class MainForm {
 
     public void collectMaterial(boolean isSalinity, boolean isLargeAmount) {
 
-        int targetLocation;
+        FieldDirection targetLocation;
 
         if (isSalinity) {
             targetLocation = isLargeAmount ? salinityLargeLocation : salinitySmallLocation;
@@ -1063,7 +1096,7 @@ public class MainForm {
 
     public void findBridge() {
 
-        goToLocation(lastLocation, BEFORE_CROSS_BRIDGE_LEFT);
+        goToLocation(lastLocation, FieldDirection.BEFORE_CROSS_BRIDGE_LEFT);
 
         turnRight(BUCKET_FORWARD);
 
@@ -1084,10 +1117,10 @@ public class MainForm {
 
     public void crossBridge() {
 
-        // Cross the bridge
-        move(BUCKET_FORWARD, 1200);
+        goToLocation(FieldDirection.AFTER_CROSS_BRIDGE);
 
-        lastLocation = AFTER_CROSS_BRIDGE;
+        turnRight(BUCKET_FORWARD);
+
     }
 
 
@@ -1097,7 +1130,7 @@ public class MainForm {
 
         crossBridge();
 
-        goToLocation(lastLocation, DROP_OFF_LOCATION);
+        goToLocation(lastLocation, FieldDirection.DROP_OFF_LOCATION);
 
         openBucket();
 
@@ -1108,7 +1141,7 @@ public class MainForm {
     }
 
     public void stopMotors() {
-        r.runEncodedMotor(RXTXRobot.MOTOR1, 0, 0, RXTXRobot.MOTOR2, 0, 0);
+        r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
     }
 
     public void move(int direction, int ticks) {
