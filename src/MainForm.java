@@ -67,6 +67,7 @@ public class MainForm {
     private JButton findBridgeButton;
     private JButton crossBridgeButton;
     private JButton soccerBallButton;
+    private JComboBox soccerBallComboBox;
 
     private final JFrame frame;
 
@@ -213,6 +214,18 @@ public class MainForm {
                 turbidityLargeOnTop = index == 0;
             }
         });
+
+
+        soccerBallComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int index = turbidityComboBox.getSelectedIndex();
+
+                soccerBallOnLeft = index == 0;
+            }
+        });
+
         motorSpeedComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -464,7 +477,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setup();
-                findAndCrossBridge();
+                findBridge();
             }
         });
 
@@ -472,7 +485,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setup();
-                move(BUCKET_FORWARD, 600);
+                crossBridge();
             }
         });
 
@@ -498,9 +511,9 @@ public class MainForm {
 
     public void setDebugView(boolean showDebugView) {
         if(showDebugView) {
-            frame.setSize(new Dimension(840, 630));
+            frame.setSize(new Dimension(840, 660));
         } else {
-            frame.setSize(new Dimension(840, 500));
+            frame.setSize(new Dimension(840, 530));
         }
     }
 
@@ -625,7 +638,7 @@ public class MainForm {
         frame.setVisible(true);
         frame.setTitle("Dalek Robot");
 
-        frame.setSize(new Dimension(840, 500));
+        frame.setSize(new Dimension(840, 530));
     }
 
     ////////////////////
@@ -678,7 +691,6 @@ public class MainForm {
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
     public static final double INCH_TO_TICK_CONVERSION = 14.28571428571429;
 
-
     // white = 50
     // grey = 25
     // black = 2,3,4
@@ -723,6 +735,8 @@ public class MainForm {
 
     public boolean salinityLargeOnTop = false;
     public boolean turbidityLargeOnTop = false;
+    public boolean soccerBallOnLeft = false;
+
     public int motorSpeed = MOTOR_SPEED_MEDIUM;
     public boolean debugMode = false;
 
@@ -1047,7 +1061,7 @@ public class MainForm {
 
     }
 
-    public void findAndCrossBridge() {
+    public void findBridge() {
 
         goToLocation(lastLocation, BEFORE_CROSS_BRIDGE_LEFT);
 
@@ -1065,6 +1079,10 @@ public class MainForm {
 
         // Face the bridge
         turnLeft(BUCKET_FORWARD);
+    }
+
+
+    public void crossBridge() {
 
         // Cross the bridge
         move(BUCKET_FORWARD, 1200);
@@ -1072,9 +1090,12 @@ public class MainForm {
         lastLocation = AFTER_CROSS_BRIDGE;
     }
 
+
     public void dropOffMaterials() {
 
-        findAndCrossBridge();
+        findBridge();
+
+        crossBridge();
 
         goToLocation(lastLocation, DROP_OFF_LOCATION);
 
