@@ -60,6 +60,8 @@ public class MainForm {
     private JButton readSalinityButton;
     private JButton readPingSensorButton;
     private JLabel distanceLabel;
+    private JButton readLightSensorButton;
+    private JLabel lightLabel;
     private JButton crossBridgeButton;
 
     private final JFrame frame;
@@ -434,13 +436,20 @@ public class MainForm {
                 readPingSensor();
             }
         });
+
+        readLightSensorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                readLightSensor();
+            }
+        });
     }
 
     public void setDebugView(boolean showDebugView) {
         if(showDebugView) {
-            frame.setSize(new Dimension(840, 600));
+            frame.setSize(new Dimension(840, 630));
         } else {
-            frame.setSize(new Dimension(840, 470));
+            frame.setSize(new Dimension(840, 500));
         }
     }
 
@@ -473,6 +482,7 @@ public class MainForm {
                 readTurbidityButton.setEnabled(isEnabled);
                 readSalinityButton.setEnabled(isEnabled);
                 readPingSensorButton.setEnabled(isEnabled);
+                readLightSensorButton.setEnabled(isEnabled);
             }
         };
 
@@ -549,6 +559,18 @@ public class MainForm {
         SwingUtilities.invokeLater(runnable);
     }
 
+    public void updateLightLabel() {
+        Runnable runnable = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                lightLabel.setText(Integer.toString(currentLightValue));
+            }
+        };
+        SwingUtilities.invokeLater(runnable);
+    }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("MainForm");
         frame.setContentPane(new MainForm(frame).panel1);
@@ -559,15 +581,16 @@ public class MainForm {
         frame.setVisible(true);
         frame.setTitle("Dalek Robot");
 
-        frame.setSize(new Dimension(840, 470));
+        frame.setSize(new Dimension(840, 500));
     }
 
     ////////////////////
     // CONSTANTS
     ////////////////////
 
+    public static final int LINE_SENSOR_ANALOG_PIN = 0;
     public static final int TURBIDITY_PIN = 2;
-    public static final int BRIDGE_COLOR_SENSOR_PIN = 3;
+
 
     public static final int MOTOR_SPEED_FAST = 450;
     public static final int MOTOR_SPEED_MEDIUM = 300;
@@ -589,8 +612,8 @@ public class MainForm {
     public static final int BRIDGE_POSITION_MIDDLE = 2;
     public static final int BRIDGE_POSITION_RIGHT = 3;
 
-    public static final int CRANE_SERVO = RXTXRobot.SERVO1;
-    public static final int CARGO_SERVO = RXTXRobot.SERVO2;
+    public static final int CRANE_SERVO = RXTXRobot.SERVO1; // D9
+    public static final int CARGO_SERVO = RXTXRobot.SERVO2; // D10
     public static final int EXTRA_SERVO = RXTXRobot.SERVO3;
 
     public static final int START_LOCATION = 1;
@@ -615,6 +638,12 @@ public class MainForm {
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
     public static final double INCH_TO_TICK_CONVERSION = 14.28571428571429;
 
+
+    // white = 50
+    // grey = 25
+    // black = 2,3,4
+    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 25;
+
     ////////////////////
     // VARIABLES
     ////////////////////
@@ -628,6 +657,7 @@ public class MainForm {
     public  int turbiditySmallLocation = TURBIDITY_DISPENSER_BOTTOM;
 
     public int currentDistance = 0;
+    public int currentLightValue = 0;
 
     // Between 0-12,000
     public int salinityRemediationAmount = 0;
@@ -853,23 +883,20 @@ public class MainForm {
 
 
         if(toLocation == DROP_OFF_LOCATION) {
-            if (fromLocation == AFTER_CROSS_BRIDGE_LEFT) {
 
-                turnRight(BUCKET_FORWARD);
+            // Start moving forward
+            move(BUCKET_FORWARD, 0);
 
-                int ticks = 620;
-                move(BUCKET_FORWARD, ticks);
+            readPingSensor();
 
-                lastLocation = toLocation;
-            } else if (fromLocation == AFTER_CROSS_BRIDGE_MIDDLE) {
-
-                turnRight(BUCKET_FORWARD);
-
-                int ticksToLocation = 200;
-                move(BUCKET_FORWARD, ticksToLocation);
-
-                lastLocation = toLocation;
+            // Stop when within 25cm of the wall
+            while(currentDistance < 25) {
+                readPingSensor();
             }
+
+            move(BUCKET_FORWARD, 1, 0);
+
+            lastLocation = toLocation;
         }
 
         updateGuiLocation();
@@ -951,101 +978,37 @@ public class MainForm {
 
     }
 
-    private int getBridgeRobotLocation(boolean isBeforeCrossBridge) {
-        return  getBridgeRobotLocation(bridgePosition, isBeforeCrossBridge);
-    }
-
-    private  int getBridgeRobotLocation(int selectedBridgeLocation, boolean isBeforeCrossBridge) {
-        switch (selectedBridgeLocation) {
-            case BRIDGE_POSITION_LEFT:
-                return isBeforeCrossBridge ? BEFORE_CROSS_BRIDGE_LEFT : AFTER_CROSS_BRIDGE_LEFT;
-            case BRIDGE_POSITION_MIDDLE:
-                return isBeforeCrossBridge ? BEFORE_CROSS_BRIDGE_MIDDLE : AFTER_CROSS_BRIDGE_MIDDLE;
-            case BRIDGE_POSITION_RIGHT:
-                return isBeforeCrossBridge ? BEFORE_CROSS_BRIDGE_RIGHT : AFTER_CROSS_BRIDGE_RIGHT;
-            default:
-                return isBeforeCrossBridge ? BEFORE_CROSS_BRIDGE_LEFT : AFTER_CROSS_BRIDGE_LEFT;
-        }
-    }
-
-    public void crossBridge() {
+    public void findAndCrossBridge() {
 
         goToLocation(lastLocation, BEFORE_CROSS_BRIDGE_LEFT);
 
-        if (bridgePosition == BRIDGE_POSITION_UNKNOWN) {
+        turnRight(BUCKET_FORWARD);
 
-            // Check the left/middle/right positions for the bridge
-            checkBridgeLocationsAndCross();
-        } else {
+        // Move forward and look for the bridge
+        // Use the light sensor
+        move(BUCKET_FORWARD, 0);
 
-            // Manually input the bridge location
-
-            // Cross the bridge
-            goToLocation(lastLocation, getBridgeRobotLocation(false));
+        readLightSensor();
+        while(currentLightValue < BRIDGE_LIGHT_MARKER_THRESHOLD) {
+            readLightSensor();
         }
 
-
-    }
-
-    public void checkBridgeLocationsAndCross() {
-        if (bridgePosition == BRIDGE_POSITION_UNKNOWN) {
-
-            if(checkBridge(BRIDGE_POSITION_LEFT)) {
-                bridgePosition = BRIDGE_POSITION_LEFT;
-                lastLocation = AFTER_CROSS_BRIDGE_LEFT;
-
-            } else if (checkBridge(BRIDGE_POSITION_MIDDLE)) {
-                bridgePosition = BRIDGE_POSITION_MIDDLE;
-                lastLocation = AFTER_CROSS_BRIDGE_MIDDLE;
-
-            } else if (checkBridge(BRIDGE_POSITION_RIGHT)) {
-                bridgePosition = BRIDGE_POSITION_RIGHT;
-                lastLocation = AFTER_CROSS_BRIDGE_RIGHT;
-            }
-        }
-    }
-
-    public boolean checkBridge(int bridgeCheckPosition) {
-        if (bridgeCheckPosition != BRIDGE_POSITION_LEFT && bridgeCheckPosition != BRIDGE_POSITION_MIDDLE && bridgeCheckPosition != BRIDGE_POSITION_RIGHT)
-        {
-            return false;
-        }
-
-        boolean foundBridge = false;
-
-        // Approach the bridge
-        goToLocation(lastLocation, getBridgeRobotLocation(bridgeCheckPosition, true));
+        // Found the bridge
 
 
-        int rampTicks = 300;
-        int crossBridgeTicks = 600;
+        // Stop
+        move(BUCKET_FORWARD,1,0);
 
-        // Move up the ramp
-        move(BUCKET_FORWARD, rampTicks);
+        // Face the bridge
+        turnLeft(BUCKET_FORWARD);
 
-        // TODO - FIND A VALUE FOR A COLOR REPRESENTING THE BRIDGE
-        r.refreshAnalogPins();
-        foundBridge = r.getAnalogPin(BRIDGE_COLOR_SENSOR_PIN).getValue() > 0;
-
-
-        if(foundBridge) {
-
-            // Continue along the bridge
-            move(BUCKET_FORWARD, crossBridgeTicks);
-
-        } else {
-
-            // Move back down and report the bridge was not found at this location
-            move(CRANE_FORWARD, rampTicks);
-        }
-
-        return foundBridge;
-
+        // Cross the bridge
+        move(BUCKET_FORWARD, 600);
     }
 
     public void dropOffMaterials() {
 
-        crossBridge();
+        findAndCrossBridge();
 
         goToLocation(lastLocation, DROP_OFF_LOCATION);
 
@@ -1116,5 +1079,12 @@ public class MainForm {
         currentDistance = r.getPing();
 
         updateDistanceLabel();
+    }
+
+    public void readLightSensor() {
+
+        r.refreshAnalogPins();
+        currentLightValue = r.getAnalogPin(LINE_SENSOR_ANALOG_PIN).getValue();
+        updateLightLabel();
     }
 }

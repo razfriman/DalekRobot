@@ -71,13 +71,17 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="430" column="8" selection-start="12970" selection-end="12970" vertical-scroll-proportion="0.2798574" vertical-offset="4583" max-vertical-offset="15030">
+            <state line="484" column="34" selection-start="14921" selection-end="14935" vertical-scroll-proportion="0.33333334" vertical-offset="5303" max-vertical-offset="14580">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#13009#13168#0" expanded="true" />
-                <element signature="e#13157#13158#0" expanded="true" />
-                <element signature="e#17889#18067#0" expanded="true" />
-                <element signature="e#18056#18057#0" expanded="true" />
+                <element signature="e#13083#13242#0" expanded="true" />
+                <element signature="e#13231#13232#0" expanded="true" />
+                <element signature="e#13294#13454#0" expanded="true" />
+                <element signature="e#13443#13444#0" expanded="true" />
+                <element signature="e#18236#18414#0" expanded="true" />
+                <element signature="e#18403#18404#0" expanded="true" />
+                <element signature="e#18534#18721#0" expanded="true" />
+                <element signature="e#18710#18711#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +110,8 @@
         <option value="$PROJECT_DIR$/src/Robot.java" />
         <option value="$PROJECT_DIR$/src/IntegerFilter.java" />
         <option value="$PROJECT_DIR$/src/JNumberTextField.java" />
-        <option value="$PROJECT_DIR$/src/MainForm.form" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
+        <option value="$PROJECT_DIR$/src/MainForm.form" />
       </list>
     </option>
   </component>
@@ -179,7 +183,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RSBot" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -695,7 +699,7 @@
       <workItem from="1396356830980" duration="160000" />
       <workItem from="1396362847517" duration="588000" />
       <workItem from="1396365593105" duration="554000" />
-      <workItem from="1396379096380" duration="1172000" />
+      <workItem from="1396379096380" duration="3375000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -725,11 +729,15 @@
       <created>1396143358640</created>
       <updated>1396143358640</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Ping sensor button">
+      <created>1396386475624</created>
+      <updated>1396386475624</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36973000" />
+    <option name="totallyTimeSpent" value="39176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -785,7 +793,8 @@
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Bug Fix" />
     <MESSAGE value="Prepare for demo 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepare for demo 2" />
+    <MESSAGE value="Ping sensor button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ping sensor button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -800,10 +809,14 @@
         <state line="351" column="19" selection-start="10261" selection-end="10261" vertical-scroll-proportion="0.0" vertical-offset="5265" max-vertical-offset="16080">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,10 +826,14 @@
         <state line="602" column="0" selection-start="20369" selection-end="20369" vertical-scroll-proportion="0.0" vertical-offset="7095" max-vertical-offset="16035">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -826,10 +843,14 @@
         <state line="132" column="34" selection-start="3935" selection-end="3935" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="15225">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -844,10 +865,14 @@
         <state line="425" column="48" selection-start="13027" selection-end="13027" vertical-scroll-proportion="0.0" vertical-offset="6375" max-vertical-offset="15225">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -862,10 +887,14 @@
         <state line="66" column="0" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15135">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -885,10 +914,14 @@
         <state line="378" column="45" selection-start="11443" selection-end="11443" vertical-scroll-proportion="0.0" vertical-offset="5670" max-vertical-offset="13035">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -903,10 +936,14 @@
         <state line="145" column="49" selection-start="3872" selection-end="3872" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="11085">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -921,10 +958,14 @@
         <state line="560" column="0" selection-start="17406" selection-end="17406" vertical-scroll-proportion="0.0" vertical-offset="8400" max-vertical-offset="11010">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -939,10 +980,14 @@
         <state line="452" column="16" selection-start="14346" selection-end="14346" vertical-scroll-proportion="0.0" vertical-offset="6780" max-vertical-offset="11010">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -957,10 +1002,14 @@
         <state line="400" column="4" selection-start="12986" selection-end="12986" vertical-scroll-proportion="0.0" vertical-offset="6000" max-vertical-offset="10995">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -975,10 +1024,14 @@
         <state line="700" column="21" selection-start="21087" selection-end="21087" vertical-scroll-proportion="0.0" vertical-offset="10500" max-vertical-offset="10995">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -993,10 +1046,14 @@
         <state line="131" column="16" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="10965">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1006,10 +1063,14 @@
         <state line="804" column="0" selection-start="24844" selection-end="24844" vertical-scroll-proportion="0.0" vertical-offset="10665" max-vertical-offset="10665">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1024,10 +1085,14 @@
         <state line="683" column="0" selection-start="20910" selection-end="20910" vertical-scroll-proportion="0.0" vertical-offset="10245" max-vertical-offset="10695">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1042,10 +1107,14 @@
         <state line="400" column="17" selection-start="13411" selection-end="13420" vertical-scroll-proportion="0.0" vertical-offset="6000" max-vertical-offset="10335">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1060,10 +1129,14 @@
         <state line="440" column="31" selection-start="14429" selection-end="14429" vertical-scroll-proportion="0.0" vertical-offset="6600" max-vertical-offset="10335">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1078,10 +1151,14 @@
         <state line="587" column="0" selection-start="18724" selection-end="18724" vertical-scroll-proportion="0.0" vertical-offset="8805" max-vertical-offset="9360">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1096,10 +1173,14 @@
         <state line="456" column="32" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="6840" max-vertical-offset="8970">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1114,10 +1195,14 @@
         <state line="456" column="32" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="6840" max-vertical-offset="8970">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1132,10 +1217,14 @@
         <state line="414" column="27" selection-start="13742" selection-end="13742" vertical-scroll-proportion="0.0" vertical-offset="6210" max-vertical-offset="8415">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1150,10 +1239,14 @@
         <state line="386" column="5" selection-start="13011" selection-end="13011" vertical-scroll-proportion="0.0" vertical-offset="5790" max-vertical-offset="8325">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1163,10 +1256,14 @@
         <state line="386" column="5" selection-start="13011" selection-end="13011" vertical-scroll-proportion="0.0" vertical-offset="5790" max-vertical-offset="8325">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1181,10 +1278,14 @@
         <state line="317" column="0" selection-start="0" selection-end="22157" vertical-scroll-proportion="0.0" vertical-offset="4755" max-vertical-offset="7515">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1199,10 +1300,14 @@
         <state line="22" column="13" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="2940">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1241,13 +1346,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="430" column="8" selection-start="12970" selection-end="12970" vertical-scroll-proportion="0.2798574" vertical-offset="4583" max-vertical-offset="15030">
+        <state line="484" column="34" selection-start="14921" selection-end="14935" vertical-scroll-proportion="0.33333334" vertical-offset="5303" max-vertical-offset="14580">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13009#13168#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#17889#18067#0" expanded="true" />
-            <element signature="e#18056#18057#0" expanded="true" />
+            <element signature="e#13083#13242#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13294#13454#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#18236#18414#0" expanded="true" />
+            <element signature="e#18403#18404#0" expanded="true" />
+            <element signature="e#18534#18721#0" expanded="true" />
+            <element signature="e#18710#18711#0" expanded="true" />
           </folding>
         </state>
       </provider>
