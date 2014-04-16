@@ -683,8 +683,8 @@ public class MainForm {
     public static final int SOCCER_BALL_ARM_EXTEND = 1;
     public static final int SOCCER_BALL_ARM_RETRACT = -1;
 
-    public static final int TURN_90_TICKS = 170;
-    public static final int TURN_180_TICKS = 350;
+    public static final int TURN_90_TICKS = 175;
+    public static final int TURN_180_TICKS = 390;
 
     public static final int QUICK_DELAY = 3;
 
@@ -694,9 +694,9 @@ public class MainForm {
     // white = 50
     // grey = 25
     // black = 2,3,4
-    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 15;
-
+    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 22;
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
+    public static final int WATER_WELL_DISTANCE_THRESHOLD = 20;
 
     ////////////////////
     // VARIABLES
@@ -858,12 +858,19 @@ public class MainForm {
 
     public void calculateRemediationAmounts(int conductivityValue, int turbidityValue) {
 
-        //1.7253x + 1016.1
-        turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 1016.1);
+        //-1.8231x + 1018.4
+        //-1.7253x + 1016.1
+
+        //turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 1016.1);
+        //turbidityRemediationAmount = (int) Math.round(-1.8231 * turbidityValue + 1018.4);
+       turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 800.1);
 
 
         //-7.249x+4800.5
-        salinityRemediationAmount = (int) Math.round(-7.249 * conductivityValue + 4800.5);
+        //-7.249x+4800.5 + 1200
+
+        //salinityRemediationAmount = (int) Math.round(-7.249 * conductivityValue + 4800.5);
+        salinityRemediationAmount = (int) Math.round(-7.249 * conductivityValue + 4800.5 + 1200);
 
 
         Runnable runnable = new Runnable()
@@ -893,7 +900,7 @@ public class MainForm {
 
     public void goToLocation(FieldDirection fromLocation, FieldDirection toLocation) {
 
-        System.out.println("LOCATION: " + toLocation);
+        System.out.println("LOCATION: " + toLocation.toString());
 
         if(fromLocation == toLocation) {
             return;
@@ -902,8 +909,23 @@ public class MainForm {
         if(toLocation == FieldDirection.WATER_WELL) {
             if (fromLocation == FieldDirection.START_LOCATION) {
 
-                // Move forward to the water
-                move(CRANE_FORWARD, 600);
+
+                // Start moving forward
+                moveAsync(BUCKET_FORWARD, motorSpeed);
+
+                readPingSensor();
+
+                System.out.println(currentDistance);
+
+                // Stop when within 25cm of the wall
+                while(currentDistance > WATER_WELL_DISTANCE_THRESHOLD) {
+                    readPingSensor();
+                    System.out.println(currentDistance);
+                }
+
+                stopMotors();
+
+                turn180();
 
                 lastLocation = toLocation;
 
@@ -915,7 +937,7 @@ public class MainForm {
 
                 turnRight(BUCKET_FORWARD);
 
-                int ticks = 600;
+                int ticks = 500;
                 move(BUCKET_FORWARD, ticks);
 
                 lastLocation = toLocation;
@@ -983,7 +1005,8 @@ public class MainForm {
         if(toLocation == FieldDirection.DROP_OFF_LOCATION) {
 
             // Start moving forward
-            r.runMotor(RXTXRobot.MOTOR1, 300, RXTXRobot.MOTOR2, 300, 0);
+
+            moveAsync(BUCKET_FORWARD, motorSpeed);
 
             readPingSensor();
 
@@ -1011,7 +1034,7 @@ public class MainForm {
         if(toLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
 
             // Cross the bridge
-            move(BUCKET_FORWARD, 1200);
+            move(BUCKET_FORWARD, 1000);
 
         }
 
@@ -1039,7 +1062,7 @@ public class MainForm {
     public void goToNextDispenserType() {
         turn180();
 
-        int ticks = 1200;
+        int ticks = 1000;
         move(BUCKET_FORWARD, ticks);
     }
 
@@ -1079,7 +1102,7 @@ public class MainForm {
 
     public void activateDispenser() {
 
-        int pushTicks = 200;
+        int pushTicks = 150;
         int reverseTicks = 100;
 
         // Push the dispenser
@@ -1100,7 +1123,7 @@ public class MainForm {
 
         turnRight(BUCKET_FORWARD);
 
-        r.runMotor(RXTXRobot.MOTOR1, 300, RXTXRobot.MOTOR2, 300, 0);
+        moveAsync(BUCKET_FORWARD, motorSpeed);
 
         readLightSensor();
 
@@ -1158,6 +1181,16 @@ public class MainForm {
         );
 
         r.sleep(QUICK_DELAY);
+    }
+
+    public void moveAsync(int direction, int speed) {
+
+        boolean isBucketForward = direction == BUCKET_FORWARD;
+
+        r.runMotor(RXTXRobot.MOTOR1, speed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD),
+                   RXTXRobot.MOTOR2, speed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), 0);
+
+
     }
 
     public void turnLeft(int direction) {
