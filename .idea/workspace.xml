@@ -70,7 +70,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1123" column="34" selection-start="33926" selection-end="33926" vertical-scroll-proportion="0.23311259" vertical-offset="13999" max-vertical-offset="16185">
+            <state line="810" column="8" selection-start="25725" selection-end="25725" vertical-scroll-proportion="-0.96963125" vertical-offset="10152" max-vertical-offset="17085">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -717,7 +717,11 @@
       <workItem from="1397415340950" duration="202000" />
       <workItem from="1397415651975" duration="283000" />
       <workItem from="1397605846189" duration="773000" />
-      <workItem from="1397672669102" duration="227000" />
+      <workItem from="1397672669102" duration="250000" />
+      <workItem from="1397692913752" duration="2015000" />
+      <workItem from="1397695422008" duration="409000" />
+      <workItem from="1397695897162" duration="737000" />
+      <workItem from="1397926707011" duration="1593000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -771,11 +775,15 @@
       <created>1396456886351</created>
       <updated>1396456886351</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Use sensors for movement for water well finding">
+      <created>1397672910666</created>
+      <updated>1397672910666</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60510000" />
+    <option name="totallyTimeSpent" value="65287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -787,6 +795,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10468521" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32880098" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -802,11 +811,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Parse Tree" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13616398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23895401" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23856613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880098" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -837,7 +845,8 @@
     <MESSAGE value="Prep for demo 2" />
     <MESSAGE value="Added soccer ball location combo box" />
     <MESSAGE value="Create ENUM for fieldDirection&#10;More prep for demo 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create ENUM for fieldDirection&#10;More prep for demo 2" />
+    <MESSAGE value="Use sensors for movement for water well finding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use sensors for movement for water well finding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1181,6 +1190,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FieldDirection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="22" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
@@ -1188,14 +1202,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1123" column="34" selection-start="33926" selection-end="33926" vertical-scroll-proportion="0.23311259" vertical-offset="13999" max-vertical-offset="16185">
+        <state line="810" column="8" selection-start="25725" selection-end="25725" vertical-scroll-proportion="-0.96963125" vertical-offset="10152" max-vertical-offset="17085">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

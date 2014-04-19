@@ -6,7 +6,6 @@ import rxtxrobot.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Field;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -662,18 +661,20 @@ public class MainForm {
 
     public static final int MOTOR_SPEED_FAST = 450;
     public static final int MOTOR_SPEED_MEDIUM = 300;
-    public static final int MOTOR_SPEED_SLOW = 250;
+    public static final int MOTOR_SPEED_SLOW = 150;
 
     public static final int CRANE_INTERVAL = 10;
 
     public static final int CRANE_FORWARD = 1;
     public static final int BUCKET_FORWARD = -1;
 
-    public static final int CRANE_REST_POSITION = 90;
-    public static final int CRANE_DOWN_POSITION = 0;
+    // TODO: Set crane
+    // TODO change raise/lower code
+    public static final int CRANE_DOWN_POSITION = 90;
+    public static final int CRANE_UP_POSITION = 0;
 
-    public static final int CARGO_CLOSED_POSITION = 120;
-    public static final int CARGO_OPEN_POSITION = 90;
+    public static final int CARGO_CLOSED_POSITION = 90;
+    public static final int CARGO_OPEN_POSITION = 60;
 
     public static final int CRANE_SERVO = RXTXRobot.SERVO1; // D9
     public static final int CARGO_SERVO = RXTXRobot.SERVO2; // D10
@@ -683,11 +684,15 @@ public class MainForm {
     public static final int SOCCER_BALL_ARM_EXTEND = 1;
     public static final int SOCCER_BALL_ARM_RETRACT = -1;
 
+
+    // TODO - Calibrate this....
     public static final int TURN_90_TICKS = 175;
     public static final int TURN_180_TICKS = 390;
 
     public static final int QUICK_DELAY = 3;
 
+
+    // TODO - calibrate this
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
     public static final double INCH_TO_TICK_CONVERSION = 14.28571428571429;
 
@@ -696,7 +701,21 @@ public class MainForm {
     // black = 2,3,4
     public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 22;
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
-    public static final int WATER_WELL_DISTANCE_THRESHOLD = 20;
+    public static final int WATER_WELL_DISTANCE_THRESHOLD = 37;
+    public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
+    public static final int DISPENSER_DISTANCE_THRESHOLD = 20;
+
+    public static final int TURBIDITY_MINIMUM= 5;
+    public static final int TURBIDITY_MAXIMUM = 750;
+    public static final int TURBIDITY_LARGE_AMOUNT = 50;
+    public static final int TURBIDITY_SMALL_AMOUNT = 5;
+
+    public static final int SALINITY_MINIMUM = 2500;
+    public static final int SALINITY_MAXIMUM = 12000;
+    public static final int SALINITY_LARGE_AMOUNT = 1000;
+    public static final int SALINITY_SMALL_AMOUNT = 100;
+
+
 
     ////////////////////
     // VARIABLES
@@ -713,11 +732,13 @@ public class MainForm {
     public int currentDistance = 0;
     public int currentLightValue = 0;
 
-    // Between 0-12,000
+    // Between 2,500-12,000
     public int salinityRemediationAmount = 0;
+    public int salinityAmountCollected = 0;
 
     // Between 5-750
     public int turbidityRemediationAmount = 0;
+    public int turbidityAmountCollected = 0;
 
     public int salinitySensorReading = -1;
     public int turbiditySensorReading = -1;
@@ -783,23 +804,24 @@ public class MainForm {
 
         lowerCrane();
 
-        r.sleep(5000);
+        r.sleep(2000);
 
 
         // TODO - Take an average???
-
+        
         readSalinitySensor();
         readTurbiditySensor();
 
         readSalinitySensor();
         readTurbiditySensor();
+
         readSalinitySensor();
         readTurbiditySensor();
 
         // calculate the amount of remediation materials needed
         calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
 
-        raiseCrane();
+        raiseCrane(true);
     }
 
     public void readSalinitySensor() {
@@ -837,10 +859,14 @@ public class MainForm {
     }
 
     public void raiseCrane() {
+        raiseCrane(false);
+    }
 
-        for (int i = CRANE_REST_POSITION; i >= CRANE_DOWN_POSITION; i -= CRANE_INTERVAL) {
+    public void raiseCrane(boolean isSlow) {
+
+        for (int i = CRANE_DOWN_POSITION; i >= CRANE_UP_POSITION; i -= CRANE_INTERVAL) {
             r.moveServo(CRANE_SERVO, i);
-            r.sleep(QUICK_DELAY);
+            r.sleep(isSlow ? QUICK_DELAY * 15 : QUICK_DELAY);
         }
 
         r.sleep(QUICK_DELAY);
@@ -848,7 +874,7 @@ public class MainForm {
 
     public void lowerCrane() {
 
-        for (int i = CRANE_DOWN_POSITION; i <= CRANE_REST_POSITION; i += CRANE_INTERVAL) {
+        for (int i = CRANE_UP_POSITION; i <= CRANE_DOWN_POSITION; i += CRANE_INTERVAL) {
             r.moveServo(CRANE_SERVO, i);
             r.sleep(QUICK_DELAY);
         }
@@ -858,19 +884,21 @@ public class MainForm {
 
     public void calculateRemediationAmounts(int conductivityValue, int turbidityValue) {
 
-        //-1.8231x + 1018.4
-        //-1.7253x + 1016.1
 
-        //turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 1016.1);
-        //turbidityRemediationAmount = (int) Math.round(-1.8231 * turbidityValue + 1018.4);
-       turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 800.1);
+        turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 800.1);
+
+        salinityRemediationAmount = (int) (25692 * Math.pow(Math.E, -0.007 * conductivityValue));
 
 
-        //-7.249x+4800.5
-        //-7.249x+4800.5 + 1200
+        turbidityRemediationAmount = Math.min(turbidityRemediationAmount, TURBIDITY_MAXIMUM);
+        turbidityRemediationAmount = Math.max(turbidityRemediationAmount, TURBIDITY_MINIMUM);
 
-        //salinityRemediationAmount = (int) Math.round(-7.249 * conductivityValue + 4800.5);
-        salinityRemediationAmount = (int) Math.round(-7.249 * conductivityValue + 4800.5 + 1200);
+        salinityRemediationAmount = Math.min(salinityRemediationAmount, SALINITY_MAXIMUM);
+        salinityRemediationAmount = Math.max(turbidityRemediationAmount, SALINITY_MINIMUM);
+
+
+        turbidityAmountCollected = 0;
+        salinityAmountCollected = 0;
 
 
         Runnable runnable = new Runnable()
@@ -910,20 +938,7 @@ public class MainForm {
             if (fromLocation == FieldDirection.START_LOCATION) {
 
 
-                // Start moving forward
-                moveAsync(BUCKET_FORWARD, motorSpeed);
-
-                readPingSensor();
-
-                System.out.println(currentDistance);
-
-                // Stop when within 25cm of the wall
-                while(currentDistance > WATER_WELL_DISTANCE_THRESHOLD) {
-                    readPingSensor();
-                    System.out.println(currentDistance);
-                }
-
-                stopMotors();
+                moveUntilDistance(BUCKET_FORWARD, motorSpeed, WATER_WELL_DISTANCE_THRESHOLD);
 
                 turn180();
 
@@ -935,10 +950,13 @@ public class MainForm {
         if (toLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
             if (fromLocation == FieldDirection.WATER_WELL) {
 
+
+                // TODO - CHeck this
+                move(BUCKET_FORWARD, 100);
+
                 turnRight(BUCKET_FORWARD);
 
-                int ticks = 500;
-                move(BUCKET_FORWARD, ticks);
+                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD);
 
                 lastLocation = toLocation;
             } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
@@ -1006,19 +1024,7 @@ public class MainForm {
 
             // Start moving forward
 
-            moveAsync(BUCKET_FORWARD, motorSpeed);
-
-            readPingSensor();
-
-            System.out.println(currentDistance);
-
-            // Stop when within 25cm of the wall
-            while(currentDistance > DROP_OFF_LOCATION_DISTANCE_THRESHOLD) {
-                readPingSensor();
-                System.out.println(currentDistance);
-            }
-
-            stopMotors();
+            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DROP_OFF_LOCATION_DISTANCE_THRESHOLD);
 
             lastLocation = toLocation;
         }
@@ -1034,7 +1040,12 @@ public class MainForm {
         if(toLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
 
             // Cross the bridge
-            move(BUCKET_FORWARD, 1000);
+
+            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, CROSS_BRIDGE_DISTANCE_THRESHOLD);
+
+            stopMotors();
+
+            move(CRANE_FORWARD, 100);
 
         }
 
@@ -1049,8 +1060,10 @@ public class MainForm {
             turnRight(BUCKET_FORWARD);
         }
 
+
         int ticks = 350;
         move(BUCKET_FORWARD, ticks);
+
 
         if(turnLeftFirst) {
             turnRight(BUCKET_FORWARD);
@@ -1060,26 +1073,49 @@ public class MainForm {
     }
 
     public void goToNextDispenserType() {
+
         turn180();
 
-        int ticks = 1000;
-        move(BUCKET_FORWARD, ticks);
+        moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD);
+
     }
 
     public void collectMaterials(boolean isSalinity) {
 
         int materialLeft = isSalinity ? salinityRemediationAmount : turbidityRemediationAmount;
 
-        // 0 - 750 NTU
-        while(materialLeft >= (isSalinity ? 1000 : 47)) {
+        // 5 - 750 NTU
+        while(materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT)) {
             collectMaterial(isSalinity, true);
-            materialLeft -= isSalinity ?  1000 : 50;
+            materialLeft -= isSalinity ?  SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT;
+
+            if(isSalinity) {
+                salinityAmountCollected += SALINITY_LARGE_AMOUNT;
+            } else {
+                turbidityAmountCollected += TURBIDITY_LARGE_AMOUNT;
+            }
+
+            System.out.println(String.format("Collecting [%s] - [%d] - [Total: %d]",
+                    isSalinity ? "Salinity" : "Turbidity",
+                    isSalinity ? SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT,
+                    isSalinity ? salinityAmountCollected : turbidityAmountCollected));
         }
 
-        // 0 - 12,000 us
-        while(materialLeft >= (isSalinity? 100 : 4)) {
+        // 2,500 - 12,000 us
+        while(materialLeft >= (isSalinity? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT)) {
             collectMaterial(isSalinity, false);
-            materialLeft -= isSalinity ? 100 : 5;
+            materialLeft -= isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT;
+
+            if(isSalinity) {
+                salinityAmountCollected += SALINITY_SMALL_AMOUNT;
+            } else {
+                turbidityAmountCollected += TURBIDITY_SMALL_AMOUNT;
+            }
+
+            System.out.println(String.format("Collecting [%s] - [%d] - [Total: %d]",
+                    isSalinity ? "Salinity" : "Turbidity",
+                    isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT,
+                    isSalinity ? salinityAmountCollected : turbidityAmountCollected));
         }
 
 
@@ -1098,6 +1134,8 @@ public class MainForm {
         goToLocation(lastLocation, targetLocation);
 
         activateDispenser();
+
+
     }
 
     public void activateDispenser() {
@@ -1123,7 +1161,9 @@ public class MainForm {
 
         turnRight(BUCKET_FORWARD);
 
-        moveAsync(BUCKET_FORWARD, motorSpeed);
+        readLightSensor();
+
+        moveAsync(BUCKET_FORWARD, MOTOR_SPEED_SLOW);
 
         readLightSensor();
 
@@ -1158,7 +1198,7 @@ public class MainForm {
         openBucket();
 
         // Wait for all of the materials to be released
-        r.sleep(5000);
+        r.sleep(2000);
 
         closeBucket();
     }
@@ -1193,13 +1233,33 @@ public class MainForm {
 
     }
 
+    public void moveUntilDistance(int direction, int distanceThreshold)
+    {
+     moveUntilDistance(direction, MOTOR_SPEED_SLOW, distanceThreshold);
+    }
+
+    public void moveUntilDistance(int direction, int speed, int distanceThreshold)
+    {
+        // Start moving forward
+        moveAsync(direction, speed);
+
+        readPingSensor();
+
+        // Stop when within 25cm of the wall
+        while(currentDistance > distanceThreshold) {
+            readPingSensor();
+        }
+
+        stopMotors();
+    }
+
     public void turnLeft(int direction) {
 
         boolean isBucketForward = direction == BUCKET_FORWARD;
 
         r.runEncodedMotor(
-                RXTXRobot.MOTOR1, motorSpeed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_90_TICKS,
-                RXTXRobot.MOTOR2, motorSpeed * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_90_TICKS
+                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_90_TICKS,
+                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_90_TICKS
         );
 
         r.sleep(QUICK_DELAY);
@@ -1210,8 +1270,8 @@ public class MainForm {
         boolean isBucketForward = direction == BUCKET_FORWARD;
 
         r.runEncodedMotor(
-                RXTXRobot.MOTOR1, motorSpeed * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_90_TICKS,
-                RXTXRobot.MOTOR2, motorSpeed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_90_TICKS
+                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_90_TICKS,
+                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_90_TICKS
         );
 
         r.sleep(QUICK_DELAY);
