@@ -654,7 +654,7 @@ public class MainForm {
     // CONSTANTS
     ////////////////////
 
-    public static final int LINE_SENSOR_ANALOG_PIN = 0; // A0
+    public static final int LINE_SENSOR_ANALOG_PIN = 1; // A1
 
     public static final int TURBIDITY_PIN = 2; // A2
 
@@ -668,10 +668,8 @@ public class MainForm {
     public static final int CRANE_FORWARD = 1;
     public static final int BUCKET_FORWARD = -1;
 
-    // TODO: Set crane
-    // TODO change raise/lower code
-    public static final int CRANE_DOWN_POSITION = 90;
-    public static final int CRANE_UP_POSITION = 0;
+    public static final int CRANE_DOWN_POSITION = 170;
+    public static final int CRANE_UP_POSITION = 90;
 
     public static final int CARGO_CLOSED_POSITION = 90;
     public static final int CARGO_OPEN_POSITION = 60;
@@ -687,7 +685,7 @@ public class MainForm {
 
     // TODO - Calibrate this....
     public static final int TURN_90_TICKS = 175;
-    public static final int TURN_180_TICKS = 390;
+    public static final int TURN_180_TICKS = TURN_90_TICKS * 2;
 
     public static final int QUICK_DELAY = 3;
 
@@ -701,7 +699,7 @@ public class MainForm {
     // black = 2,3,4
     public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 22;
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
-    public static final int WATER_WELL_DISTANCE_THRESHOLD = 37;
+    public static final int WATER_WELL_DISTANCE_THRESHOLD = 39;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
     public static final int DISPENSER_DISTANCE_THRESHOLD = 20;
 
@@ -785,9 +783,6 @@ public class MainForm {
         turbidityLargeLocation = turbidityLargeOnTop ? FieldDirection.TURBIDITY_DISPENSER_TOP : FieldDirection.TURBIDITY_DISPENSER_BOTTOM;
         turbiditySmallLocation = turbidityLargeOnTop ? FieldDirection.TURBIDITY_DISPENSER_BOTTOM : FieldDirection.TURBIDITY_DISPENSER_TOP;
 
-        raiseCrane();
-
-        closeBucket();
     }
 
     public void closeBucket() {
@@ -804,11 +799,11 @@ public class MainForm {
 
         lowerCrane();
 
-        r.sleep(2000);
+        r.sleep(1000);
 
 
         // TODO - Take an average???
-        
+
         readSalinitySensor();
         readTurbiditySensor();
 
@@ -939,6 +934,8 @@ public class MainForm {
 
 
                 moveUntilDistance(BUCKET_FORWARD, motorSpeed, WATER_WELL_DISTANCE_THRESHOLD);
+
+                r.sleep(500);
 
                 turn180();
 
@@ -1098,7 +1095,8 @@ public class MainForm {
             System.out.println(String.format("Collecting [%s] - [%d] - [Total: %d]",
                     isSalinity ? "Salinity" : "Turbidity",
                     isSalinity ? SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT,
-                    isSalinity ? salinityAmountCollected : turbidityAmountCollected));
+                    isSalinity ? salinityAmountCollected : turbidityAmountCollected,
+                    isSalinity ? salinityRemediationAmount : turbidityRemediationAmount));
         }
 
         // 2,500 - 12,000 us
@@ -1112,10 +1110,11 @@ public class MainForm {
                 turbidityAmountCollected += TURBIDITY_SMALL_AMOUNT;
             }
 
-            System.out.println(String.format("Collecting [%s] - [%d] - [Total: %d]",
+            System.out.println(String.format("Collecting [%s] - [%d] - [%d/%d]",
                     isSalinity ? "Salinity" : "Turbidity",
                     isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT,
-                    isSalinity ? salinityAmountCollected : turbidityAmountCollected));
+                    isSalinity ? salinityAmountCollected : turbidityAmountCollected,
+                    isSalinity ? salinityRemediationAmount : turbidityRemediationAmount));
         }
 
 
@@ -1294,6 +1293,10 @@ public class MainForm {
         updateDistanceLabel();
     }
 
+    public int readPing(int direction) {
+        return 0;
+    }
+
     public void readLightSensor() {
 
         r.refreshAnalogPins();
@@ -1302,10 +1305,10 @@ public class MainForm {
     }
 
     public void extendArm() {
-        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_EXTEND * MOTOR_SPEED_FAST, 2000);
+        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_EXTEND * MOTOR_SPEED_FAST, 800);
     }
 
     public void retractArm() {
-        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_RETRACT * MOTOR_SPEED_FAST, 2000);
+        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_RETRACT * MOTOR_SPEED_FAST, 800);
     }
 }

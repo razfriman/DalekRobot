@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04ed5312-f06d-47df-b961-12a8179df15f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RXTXRobot.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RXTXRobot_firmware.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -67,12 +69,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="810" column="8" selection-start="25725" selection-end="25725" vertical-scroll-proportion="-0.96963125" vertical-offset="10152" max-vertical-offset="17085">
+            <state line="1281" column="56" selection-start="38878" selection-end="38878" vertical-scroll-proportion="0.0" vertical-offset="16349" max-vertical-offset="17130">
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RXTXRobot_firmware.ino" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RXTXRobot_firmware.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="565" column="0" selection-start="13917" selection-end="13917" vertical-scroll-proportion="0.0" vertical-offset="7917" max-vertical-offset="8565">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RXTXRobot.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RXTXRobot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1386" column="50" selection-start="53477" selection-end="53477" vertical-scroll-proportion="0.24" vertical-offset="20652" max-vertical-offset="21300">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3840#4083#0" expanded="true" />
+                <element signature="e#4068#4069#0" expanded="true" />
+                <element signature="e#50650#50651#0" expanded="true" />
+                <element signature="e#50688#50689#0" expanded="true" />
+                <element signature="e#50950#50951#0" expanded="true" />
+                <element signature="e#50987#50988#0" expanded="true" />
+                <element signature="e#51253#51254#0" expanded="true" />
+                <element signature="e#51293#51294#0" expanded="true" />
+                <element signature="e#52155#52156#0" expanded="true" />
+                <element signature="e#52201#52202#0" expanded="true" />
+                <element signature="e#52452#52453#0" expanded="true" />
+                <element signature="e#52493#52494#0" expanded="true" />
+                <element signature="e#52698#52699#0" expanded="true" />
+                <element signature="e#52742#52743#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,7 +117,7 @@
       <file leaf-file-name="FieldDirection.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FieldDirection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="22" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="315">
+            <state line="5" column="4" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="315">
               <folding />
             </state>
           </provider>
@@ -113,6 +149,8 @@
         <option value="$PROJECT_DIR$/src/MainForm.form" />
         <option value="$PROJECT_DIR$/src/FieldDirection.java" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
+        <option value="$PROJECT_DIR$/RXTXRobot_firmware.ino" />
+        <option value="$PROJECT_DIR$/RXTXRobot.java" />
       </list>
     </option>
   </component>
@@ -121,8 +159,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="74" />
-    <option name="y" value="22" />
+    <option name="x" value="111" />
+    <option name="y" value="266" />
     <option name="width" value="1366" />
     <option name="height" value="878" />
   </component>
@@ -161,7 +199,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -172,7 +210,30 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DalekRobot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DalekRobot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DalekRobot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -721,7 +782,11 @@
       <workItem from="1397692913752" duration="2015000" />
       <workItem from="1397695422008" duration="409000" />
       <workItem from="1397695897162" duration="737000" />
-      <workItem from="1397926707011" duration="1593000" />
+      <workItem from="1397926707011" duration="1758000" />
+      <workItem from="1397931602428" duration="2614000" />
+      <workItem from="1397948019428" duration="37000" />
+      <workItem from="1397959549284" duration="267000" />
+      <workItem from="1398006589698" duration="228000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -779,14 +844,18 @@
       <created>1397672910666</created>
       <updated>1397672910666</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Use sensors for more movement&#10;">
+      <created>1397928314301</created>
+      <updated>1397928314301</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65287000" />
+    <option name="totallyTimeSpent" value="68598000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="74" y="22" width="1366" height="878" extended-state="6" />
+    <frame x="111" y="266" width="1366" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22401172" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -795,7 +864,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10468521" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32880098" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -804,18 +872,19 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Parse Tree" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13616398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23856613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13616398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23856613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880098" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -846,7 +915,8 @@
     <MESSAGE value="Added soccer ball location combo box" />
     <MESSAGE value="Create ENUM for fieldDirection&#10;More prep for demo 2" />
     <MESSAGE value="Use sensors for movement for water well finding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use sensors for movement for water well finding" />
+    <MESSAGE value="Use sensors for more movement&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use sensors for more movement&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -856,24 +926,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="602" column="0" selection-start="20369" selection-end="20369" vertical-scroll-proportion="0.0" vertical-offset="7095" max-vertical-offset="16035">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="34" selection-start="3935" selection-end="3935" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="15225">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -1197,16 +1249,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FieldDirection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="22" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+        <state line="5" column="4" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="810" column="8" selection-start="25725" selection-end="25725" vertical-scroll-proportion="-0.96963125" vertical-offset="10152" max-vertical-offset="17085">
+        <state line="1281" column="56" selection-start="38878" selection-end="38878" vertical-scroll-proportion="0.0" vertical-offset="16349" max-vertical-offset="17130">
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RXTXRobot_firmware.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="565" column="0" selection-start="13917" selection-end="13917" vertical-scroll-proportion="0.0" vertical-offset="7917" max-vertical-offset="8565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RXTXRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1386" column="50" selection-start="53477" selection-end="53477" vertical-scroll-proportion="0.24" vertical-offset="20652" max-vertical-offset="21300">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3840#4083#0" expanded="true" />
+            <element signature="e#4068#4069#0" expanded="true" />
+            <element signature="e#50650#50651#0" expanded="true" />
+            <element signature="e#50688#50689#0" expanded="true" />
+            <element signature="e#50950#50951#0" expanded="true" />
+            <element signature="e#50987#50988#0" expanded="true" />
+            <element signature="e#51253#51254#0" expanded="true" />
+            <element signature="e#51293#51294#0" expanded="true" />
+            <element signature="e#52155#52156#0" expanded="true" />
+            <element signature="e#52201#52202#0" expanded="true" />
+            <element signature="e#52452#52453#0" expanded="true" />
+            <element signature="e#52493#52494#0" expanded="true" />
+            <element signature="e#52698#52699#0" expanded="true" />
+            <element signature="e#52742#52743#0" expanded="true" />
           </folding>
         </state>
       </provider>
