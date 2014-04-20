@@ -438,7 +438,7 @@ public class MainForm {
         readPingSensorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                readPingSensor();
+                readPingSensorStationary();
             }
         });
 
@@ -676,6 +676,11 @@ public class MainForm {
 
     public static final int CRANE_SERVO = RXTXRobot.SERVO1; // D9
     public static final int CARGO_SERVO = RXTXRobot.SERVO2; // D10
+    public static final int PING_SERVO = RXTXRobot.SERVO3; // D11
+
+    public static final int PING_STATIONARY = RXTXRobot.PING1; // D13
+    public static final int PING_DYNAMIC = RXTXRobot.PING2; // D8
+
 
     public static final int SOCCER_BALL_ARM_MOTOR = RXTXRobot.MOTOR3; // D7
 
@@ -712,6 +717,10 @@ public class MainForm {
     public static final int SALINITY_MAXIMUM = 12000;
     public static final int SALINITY_LARGE_AMOUNT = 1000;
     public static final int SALINITY_SMALL_AMOUNT = 100;
+
+    public static final int PING_SERVO_LEFT = 0;
+    public static final int PING_SERVO_MIDDLE = 80;
+    public static final int PING_SERVO_RIGHT = 170;
 
 
 
@@ -1242,11 +1251,11 @@ public class MainForm {
         // Start moving forward
         moveAsync(direction, speed);
 
-        readPingSensor();
+        readPingSensorStationary();
 
         // Stop when within 25cm of the wall
         while(currentDistance > distanceThreshold) {
-            readPingSensor();
+            readPingSensorStationary();
         }
 
         stopMotors();
@@ -1286,15 +1295,18 @@ public class MainForm {
         r.sleep(QUICK_DELAY);
     }
 
-    public void readPingSensor() {
+    public void readPingSensorStationary() {
 
-        currentDistance = r.getPing();
+        currentDistance = r.getPing(PING_STATIONARY);
 
         updateDistanceLabel();
     }
 
-    public int readPing(int direction) {
-        return 0;
+    public int readPingDynamic(int direction) {
+
+        r.moveServo(PING_SERVO, direction);
+
+        return r.getPing(PING_DYNAMIC);
     }
 
     public void readLightSensor() {

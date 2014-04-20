@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04ed5312-f06d-47df-b961-12a8179df15f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RXTXRobot.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RXTXRobot_firmware.ino" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/RXTXRobot.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -69,64 +68,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainForm.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1281" column="56" selection-start="38878" selection-end="38878" vertical-scroll-proportion="0.0" vertical-offset="16349" max-vertical-offset="17130">
+            <state line="1308" column="39" selection-start="39699" selection-end="39699" vertical-scroll-proportion="0.56292516" vertical-offset="16619" max-vertical-offset="17310">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RXTXRobot_firmware.ino" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RXTXRobot_firmware.ino">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="565" column="0" selection-start="13917" selection-end="13917" vertical-scroll-proportion="0.0" vertical-offset="7917" max-vertical-offset="8565">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RXTXRobot.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RXTXRobot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1386" column="50" selection-start="53477" selection-end="53477" vertical-scroll-proportion="0.24" vertical-offset="20652" max-vertical-offset="21300">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3840#4083#0" expanded="true" />
-                <element signature="e#4068#4069#0" expanded="true" />
-                <element signature="e#50650#50651#0" expanded="true" />
-                <element signature="e#50688#50689#0" expanded="true" />
-                <element signature="e#50950#50951#0" expanded="true" />
-                <element signature="e#50987#50988#0" expanded="true" />
-                <element signature="e#51253#51254#0" expanded="true" />
-                <element signature="e#51293#51294#0" expanded="true" />
-                <element signature="e#52155#52156#0" expanded="true" />
-                <element signature="e#52201#52202#0" expanded="true" />
-                <element signature="e#52452#52453#0" expanded="true" />
-                <element signature="e#52493#52494#0" expanded="true" />
-                <element signature="e#52698#52699#0" expanded="true" />
-                <element signature="e#52742#52743#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldDirection.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FieldDirection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainForm.form" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainForm.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -148,9 +97,9 @@
         <option value="$PROJECT_DIR$/src/JNumberTextField.java" />
         <option value="$PROJECT_DIR$/src/MainForm.form" />
         <option value="$PROJECT_DIR$/src/FieldDirection.java" />
-        <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/RXTXRobot_firmware.ino" />
         <option value="$PROJECT_DIR$/RXTXRobot.java" />
+        <option value="$PROJECT_DIR$/src/MainForm.java" />
       </list>
     </option>
   </component>
@@ -159,8 +108,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="111" />
-    <option name="y" value="266" />
+    <option name="x" value="74" />
+    <option name="y" value="22" />
     <option name="width" value="1366" />
     <option name="height" value="878" />
   </component>
@@ -220,6 +169,10 @@
               <option name="myItemId" value="DalekRobot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -245,8 +198,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RSBot" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SMU-KNW2300/RXTXRobot/dist/RXTXRobot.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="OverrideImplement.combined" value="true" />
@@ -786,7 +739,7 @@
       <workItem from="1397931602428" duration="2614000" />
       <workItem from="1397948019428" duration="37000" />
       <workItem from="1397959549284" duration="267000" />
-      <workItem from="1398006589698" duration="228000" />
+      <workItem from="1398006589698" duration="548000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -848,14 +801,18 @@
       <created>1397928314301</created>
       <updated>1397928314301</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Updated firmware and library for multiple ping sensors and 3 servos">
+      <created>1398009535776</created>
+      <updated>1398009535776</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68598000" />
+    <option name="totallyTimeSpent" value="68918000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="111" y="266" width="1366" height="878" extended-state="6" />
+    <frame x="74" y="22" width="1366" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22401172" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -916,7 +873,8 @@
     <MESSAGE value="Create ENUM for fieldDirection&#10;More prep for demo 2" />
     <MESSAGE value="Use sensors for movement for water well finding" />
     <MESSAGE value="Use sensors for more movement&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use sensors for more movement&#10;" />
+    <MESSAGE value="Updated firmware and library for multiple ping sensors and 3 servos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated firmware and library for multiple ping sensors and 3 servos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1254,41 +1212,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
+    <entry file="file://$PROJECT_DIR$/RXTXRobot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1281" column="56" selection-start="38878" selection-end="38878" vertical-scroll-proportion="0.0" vertical-offset="16349" max-vertical-offset="17130">
+        <state line="1388" column="13" selection-start="53564" selection-end="53564" vertical-scroll-proportion="1.1043478" vertical-offset="20185" max-vertical-offset="21300">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3840#4083#0" expanded="false" />
+            <element signature="e#4068#4069#0" expanded="false" />
+            <element signature="e#50650#50651#0" expanded="false" />
+            <element signature="e#50688#50689#0" expanded="false" />
+            <element signature="e#50950#50951#0" expanded="false" />
+            <element signature="e#50987#50988#0" expanded="false" />
+            <element signature="e#51253#51254#0" expanded="false" />
+            <element signature="e#51293#51294#0" expanded="false" />
+            <element signature="e#52155#52156#0" expanded="false" />
+            <element signature="e#52201#52202#0" expanded="false" />
+            <element signature="e#52452#52453#0" expanded="false" />
+            <element signature="e#52493#52494#0" expanded="false" />
+            <element signature="e#52698#52699#0" expanded="false" />
+            <element signature="e#52742#52743#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RXTXRobot_firmware.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="565" column="0" selection-start="13917" selection-end="13917" vertical-scroll-proportion="0.0" vertical-offset="7917" max-vertical-offset="8565">
+        <state line="565" column="0" selection-start="13917" selection-end="13917" vertical-scroll-proportion="0.9489796" vertical-offset="7917" max-vertical-offset="8565">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RXTXRobot.java">
+    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1386" column="50" selection-start="53477" selection-end="53477" vertical-scroll-proportion="0.24" vertical-offset="20652" max-vertical-offset="21300">
+        <state line="1308" column="39" selection-start="39699" selection-end="39699" vertical-scroll-proportion="0.56292516" vertical-offset="16619" max-vertical-offset="17310">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3840#4083#0" expanded="true" />
-            <element signature="e#4068#4069#0" expanded="true" />
-            <element signature="e#50650#50651#0" expanded="true" />
-            <element signature="e#50688#50689#0" expanded="true" />
-            <element signature="e#50950#50951#0" expanded="true" />
-            <element signature="e#50987#50988#0" expanded="true" />
-            <element signature="e#51253#51254#0" expanded="true" />
-            <element signature="e#51293#51294#0" expanded="true" />
-            <element signature="e#52155#52156#0" expanded="true" />
-            <element signature="e#52201#52202#0" expanded="true" />
-            <element signature="e#52452#52453#0" expanded="true" />
-            <element signature="e#52493#52494#0" expanded="true" />
-            <element signature="e#52698#52699#0" expanded="true" />
-            <element signature="e#52742#52743#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1300,10 +1258,10 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
+              <type id="artifact" />
               <type id="javaee-facet-resources" />
               <type id="jpa-descriptors" />
-              <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>DalekRobot:jar</last-edited>
@@ -1360,7 +1318,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
