@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 
 //400 = 27 inches
@@ -58,8 +60,8 @@ public class MainForm {
     private JComboBox debugDirectionComboBox;
     private JButton readTurbidityButton;
     private JButton readSalinityButton;
-    private JButton readPingSensorButton;
-    private JLabel distanceLabel;
+    private JButton readBucketPingButton;
+    private JLabel bucketPingLabel;
     private JButton readLightSensorButton;
     private JLabel lightLabel;
     private JButton extendArmButton;
@@ -69,6 +71,9 @@ public class MainForm {
     private JButton soccerBallButton;
     private JComboBox soccerBallComboBox;
     private JButton goToDispensersButton;
+    private JButton readServoPingButton;
+    private JLabel servoPingLabel;
+    private JSlider servoPingSlider;
 
     private final JFrame frame;
 
@@ -435,12 +440,29 @@ public class MainForm {
             }
         });
 
-        readPingSensorButton.addActionListener(new ActionListener() {
+        readBucketPingButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 readPingSensorStationary();
             }
         });
+
+        readServoPingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                readPingDynamic(servoPingSlider.getValue());
+            }
+        });
+
+
+        servoPingSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                r.moveServo(PING_SERVO, servoPingSlider.getValue());
+            }
+        });
+
+
 
         readLightSensorButton.addActionListener(new ActionListener() {
             @Override
@@ -520,9 +542,9 @@ public class MainForm {
 
     public void setDebugView(boolean showDebugView) {
         if(showDebugView) {
-            frame.setSize(new Dimension(840, 660));
+            frame.setSize(new Dimension(840, 700));
         } else {
-            frame.setSize(new Dimension(840, 530));
+            frame.setSize(new Dimension(840, 570));
         }
     }
 
@@ -557,10 +579,13 @@ public class MainForm {
                 crossBridgeButton.setEnabled(isEnabled);
                 readTurbidityButton.setEnabled(isEnabled);
                 readSalinityButton.setEnabled(isEnabled);
-                readPingSensorButton.setEnabled(isEnabled);
+                readBucketPingButton.setEnabled(isEnabled);
+                readServoPingButton.setEnabled(isEnabled);
+                servoPingSlider.setEnabled(isEnabled);
                 readLightSensorButton.setEnabled(isEnabled);
                 extendArmButton.setEnabled(isEnabled);
                 retractArmButton.setEnabled(isEnabled);
+                goToDispensersButton.setEnabled(isEnabled);
             }
         };
 
@@ -613,13 +638,26 @@ public class MainForm {
         SwingUtilities.invokeLater(runnable);
     }
 
-    public void updateDistanceLabel() {
+    public void updateBucketPingLabel() {
         Runnable runnable = new Runnable()
         {
             @Override
             public void run()
             {
-                distanceLabel.setText(currentDistance + " cm");
+                bucketPingLabel.setText(currentBucketPingDistance + " cm");
+            }
+        };
+        SwingUtilities.invokeLater(runnable);
+    }
+
+    public void updateServoPingLabel() {
+        Runnable runnable = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                servoPingLabel.setText(currentServoPingDistance + " cm");
+                servoPingSlider.setValue(r.getServoPosition(PING_SERVO));
             }
         };
         SwingUtilities.invokeLater(runnable);
@@ -647,16 +685,16 @@ public class MainForm {
         frame.setVisible(true);
         frame.setTitle("Dalek Robot");
 
-        frame.setSize(new Dimension(840, 530));
+        frame.setSize(new Dimension(840, 570));
     }
 
     ////////////////////
     // CONSTANTS
     ////////////////////
 
-    public static final int LINE_SENSOR_ANALOG_PIN = 1; // A1
+    public static final int LINE_SENSOR_ANALOG_PIN = 0; // A0
 
-    public static final int TURBIDITY_PIN = 2; // A2
+    public static final int TURBIDITY_PIN = 3; // A3
 
 
     public static final int MOTOR_SPEED_FAST = 450;
@@ -704,7 +742,7 @@ public class MainForm {
     // black = 2,3,4
     public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 22;
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
-    public static final int WATER_WELL_DISTANCE_THRESHOLD = 39;
+    public static final int WATER_WELL_DISTANCE_THRESHOLD = 30;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
     public static final int DISPENSER_DISTANCE_THRESHOLD = 20;
 
@@ -736,7 +774,8 @@ public class MainForm {
     public  FieldDirection turbidityLargeLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
     public  FieldDirection turbiditySmallLocation = FieldDirection.TURBIDITY_DISPENSER_BOTTOM;
 
-    public int currentDistance = 0;
+    public int currentBucketPingDistance = 0;
+    public int currentServoPingDistance = 0;
     public int currentLightValue = 0;
 
     // Between 2,500-12,000
@@ -868,7 +907,8 @@ public class MainForm {
 
     public void raiseCrane(boolean isSlow) {
 
-        for (int i = CRANE_DOWN_POSITION; i >= CRANE_UP_POSITION; i -= CRANE_INTERVAL) {
+
+        for (int i = r.getServoPosition(CRANE_SERVO); i >= CRANE_UP_POSITION; i -= CRANE_INTERVAL) {
             r.moveServo(CRANE_SERVO, i);
             r.sleep(isSlow ? QUICK_DELAY * 15 : QUICK_DELAY);
         }
@@ -878,7 +918,7 @@ public class MainForm {
 
     public void lowerCrane() {
 
-        for (int i = CRANE_UP_POSITION; i <= CRANE_DOWN_POSITION; i += CRANE_INTERVAL) {
+        for (int i = r.getServoPosition(CRANE_SERVO); i <= CRANE_DOWN_POSITION; i += CRANE_INTERVAL) {
             r.moveServo(CRANE_SERVO, i);
             r.sleep(QUICK_DELAY);
         }
@@ -942,11 +982,9 @@ public class MainForm {
             if (fromLocation == FieldDirection.START_LOCATION) {
 
 
-                moveUntilDistance(BUCKET_FORWARD, motorSpeed, WATER_WELL_DISTANCE_THRESHOLD);
+                moveUntilDistance(CRANE_FORWARD, motorSpeed, WATER_WELL_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
                 r.sleep(500);
-
-                turn180();
 
                 lastLocation = toLocation;
 
@@ -957,12 +995,12 @@ public class MainForm {
             if (fromLocation == FieldDirection.WATER_WELL) {
 
 
-                // TODO - CHeck this
+                // TODO - Check this
                 move(BUCKET_FORWARD, 100);
 
                 turnRight(BUCKET_FORWARD);
 
-                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD);
+                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
                 lastLocation = toLocation;
             } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
@@ -1030,7 +1068,7 @@ public class MainForm {
 
             // Start moving forward
 
-            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DROP_OFF_LOCATION_DISTANCE_THRESHOLD);
+            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DROP_OFF_LOCATION_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
             lastLocation = toLocation;
         }
@@ -1047,7 +1085,7 @@ public class MainForm {
 
             // Cross the bridge
 
-            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, CROSS_BRIDGE_DISTANCE_THRESHOLD);
+            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, CROSS_BRIDGE_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
             stopMotors();
 
@@ -1082,7 +1120,7 @@ public class MainForm {
 
         turn180();
 
-        moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD);
+        moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
     }
 
@@ -1101,7 +1139,7 @@ public class MainForm {
                 turbidityAmountCollected += TURBIDITY_LARGE_AMOUNT;
             }
 
-            System.out.println(String.format("Collecting [%s] - [%d] - [Total: %d]",
+            System.out.println(String.format("Collecting [%s] - [%d] - [%d/%d]",
                     isSalinity ? "Salinity" : "Turbidity",
                     isSalinity ? SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT,
                     isSalinity ? salinityAmountCollected : turbidityAmountCollected,
@@ -1241,21 +1279,47 @@ public class MainForm {
 
     }
 
-    public void moveUntilDistance(int direction, int distanceThreshold)
+    public void moveUntilDistance(int direction, int distanceThreshold, PingDirection servoDirection)
     {
-     moveUntilDistance(direction, MOTOR_SPEED_SLOW, distanceThreshold);
+        moveUntilDistance(direction, MOTOR_SPEED_SLOW, distanceThreshold, servoDirection);
     }
 
-    public void moveUntilDistance(int direction, int speed, int distanceThreshold)
+    public void moveUntilDistance(int direction, int speed, int distanceThreshold, PingDirection servoDirection)
     {
         // Start moving forward
         moveAsync(direction, speed);
 
-        readPingSensorStationary();
+        readPingSensor(servoDirection);
 
-        // Stop when within 25cm of the wall
+        int currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
         while(currentDistance > distanceThreshold) {
-            readPingSensorStationary();
+            readPingSensor(servoDirection);
+
+            currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+        }
+
+        stopMotors();
+    }
+
+    public void movePastDistance(int direction, int distanceThreshold, PingDirection servoDirection)
+    {
+        movePastDistance(direction, MOTOR_SPEED_SLOW, distanceThreshold, servoDirection);
+    }
+
+    public void movePastDistance(int direction, int speed, int distanceThreshold, PingDirection servoDirection)
+    {
+        // Start moving forward
+        moveAsync(direction, speed);
+
+        readPingSensor(servoDirection);
+
+        int currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
+        while(currentDistance < distanceThreshold) {
+            readPingSensor(servoDirection);
+
+            currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
         }
 
         stopMotors();
@@ -1295,18 +1359,44 @@ public class MainForm {
         r.sleep(QUICK_DELAY);
     }
 
-    public void readPingSensorStationary() {
+    public void readPingSensor(PingDirection direction) {
 
-        currentDistance = r.getPing(PING_STATIONARY);
-
-        updateDistanceLabel();
+        if(direction == PingDirection.BUCKET) {
+            readPingSensorStationary();
+        } else {
+            readPingDynamic(direction);
+        }
     }
 
-    public int readPingDynamic(int direction) {
+    public void readPingSensorStationary() {
 
-        r.moveServo(PING_SERVO, direction);
+        currentBucketPingDistance = r.getPing(PING_STATIONARY);
 
-        return r.getPing(PING_DYNAMIC);
+        updateBucketPingLabel();
+    }
+
+    public void readPingDynamic(PingDirection direction) {
+
+        int degrees = PING_SERVO_MIDDLE;
+
+        if(direction == PingDirection.CRANE_MIDDLE) {
+            degrees = PING_SERVO_MIDDLE;
+        } else if (direction == PingDirection.CRANE_LEFT) {
+            degrees = PING_SERVO_LEFT;
+        } else if (direction == PingDirection.CRANE_RIGHT) {
+            degrees = PING_SERVO_RIGHT;
+        }
+
+        readPingDynamic(degrees);
+    }
+
+    public void readPingDynamic(int degrees) {
+
+        r.moveServo(PING_SERVO, degrees);
+
+        currentServoPingDistance =  r.getPing(PING_DYNAMIC);
+
+        updateServoPingLabel();
     }
 
     public void readLightSensor() {
@@ -1317,10 +1407,10 @@ public class MainForm {
     }
 
     public void extendArm() {
-        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_EXTEND * MOTOR_SPEED_FAST, 800);
+        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_EXTEND * MOTOR_SPEED_FAST, 500);
     }
 
     public void retractArm() {
-        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_RETRACT * MOTOR_SPEED_FAST, 800);
+        r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_RETRACT * MOTOR_SPEED_FAST, 500);
     }
 }
