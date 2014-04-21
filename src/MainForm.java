@@ -25,6 +25,10 @@ import javax.swing.event.ChangeListener;
 // dispensers = 24 inches apart
 
 
+//at  close dispenser:
+// side ping =  57-67
+// side ping = 118-125
+
 
 
 
@@ -527,7 +531,8 @@ public class MainForm {
 
                 setup();
 
-                lastLocation = FieldDirection.WATER_WELL;
+                lastLocation = FieldDirection.START_LOCATION;
+                goToLocation(FieldDirection.WATER_WELL);
                 goToLocation(FieldDirection.SALINITY_DISPENSER_BOTTOM);
                 goToLocation(FieldDirection.SALINITY_DISPENSER_TOP);
                 goToLocation(FieldDirection.TURBIDITY_DISPENSER_BOTTOM);
@@ -716,8 +721,8 @@ public class MainForm {
     public static final int CARGO_SERVO = RXTXRobot.SERVO2; // D10
     public static final int PING_SERVO = RXTXRobot.SERVO3; // D11
 
-    public static final int PING_STATIONARY = RXTXRobot.PING1; // D13
-    public static final int PING_DYNAMIC = RXTXRobot.PING2; // D8
+    public static final int PING_STATIONARY = RXTXRobot.PING2; // D13
+    public static final int PING_DYNAMIC = RXTXRobot.PING1; // D8
 
 
     public static final int SOCCER_BALL_ARM_MOTOR = RXTXRobot.MOTOR3; // D7
@@ -727,13 +732,12 @@ public class MainForm {
 
 
     // TODO - Calibrate this....
-    public static final int TURN_90_TICKS = 175;
+    public static final int TURN_90_TICKS = 180;
     public static final int TURN_180_TICKS = TURN_90_TICKS * 2;
 
     public static final int QUICK_DELAY = 3;
 
 
-    // TODO - calibrate this
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
     public static final double INCH_TO_TICK_CONVERSION = 14.28571428571429;
 
@@ -744,8 +748,10 @@ public class MainForm {
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
     public static final int WATER_WELL_DISTANCE_THRESHOLD = 30;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
-    public static final int DISPENSER_DISTANCE_THRESHOLD = 20;
-
+    public static final int DISPENSER_DISTANCE_THRESHOLD = 38;
+    public static final int DISPENSER_PARALLEL_DISTANCE_THRESHOLD = 30;
+    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 57;
+    
     public static final int TURBIDITY_MINIMUM= 5;
     public static final int TURBIDITY_MAXIMUM = 750;
     public static final int TURBIDITY_LARGE_AMOUNT = 50;
@@ -847,11 +853,10 @@ public class MainForm {
 
         lowerCrane();
 
-        r.sleep(1000);
+        r.sleep(500);
 
 
         // TODO - Take an average???
-
         readSalinitySensor();
         readTurbiditySensor();
 
@@ -982,7 +987,7 @@ public class MainForm {
             if (fromLocation == FieldDirection.START_LOCATION) {
 
 
-                moveUntilDistance(CRANE_FORWARD, motorSpeed, WATER_WELL_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+                moveUntilDistance(CRANE_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
 
                 r.sleep(500);
 
@@ -995,8 +1000,7 @@ public class MainForm {
             if (fromLocation == FieldDirection.WATER_WELL) {
 
 
-                // TODO - Check this
-                move(BUCKET_FORWARD, 100);
+                movePastDistance(BUCKET_FORWARD, motorSpeed,WATER_WELL_REVERSE_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
 
                 turnRight(BUCKET_FORWARD);
 
@@ -1105,9 +1109,14 @@ public class MainForm {
         }
 
 
-        int ticks = 350;
-        move(BUCKET_FORWARD, ticks);
+        // Move past the current dispenser
+        move(BUCKET_FORWARD, 100);
 
+        if(turnLeftFirst) {
+            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_PARALLEL_DISTANCE_THRESHOLD, PingDirection.CRANE_LEFT);
+        } else {
+            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_PARALLEL_DISTANCE_THRESHOLD, PingDirection.CRANE_RIGHT);
+        }
 
         if(turnLeftFirst) {
             turnRight(BUCKET_FORWARD);
@@ -1296,7 +1305,12 @@ public class MainForm {
         while(currentDistance > distanceThreshold) {
             readPingSensor(servoDirection);
 
+
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
+            if(r.getVerbose()) {
+                System.out.println(currentDistance + " " + distanceThreshold);
+            }
         }
 
         stopMotors();
@@ -1320,6 +1334,10 @@ public class MainForm {
             readPingSensor(servoDirection);
 
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
+            if(r.getVerbose()) {
+                System.out.println(currentDistance + " " + distanceThreshold);
+            }
         }
 
         stopMotors();
