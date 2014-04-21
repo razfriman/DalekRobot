@@ -291,6 +291,8 @@ public class MainForm {
 
                 setup();
 
+                lastLocation = FieldDirection.AFTER_CROSS_BRIDGE;
+
                 goToLocation(FieldDirection.DROP_OFF_LOCATION);
 
                 openBucket();
@@ -495,6 +497,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setup();
+                lastLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
                 findBridge();
             }
         });
@@ -732,10 +735,12 @@ public class MainForm {
 
 
     // TODO - Calibrate this....
+    public static final int TURN_01_TICKS = 180 / 90;
     public static final int TURN_90_TICKS = 180;
     public static final int TURN_180_TICKS = TURN_90_TICKS * 2;
 
     public static final int QUICK_DELAY = 3;
+    public static final int MEDIUM_DELAY = 200;
 
 
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
@@ -751,7 +756,7 @@ public class MainForm {
     public static final int DISPENSER_DISTANCE_THRESHOLD = 38;
     public static final int DISPENSER_PARALLEL_DISTANCE_THRESHOLD = 30;
     public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 57;
-    
+
     public static final int TURBIDITY_MINIMUM= 5;
     public static final int TURBIDITY_MAXIMUM = 750;
     public static final int TURBIDITY_LARGE_AMOUNT = 50;
@@ -1004,7 +1009,32 @@ public class MainForm {
 
                 turnRight(BUCKET_FORWARD);
 
-                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+                //moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+
+                moveAsync(BUCKET_FORWARD, motorSpeed);
+
+                readPingSensor(PingDirection.BUCKET);
+                readPingSensor(PingDirection.CRANE_LEFT);
+
+                int startingSideDistance = currentServoPingDistance;
+
+                int currentDistance = PingDirection.BUCKET == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
+                while(currentDistance > DISPENSER_DISTANCE_THRESHOLD) {
+
+                    readPingSensor(PingDirection.BUCKET);
+                    readPingSensor(PingDirection.CRANE_LEFT);
+
+                    System.out.println("Sideways diff = " + (startingSideDistance - currentServoPingDistance));
+
+                    currentDistance = PingDirection.BUCKET == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
+                    if(r.getVerbose()) {
+                        System.out.println(currentDistance + " " + DISPENSER_DISTANCE_THRESHOLD);
+                    }
+                }
+
+                stopMotors();
 
                 lastLocation = toLocation;
             } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
@@ -1070,19 +1100,24 @@ public class MainForm {
 
         if(toLocation == FieldDirection.DROP_OFF_LOCATION) {
 
+            if(fromLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
             // Start moving forward
 
             moveUntilDistance(BUCKET_FORWARD, motorSpeed, DROP_OFF_LOCATION_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
             lastLocation = toLocation;
+            }
         }
 
         if(toLocation == FieldDirection.BEFORE_CROSS_BRIDGE_LEFT) {
+            if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
 
             turnRight(BUCKET_FORWARD);
+
             move(BUCKET_FORWARD, 200);
 
             lastLocation = toLocation;
+            }
         }
 
         if(toLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
@@ -1275,7 +1310,7 @@ public class MainForm {
                 RXTXRobot.MOTOR2, speed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), ticks
         );
 
-        r.sleep(QUICK_DELAY);
+        r.sleep(MEDIUM_DELAY);
     }
 
     public void moveAsync(int direction, int speed) {
@@ -1345,26 +1380,45 @@ public class MainForm {
 
     public void turnLeft(int direction) {
 
+        turnLeft(direction, 90);
+    }
+
+    public void turnLeft(int direction, int degrees) {
+
+        degrees = Math.max(degrees, 0);
+        degrees = Math.min(degrees, 360);
+
         boolean isBucketForward = direction == BUCKET_FORWARD;
 
         r.runEncodedMotor(
-                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_90_TICKS,
-                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_90_TICKS
+                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_01_TICKS * degrees,
+                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_01_TICKS * degrees
         );
 
-        r.sleep(QUICK_DELAY);
+        r.sleep(MEDIUM_DELAY);
     }
+
+
 
     public void turnRight(int direction) {
 
+        turnRight(direction, 90);
+    }
+
+    public void turnRight(int direction, int degrees) {
+
+        degrees = Math.max(degrees, 0);
+        degrees = Math.min(degrees, 360);
+
         boolean isBucketForward = direction == BUCKET_FORWARD;
 
         r.runEncodedMotor(
-                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_90_TICKS,
-                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_90_TICKS
+                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_01_TICKS * degrees,
+                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_01_TICKS * degrees
         );
 
-        r.sleep(QUICK_DELAY);
+        r.sleep(MEDIUM_DELAY);
+
     }
 
     public void turn180() {

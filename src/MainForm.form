@@ -127,6 +127,7 @@
             </constraints>
             <properties>
               <text value="&amp;Connect"/>
+              <toolTipText value="Connect to the Robot"/>
             </properties>
           </component>
           <component id="dbc5c" class="javax.swing.JComboBox" binding="salinityComboBox">
@@ -361,6 +362,7 @@
         </constraints>
         <properties>
           <text value="Read T&amp;urbidity"/>
+          <toolTipText value="Reads the value from the turbidity sensor and calculates the materials required."/>
         </properties>
       </component>
       <component id="85de2" class="javax.swing.JButton" binding="readSalinityButton" default-binding="true">
@@ -369,6 +371,7 @@
         </constraints>
         <properties>
           <text value="Read Sa&amp;linity"/>
+          <toolTipText value="Reads the value from the salinity sensor and calculates the materials required."/>
         </properties>
       </component>
       <component id="cbad6" class="javax.swing.JButton" binding="runButton1" default-binding="true">
@@ -377,6 +380,7 @@
         </constraints>
         <properties>
           <text value="&amp;Run All"/>
+          <toolTipText value="GOOD LUCK! Cross your fingers and hope everything goes well."/>
         </properties>
       </component>
       <component id="94e67" class="javax.swing.JButton" binding="testWaterButton" default-binding="true">
@@ -385,6 +389,7 @@
         </constraints>
         <properties>
           <text value="Test &amp;Water"/>
+          <toolTipText value="Moves forward toward the water. Then it lowers the crane and tests the water."/>
         </properties>
       </component>
       <component id="27cda" class="javax.swing.JButton" binding="dispenseBallsButton" default-binding="true">
@@ -393,6 +398,7 @@
         </constraints>
         <properties>
           <text value="Dispense &amp;Balls"/>
+          <toolTipText value="Moves forward and dispenses 3 balls"/>
         </properties>
       </component>
       <component id="677ca" class="javax.swing.JButton" binding="deliverMaterialsButton" default-binding="true">
@@ -401,6 +407,7 @@
         </constraints>
         <properties>
           <text value="D&amp;eliver Materials"/>
+          <toolTipText value="Move straight towards the dropoff location. Then it opens the bucket releasing the materials"/>
         </properties>
       </component>
       <component id="691b" class="javax.swing.JLabel" binding="bucketPingLabel">
@@ -417,6 +424,7 @@
         </constraints>
         <properties>
           <text value="Read Bucket Ping"/>
+          <toolTipText value="Read the distance on the bucket ping."/>
         </properties>
       </component>
       <component id="3684" class="javax.swing.JButton" binding="readLightSensorButton" default-binding="true">
@@ -449,6 +457,7 @@
         </constraints>
         <properties>
           <text value="Find Bridge"/>
+          <toolTipText value="Starts at the top turbidity dispenser. Turns right. Moves towards the canyon. Turns right. Moves straight until it detects the bridge. Turns left to face the bridge."/>
         </properties>
       </component>
       <component id="9f8e2" class="javax.swing.JButton" binding="crossBridgeButton" default-binding="true">
@@ -457,6 +466,7 @@
         </constraints>
         <properties>
           <text value="Cross Bridge"/>
+          <toolTipText value="Moves straight and crosses the bridge. Turns right to face the dropoff location."/>
         </properties>
       </component>
       <component id="1cee1" class="javax.swing.JButton" binding="soccerBallButton" default-binding="true">
@@ -465,6 +475,7 @@
         </constraints>
         <properties>
           <text value="Soccer Ball"/>
+          <toolTipText value="Extends the arm. Moves away from the ball. Retracts the arm."/>
         </properties>
       </component>
       <component id="f1988" class="javax.swing.JButton" binding="readServoPingButton" default-binding="true">
@@ -473,6 +484,7 @@
         </constraints>
         <properties>
           <text value="Read Servo Ping"/>
+          <toolTipText value="Read the distance on the servo ping."/>
         </properties>
       </component>
       <component id="a4e2d" class="javax.swing.JLabel" binding="servoPingLabel">
@@ -489,6 +501,7 @@
         </constraints>
         <properties>
           <maximum value="180"/>
+          <toolTipText value="Adjust the location of the servo ping."/>
           <value value="90"/>
         </properties>
       </component>
@@ -506,6 +519,7 @@
         </constraints>
         <properties>
           <text value="Go To Dispensers"/>
+          <toolTipText value="Start at starting position. Moves to each of the four dispensers sequentially"/>
         </properties>
       </component>
     </children>
