@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="phidget21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/phidget21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RXTXcomm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RXTXRobot.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
