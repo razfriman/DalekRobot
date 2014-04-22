@@ -70,7 +70,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1209" column="21" selection-start="37610" selection-end="37610" vertical-scroll-proportion="0.25266904" vertical-offset="15128" max-vertical-offset="20790">
+            <state line="949" column="61" selection-start="29952" selection-end="29952" vertical-scroll-proportion="0.4128114" vertical-offset="11213" max-vertical-offset="20580">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -736,7 +736,7 @@
       <workItem from="1398088850355" duration="2674000" />
       <workItem from="1398093871964" duration="981000" />
       <workItem from="1398094978260" duration="2222000" />
-      <workItem from="1398126013081" duration="1396000" />
+      <workItem from="1398126013081" duration="7212000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -818,11 +818,15 @@
       <created>1398091097745</created>
       <updated>1398091097745</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Partial support to move straight across to the next dispenser">
+      <created>1398127427612</created>
+      <updated>1398127427612</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86259000" />
+    <option name="totallyTimeSpent" value="92075000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -891,7 +895,8 @@
     <MESSAGE value="Lots of fixes. Added some code for use of both ping sensors" />
     <MESSAGE value="More updates for autonomous movement" />
     <MESSAGE value="Added methods to specify angles for turning.&#10;Added tooltip text to all buttons so users know exactly what they do." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added methods to specify angles for turning.&#10;Added tooltip text to all buttons so users know exactly what they do." />
+    <MESSAGE value="Partial support to move straight across to the next dispenser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Partial support to move straight across to the next dispenser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1241,7 +1246,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1209" column="21" selection-start="37610" selection-end="37610" vertical-scroll-proportion="0.25266904" vertical-offset="15128" max-vertical-offset="20790">
+        <state line="949" column="61" selection-start="29952" selection-end="29952" vertical-scroll-proportion="0.4128114" vertical-offset="11213" max-vertical-offset="20580">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

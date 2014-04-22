@@ -756,11 +756,13 @@ public class MainForm {
     // black = 2,3,4
     public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 22;
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
-    public static final int WATER_WELL_DISTANCE_THRESHOLD = 30;
+    public static final int WATER_WELL_DISTANCE_THRESHOLD = 38;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
-    public static final int DISPENSER_DISTANCE_THRESHOLD = 38;
+    public static final int DISPENSER_DISTANCE_THRESHOLD = 34;
+    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 38;
+
     public static final int DISPENSER_PARALLEL_DISTANCE_THRESHOLD = 30;
-    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 40;
+
 
     public static final int TURBIDITY_MINIMUM= 5;
     public static final int TURBIDITY_MAXIMUM = 750;
@@ -777,6 +779,7 @@ public class MainForm {
     public static final int PING_SERVO_RIGHT = 170;
 
 
+    public static final int LONG_PARALLEL_DISTANCE_FROM_WALL = 121;
 
     ////////////////////
     // VARIABLES
@@ -863,7 +866,7 @@ public class MainForm {
 
         lowerCrane();
 
-        r.sleep(500);
+        r.sleep(200);
 
 
         // TODO - Take an average???
@@ -944,7 +947,7 @@ public class MainForm {
     public void calculateRemediationAmounts(int conductivityValue, int turbidityValue) {
 
 
-        turbidityRemediationAmount = (int) Math.round(-1.7253 * turbidityValue + 800.1);
+        turbidityRemediationAmount = (int) Math.round(-1.7519 * turbidityValue + 990.3);
 
         salinityRemediationAmount = (int) (25692 * Math.pow(Math.E, -0.007 * conductivityValue));
 
@@ -1014,35 +1017,7 @@ public class MainForm {
 
                 turnRight(BUCKET_FORWARD);
 
-                //moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
-
-                moveAsync(BUCKET_FORWARD, motorSpeed);
-
-                readPingSensor(PingDirection.BUCKET);
-                readPingSensor(PingDirection.CRANE_LEFT);
-
-                int startingSideDistance = currentServoPingDistance;
-
-                int currentDistance = PingDirection.BUCKET == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
-
-                while(currentDistance > DISPENSER_DISTANCE_THRESHOLD) {
-
-                    readPingSensor(PingDirection.BUCKET);
-                    readPingSensor(PingDirection.CRANE_LEFT);
-
-                    System.out.println("Sideways diff = " + (startingSideDistance - currentServoPingDistance));
-
-                    currentDistance = PingDirection.BUCKET == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
-
-
-                    System.out.println(currentDistance + " " + DISPENSER_DISTANCE_THRESHOLD);
-
-                    if(r.getVerbose()) {
-                        System.out.println(currentDistance + " " + DISPENSER_DISTANCE_THRESHOLD);
-                    }
-                }
-
-                stopMotors();
+                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
                 lastLocation = toLocation;
             } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
@@ -1118,6 +1093,12 @@ public class MainForm {
         }
 
         if(toLocation == FieldDirection.BEFORE_CROSS_BRIDGE_LEFT) {
+
+            if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
+                goToLocation(FieldDirection.TURBIDITY_DISPENSER_TOP);
+                fromLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
+            }
+
             if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
 
             turnRight(BUCKET_FORWARD);
@@ -1126,6 +1107,7 @@ public class MainForm {
 
             lastLocation = toLocation;
             }
+
         }
 
         if(toLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
@@ -1140,7 +1122,7 @@ public class MainForm {
 
         }
 
-        r.sleep(800);
+        r.sleep(500);
 
         updateGuiLocation();
     }
@@ -1186,55 +1168,59 @@ public class MainForm {
     public void goToNextDispenserType() {
 
         turn180();
-
         //moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
+
+        move(BUCKET_FORWARD, 50);
+
         readPingSensor(PingDirection.BUCKET);
-
         readPingSensor(PingDirection.CRANE_RIGHT);
-
-
-        System.out.println("starting");
-
-        int d = currentServoPingDistance;
 
         System.out.println(currentBucketPingDistance);
 
-        while(currentBucketPingDistance > 20) {
+        int DISTANCE_LIMIT = 20;
 
-
-            System.out.println("in the loop");
-            r.sleep(50);
-            move(BUCKET_FORWARD, 500);
+        while(currentBucketPingDistance > DISTANCE_LIMIT) {
 
             r.sleep(50);
-            System.out.println("move up a little");
+            move(BUCKET_FORWARD, 250);
 
 
+            readPingSensorStationary();
 
-            readPingSensor(PingDirection.CRANE_RIGHT);
-            System.out.println("read sensor");
+            r.sleep(50);
 
-            System.out.println(currentServoPingDistance + " " + d);
-
-            if(currentServoPingDistance > d) {
-                // Move left a little
-                turnLeft(BUCKET_FORWARD, 10);
-                System.out.println("left");
-            } else if (currentServoPingDistance == d) {
-                // Straight
-                System.out.println("starigt");
-            } else {
-                // Move right a little
-                turnRight(BUCKET_FORWARD, 10);
-                System.out.println("right");
+            if(currentBucketPingDistance < DISTANCE_LIMIT) {
+                break;
             }
 
-            readPingSensor(PingDirection.BUCKET);
+            readPingSensor(PingDirection.CRANE_RIGHT);
+
+            while(Math.abs(currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL) > 20) {
+                readPingSensor(PingDirection.CRANE_RIGHT);
+            }
+
+
+            System.out.println("TARGET D: " + LONG_PARALLEL_DISTANCE_FROM_WALL + " CURRENT D:" + currentServoPingDistance);
+
+            int ADJUSTMENT_LIMIT = 2;
+
+            int difference = currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL;
+            if(difference > ADJUSTMENT_LIMIT) {
+                // Move left a little
+                turnLeft(BUCKET_FORWARD, 15);
+                System.out.println("ADJUST LEFT");
+            } else if (difference < ADJUSTMENT_LIMIT) {
+                // Move right a little
+                turnRight(BUCKET_FORWARD, 15);
+                System.out.println("ADJUST RIGHT");
+            } else {
+                // Straight
+                System.out.println("NO ADJUSTMENT");
+            }
+
+            readPingSensorStationary();
         }
-
-        System.out.println("finished loop");
-
 
     }
 
@@ -1300,8 +1286,8 @@ public class MainForm {
 
     public void activateDispenser() {
 
-        int pushTicks = 150;
-        int reverseTicks = 100;
+        int pushTicks = 160;
+        int reverseTicks = 80;
 
         // Push the dispenser
         move(BUCKET_FORWARD, pushTicks, MOTOR_SPEED_FAST);
