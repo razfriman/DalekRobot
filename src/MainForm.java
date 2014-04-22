@@ -1,5 +1,5 @@
 /**
- * Created by raz on 3/2/14.
+ * Created by Raz on 3/2/14.
  */
 
 import rxtxrobot.*;
@@ -11,22 +11,10 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-
-//400 = 27 inches
-//300 = 21 inches
-//250 = 17.5
-//200 = 14 inches
-//150 = 11 inches
-//100 = 7
-// CONVERSION:  TICKS * .07 = INCHES
-
-
-// start to water well = 39 inches
-// dispensers = 24 inches apart
-
-
-//at  close dispenser:
+// Close Dispenser:
 // side ping =  57-67
+
+// Far Dispenser:
 // side ping = 118-125
 
 
@@ -92,7 +80,9 @@ public class MainForm {
             portComboBox.addItem(port);
         }
 
-        portComboBox.setSelectedIndex(0);
+        if(ports.length > 0) {
+            portComboBox.setSelectedIndex(0);
+        }
 
 
         for(int i = 0; i < portComboBox.getItemCount(); i++) {
@@ -151,7 +141,6 @@ public class MainForm {
                         r.setPort(robotPort);
                         r.connect();
 
-                        // TODO - ????
                         //r.setMotorRampUpTime(0);
 
 
@@ -189,9 +178,7 @@ public class MainForm {
                     @Override
                     public void run() {
                         setup();
-
-                        goToNextDispenserType();
-                        //testWater();
+                        testWater();
                     }
                 };
 
@@ -371,14 +358,14 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                move(1 * debugDirection, debugTicks, debugSpeed);
+                move(1 * debugDirection, debugTicks, motorSpeed);
             }
         });
 
         moveBackwardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(-1 * debugDirection, debugTicks, debugSpeed);
+                move(-1 * debugDirection, debugTicks, motorSpeed);
             }
         });
 
@@ -544,7 +531,6 @@ public class MainForm {
                 goToLocation(FieldDirection.TURBIDITY_DISPENSER_BOTTOM);
                 goToLocation(FieldDirection.TURBIDITY_DISPENSER_TOP);
                 goToLocation(FieldDirection.BEFORE_CROSS_BRIDGE_LEFT);
-
 
             }
         });
@@ -736,8 +722,6 @@ public class MainForm {
     public static final int SOCCER_BALL_ARM_EXTEND = 1;
     public static final int SOCCER_BALL_ARM_RETRACT = -1;
 
-
-    // TODO - Calibrate this....
     public static final int TURN_01_TICKS = 180 / 90;
     public static final int TURN_90_TICKS = 180;
     public static final int TURN_180_TICKS = TURN_90_TICKS * 2;
@@ -746,8 +730,6 @@ public class MainForm {
     public static final int MEDIUM_DELAY = 200;
     public static final int LONG_DELAY = 800;
 
-
-
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
     public static final double INCH_TO_TICK_CONVERSION = 14.28571428571429;
 
@@ -755,14 +737,14 @@ public class MainForm {
     // grey = 25
     // black = 2,3,4
     public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 22;
+
+
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
     public static final int WATER_WELL_DISTANCE_THRESHOLD = 38;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
     public static final int DISPENSER_DISTANCE_THRESHOLD = 34;
     public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 38;
-
-    public static final int DISPENSER_PARALLEL_DISTANCE_THRESHOLD = 30;
-
+    public static final int CROSS_DISPENSERS_DISTANCE_THRESHOLD = 20;
 
     public static final int TURBIDITY_MINIMUM= 5;
     public static final int TURBIDITY_MAXIMUM = 750;
@@ -780,18 +762,22 @@ public class MainForm {
 
 
     public static final int LONG_PARALLEL_DISTANCE_FROM_WALL = 121;
+    public static final int SHORT_PARALLEL_DISTANCE_FROM_WALL = 62;
+
+    public static final int PUSH_DISPENSER_TICKS = 80;
+    public static final int REVERSE_DISPENSER_TICKS = 160;
 
     ////////////////////
     // VARIABLES
     ////////////////////
 
-    public  final RXTXRobot r = new RXTXRobot();
-    public  FieldDirection lastLocation = FieldDirection.START_LOCATION;
+    public final RXTXRobot r = new RXTXRobot();
+    public FieldDirection lastLocation = FieldDirection.START_LOCATION;
 
-    public  FieldDirection salinityLargeLocation = FieldDirection.SALINITY_DISPENSER_TOP;
+    public FieldDirection salinityLargeLocation = FieldDirection.SALINITY_DISPENSER_TOP;
     public FieldDirection salinitySmallLocation = FieldDirection.SALINITY_DISPENSER_BOTTOM;
-    public  FieldDirection turbidityLargeLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
-    public  FieldDirection turbiditySmallLocation = FieldDirection.TURBIDITY_DISPENSER_BOTTOM;
+    public FieldDirection turbidityLargeLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
+    public FieldDirection turbiditySmallLocation = FieldDirection.TURBIDITY_DISPENSER_BOTTOM;
 
     public int currentBucketPingDistance = 0;
     public int currentServoPingDistance = 0;
@@ -811,9 +797,6 @@ public class MainForm {
     public int debugDirection = BUCKET_FORWARD;
     public int debugTicks = 100;
     public double debugInches = 7;
-
-    public final int debugSpeed = MOTOR_SPEED_MEDIUM;
-
 
     ////////////////////
     // PARAMETERS
@@ -852,13 +835,8 @@ public class MainForm {
 
     }
 
-    public void closeBucket() {
-        r.moveServo(CARGO_SERVO, CARGO_CLOSED_POSITION);
-    }
 
-    public void openBucket() {
-        r.moveServo(CARGO_SERVO, CARGO_OPEN_POSITION);
-    }
+
 
     public void testWater() {
 
@@ -919,31 +897,6 @@ public class MainForm {
 
     }
 
-    public void raiseCrane() {
-        raiseCrane(false);
-    }
-
-    public void raiseCrane(boolean isSlow) {
-
-
-        for (int i = r.getServoPosition(CRANE_SERVO); i >= CRANE_UP_POSITION; i -= CRANE_INTERVAL) {
-            r.moveServo(CRANE_SERVO, i);
-            r.sleep(isSlow ? QUICK_DELAY * 15 : QUICK_DELAY);
-        }
-
-        r.sleep(QUICK_DELAY);
-    }
-
-    public void lowerCrane() {
-
-        for (int i = r.getServoPosition(CRANE_SERVO); i <= CRANE_DOWN_POSITION; i += CRANE_INTERVAL) {
-            r.moveServo(CRANE_SERVO, i);
-            r.sleep(QUICK_DELAY);
-        }
-
-        r.sleep(QUICK_DELAY);
-    }
-
     public void calculateRemediationAmounts(int conductivityValue, int turbidityValue) {
 
 
@@ -975,6 +928,10 @@ public class MainForm {
         SwingUtilities.invokeLater(runnable);
     }
 
+
+
+
+
     public void collectRemediationMaterials() {
 
         goToLocation(lastLocation, FieldDirection.SALINITY_DISPENSER_BOTTOM);
@@ -982,149 +939,6 @@ public class MainForm {
 
         goToLocation(lastLocation, turbidityLargeLocation);
         collectMaterials(false);
-    }
-
-    public void goToLocation(FieldDirection toLocation) {
-        goToLocation(lastLocation, toLocation);
-    }
-
-    public void goToLocation(FieldDirection fromLocation, FieldDirection toLocation) {
-
-        System.out.println("LOCATION: " + toLocation.toString());
-
-        if(fromLocation == toLocation) {
-            return;
-        }
-
-        if(toLocation == FieldDirection.WATER_WELL) {
-            if (fromLocation == FieldDirection.START_LOCATION) {
-
-
-                moveUntilDistance(CRANE_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
-
-                r.sleep(500);
-
-                lastLocation = toLocation;
-
-            }
-        }
-
-        if (toLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
-            if (fromLocation == FieldDirection.WATER_WELL) {
-
-
-                movePastDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_REVERSE_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
-
-                turnRight(BUCKET_FORWARD);
-
-                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
-
-                lastLocation = toLocation;
-            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
-
-                switchDispensers(false);
-                lastLocation = toLocation;
-            }
-        }
-
-        if (toLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
-            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
-
-                switchDispensers(true);
-                lastLocation = toLocation;
-            }
-        }
-
-        if(toLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
-            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
-
-                goToNextDispenserType();
-
-                lastLocation = toLocation;
-
-            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
-
-                goToNextDispenserType();
-                switchDispensers(true);
-
-                lastLocation = toLocation;
-
-            } else if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
-
-                switchDispensers(true);
-
-                lastLocation = toLocation;
-            }
-        }
-
-        if(toLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
-            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
-
-
-                goToNextDispenserType();
-                switchDispensers(false);
-
-                lastLocation = toLocation;
-
-            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
-
-                goToNextDispenserType();
-
-                lastLocation = toLocation;
-
-            } else if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
-
-                switchDispensers(false);
-
-                lastLocation = toLocation;
-            }
-        }
-
-
-        if(toLocation == FieldDirection.DROP_OFF_LOCATION) {
-
-            if(fromLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
-            // Start moving forward
-
-            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DROP_OFF_LOCATION_DISTANCE_THRESHOLD, PingDirection.BUCKET);
-
-            lastLocation = toLocation;
-            }
-        }
-
-        if(toLocation == FieldDirection.BEFORE_CROSS_BRIDGE_LEFT) {
-
-            if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
-                goToLocation(FieldDirection.TURBIDITY_DISPENSER_TOP);
-                fromLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
-            }
-
-            if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
-
-            turnRight(BUCKET_FORWARD);
-
-            move(BUCKET_FORWARD, 200);
-
-            lastLocation = toLocation;
-            }
-
-        }
-
-        if(toLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
-
-            // Cross the bridge
-
-            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, CROSS_BRIDGE_DISTANCE_THRESHOLD, PingDirection.BUCKET);
-
-            stopMotors();
-
-            move(CRANE_FORWARD, 100);
-
-        }
-
-        r.sleep(500);
-
-        updateGuiLocation();
     }
 
     public void switchDispensers(boolean turnLeftFirst) {
@@ -1165,40 +979,43 @@ public class MainForm {
         }
     }
 
-    public void goToNextDispenserType() {
+    public void goToNextDispenserType(boolean isFarSide) {
 
+        /* Old Method - Less sensor detection
         turn180();
-        //moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+        moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+        */
 
+
+        // New method - Uses parallel ping
+        turn180();
 
         move(BUCKET_FORWARD, 50);
 
         readPingSensor(PingDirection.BUCKET);
         readPingSensor(PingDirection.CRANE_RIGHT);
 
-        System.out.println(currentBucketPingDistance);
-
-        int DISTANCE_LIMIT = 20;
-
-        while(currentBucketPingDistance > DISTANCE_LIMIT) {
+        while(currentBucketPingDistance > CROSS_DISPENSERS_DISTANCE_THRESHOLD) {
 
             r.sleep(50);
-            move(BUCKET_FORWARD, 250);
+
+            
+            move(BUCKET_FORWARD, 170, MOTOR_SPEED_SLOW);
 
 
             readPingSensorStationary();
+            readPingSensor(PingDirection.CRANE_RIGHT);
 
-            r.sleep(50);
-
-            if(currentBucketPingDistance < DISTANCE_LIMIT) {
+            if(currentBucketPingDistance < CROSS_DISPENSERS_DISTANCE_THRESHOLD) {
                 break;
             }
 
-            readPingSensor(PingDirection.CRANE_RIGHT);
-
+            // Keep reading until we get a valid value
+            /*
             while(Math.abs(currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL) > 20) {
                 readPingSensor(PingDirection.CRANE_RIGHT);
             }
+            */
 
 
             System.out.println("TARGET D: " + LONG_PARALLEL_DISTANCE_FROM_WALL + " CURRENT D:" + currentServoPingDistance);
@@ -1207,17 +1024,24 @@ public class MainForm {
 
             int difference = currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL;
             if(difference > ADJUSTMENT_LIMIT) {
+
                 // Move left a little
                 turnLeft(BUCKET_FORWARD, 15);
                 System.out.println("ADJUST LEFT");
+
             } else if (difference < ADJUSTMENT_LIMIT) {
+
                 // Move right a little
                 turnRight(BUCKET_FORWARD, 15);
                 System.out.println("ADJUST RIGHT");
+
             } else {
+
                 // Straight
                 System.out.println("NO ADJUSTMENT");
             }
+
+            System.out.println("");
 
             readPingSensorStationary();
         }
@@ -1229,7 +1053,10 @@ public class MainForm {
         int materialLeft = isSalinity ? salinityRemediationAmount : turbidityRemediationAmount;
 
         // 5 - 750 NTU
-        while(materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT)) {
+        //50's and 5's
+        //100's 1000's
+
+        while(materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT - 50 : TURBIDITY_LARGE_AMOUNT - 3)) {
             collectMaterial(isSalinity, true);
             materialLeft -= isSalinity ?  SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT;
 
@@ -1247,7 +1074,7 @@ public class MainForm {
         }
 
         // 2,500 - 12,000 us
-        while(materialLeft >= (isSalinity? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT)) {
+        while(materialLeft >= (isSalinity? SALINITY_SMALL_AMOUNT - 50 : TURBIDITY_SMALL_AMOUNT - 3)) {
             collectMaterial(isSalinity, false);
             materialLeft -= isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT;
 
@@ -1286,19 +1113,38 @@ public class MainForm {
 
     public void activateDispenser() {
 
-        int pushTicks = 160;
-        int reverseTicks = 80;
+        int pushTicks = PUSH_DISPENSER_TICKS;
+        int reverseTicks = REVERSE_DISPENSER_TICKS;
 
         // Push the dispenser
         move(BUCKET_FORWARD, pushTicks, MOTOR_SPEED_FAST);
 
-        r.sleep(500);
+        r.sleep(MEDIUM_DELAY);
 
         // Move back a little bit to release the pressure from the dispenser
-        move(CRANE_FORWARD, reverseTicks);
+        move(CRANE_FORWARD, reverseTicks, MOTOR_SPEED_SLOW);
 
-        r.sleep(500);
+        r.sleep(MEDIUM_DELAY);
+    }
 
+
+
+
+
+    public void dropOffMaterials() {
+
+        findBridge();
+
+        crossBridge();
+
+        goToLocation(lastLocation, FieldDirection.DROP_OFF_LOCATION);
+
+        openBucket();
+
+        // Wait for all of the materials to be released
+        r.sleep(2000);
+
+        closeBucket();
     }
 
     public void findBridge() {
@@ -1323,7 +1169,6 @@ public class MainForm {
         turnLeft(BUCKET_FORWARD);
     }
 
-
     public void crossBridge() {
 
         goToLocation(FieldDirection.AFTER_CROSS_BRIDGE);
@@ -1333,21 +1178,50 @@ public class MainForm {
     }
 
 
-    public void dropOffMaterials() {
 
-        findBridge();
 
-        crossBridge();
 
-        goToLocation(lastLocation, FieldDirection.DROP_OFF_LOCATION);
 
-        openBucket();
 
-        // Wait for all of the materials to be released
-        r.sleep(2000);
-
-        closeBucket();
+    public void closeBucket() {
+        r.moveServo(CARGO_SERVO, CARGO_CLOSED_POSITION);
     }
+
+    public void openBucket() {
+        r.moveServo(CARGO_SERVO, CARGO_OPEN_POSITION);
+    }
+
+
+
+
+
+    public void raiseCrane() {
+        raiseCrane(false);
+    }
+
+    public void raiseCrane(boolean isSlow) {
+
+
+        for (int i = r.getServoPosition(CRANE_SERVO); i >= CRANE_UP_POSITION; i -= CRANE_INTERVAL) {
+            r.moveServo(CRANE_SERVO, i);
+            r.sleep(isSlow ? QUICK_DELAY * 15 : QUICK_DELAY);
+        }
+
+        r.sleep(QUICK_DELAY);
+    }
+
+    public void lowerCrane() {
+
+        for (int i = r.getServoPosition(CRANE_SERVO); i <= CRANE_DOWN_POSITION; i += CRANE_INTERVAL) {
+            r.moveServo(CRANE_SERVO, i);
+            r.sleep(QUICK_DELAY);
+        }
+
+        r.sleep(QUICK_DELAY);
+    }
+
+
+
 
     public void stopMotors() {
         r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
@@ -1374,7 +1248,7 @@ public class MainForm {
         boolean isBucketForward = direction == BUCKET_FORWARD;
 
         r.runMotor(RXTXRobot.MOTOR1, speed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD),
-                   RXTXRobot.MOTOR2, speed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), 0);
+                RXTXRobot.MOTOR2, speed * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), 0);
 
 
     }
@@ -1391,7 +1265,6 @@ public class MainForm {
         readPingSensor(servoDirection);
 
         r.sleep(MEDIUM_DELAY);
-        r.sleep(MEDIUM_DELAY);
 
         // Start moving forward
         moveAsync(direction, speed);
@@ -1404,11 +1277,8 @@ public class MainForm {
 
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
 
-            System.out.println(currentDistance + " " + distanceThreshold);
+            System.out.println(currentDistance + "/" + distanceThreshold);
 
-            if(r.getVerbose()) {
-                System.out.println(currentDistance + " " + distanceThreshold);
-            }
         }
 
         stopMotors();
@@ -1434,12 +1304,16 @@ public class MainForm {
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
 
             if(r.getVerbose()) {
-                System.out.println(currentDistance + " " + distanceThreshold);
+                System.out.println(currentDistance + "/" + distanceThreshold);
             }
         }
 
         stopMotors();
     }
+
+
+
+
 
     public void turnLeft(int direction) {
 
@@ -1484,6 +1358,10 @@ public class MainForm {
 
     }
 
+
+
+
+
     public void turn180() {
 
         r.runEncodedMotor(
@@ -1493,6 +1371,11 @@ public class MainForm {
 
         r.sleep(LONG_DELAY);
     }
+
+
+
+
+
 
     public void readPingSensor(PingDirection direction) {
 
@@ -1506,6 +1389,8 @@ public class MainForm {
     public void readPingSensorStationary() {
 
         currentBucketPingDistance = r.getPing(PING_STATIONARY);
+
+        r.sleep(MEDIUM_DELAY);
 
         updateBucketPingLabel();
     }
@@ -1538,12 +1423,24 @@ public class MainForm {
 
     }
 
+
+
+
+
+
+
+
     public void readLightSensor() {
 
         r.refreshAnalogPins();
         currentLightValue = r.getAnalogPin(LINE_SENSOR_ANALOG_PIN).getValue();
         updateLightLabel();
     }
+
+
+
+
+
 
     public void extendArm() {
         r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_EXTEND * MOTOR_SPEED_FAST, 500);
@@ -1554,4 +1451,155 @@ public class MainForm {
         r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_RETRACT * MOTOR_SPEED_FAST, 500);
         r.sleep(MEDIUM_DELAY);
     }
+
+
+
+
+    public void goToLocation(FieldDirection toLocation) {
+        goToLocation(lastLocation, toLocation);
+    }
+
+    public void goToLocation(FieldDirection fromLocation, FieldDirection toLocation) {
+
+        System.out.println("LOCATION: " + toLocation.toString());
+
+        if(fromLocation == toLocation) {
+            return;
+        }
+
+        if(toLocation == FieldDirection.WATER_WELL) {
+            if (fromLocation == FieldDirection.START_LOCATION) {
+
+
+                moveUntilDistance(CRANE_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
+
+                r.sleep(MEDIUM_DELAY);
+
+                lastLocation = toLocation;
+
+            }
+        }
+
+        if (toLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
+            if (fromLocation == FieldDirection.WATER_WELL) {
+
+
+                movePastDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_REVERSE_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
+
+                turnRight(BUCKET_FORWARD);
+
+                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+
+                lastLocation = toLocation;
+            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
+
+                switchDispensers(false);
+                lastLocation = toLocation;
+            }
+        }
+
+        if (toLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
+            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
+
+                switchDispensers(true);
+                lastLocation = toLocation;
+            }
+        }
+
+        if(toLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
+            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
+
+                goToNextDispenserType(false);
+
+                lastLocation = toLocation;
+
+            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
+
+                goToNextDispenserType(true);
+                switchDispensers(true);
+
+                lastLocation = toLocation;
+
+            } else if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
+
+                switchDispensers(true);
+
+                lastLocation = toLocation;
+            }
+        }
+
+        if(toLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
+            if (fromLocation == FieldDirection.SALINITY_DISPENSER_BOTTOM) {
+
+
+                goToNextDispenserType(false);
+                switchDispensers(false);
+
+                lastLocation = toLocation;
+
+            } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
+
+                goToNextDispenserType(true);
+
+                lastLocation = toLocation;
+
+            } else if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
+
+                switchDispensers(false);
+
+                lastLocation = toLocation;
+            }
+        }
+
+
+        if(toLocation == FieldDirection.DROP_OFF_LOCATION) {
+
+            if(fromLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
+                // Start moving forward
+
+                readPingSensorStationary();
+
+                r.sleep(MEDIUM_DELAY);
+
+                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DROP_OFF_LOCATION_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+
+                lastLocation = toLocation;
+            }
+        }
+
+        if(toLocation == FieldDirection.BEFORE_CROSS_BRIDGE_LEFT) {
+
+            if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_BOTTOM) {
+                goToLocation(FieldDirection.TURBIDITY_DISPENSER_TOP);
+                fromLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
+            }
+
+            if (fromLocation == FieldDirection.TURBIDITY_DISPENSER_TOP) {
+
+                turnRight(BUCKET_FORWARD);
+
+                move(BUCKET_FORWARD, 200);
+
+                lastLocation = toLocation;
+            }
+
+        }
+
+        if(toLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
+
+            // Cross the bridge
+
+            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, CROSS_BRIDGE_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+
+            stopMotors();
+
+            move(CRANE_FORWARD, 100);
+
+        }
+
+        r.sleep(MEDIUM_DELAY);
+
+        updateGuiLocation();
+    }
+
 }
