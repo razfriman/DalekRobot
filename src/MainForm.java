@@ -151,7 +151,8 @@ public class MainForm {
                         r.setPort(robotPort);
                         r.connect();
 
-                        r.setMotorRampUpTime(0);
+                        // TODO - ????
+                        //r.setMotorRampUpTime(0);
 
 
                         // Enable the buttons
@@ -188,7 +189,9 @@ public class MainForm {
                     @Override
                     public void run() {
                         setup();
-                        testWater();
+
+                        goToNextDispenserType();
+                        //testWater();
                     }
                 };
 
@@ -707,7 +710,7 @@ public class MainForm {
 
     public static final int MOTOR_SPEED_FAST = 450;
     public static final int MOTOR_SPEED_MEDIUM = 300;
-    public static final int MOTOR_SPEED_SLOW = 150;
+    public static final int MOTOR_SPEED_SLOW = 170;
 
     public static final int CRANE_INTERVAL = 10;
 
@@ -741,6 +744,8 @@ public class MainForm {
 
     public static final int QUICK_DELAY = 3;
     public static final int MEDIUM_DELAY = 200;
+    public static final int LONG_DELAY = 800;
+
 
 
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
@@ -755,7 +760,7 @@ public class MainForm {
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
     public static final int DISPENSER_DISTANCE_THRESHOLD = 38;
     public static final int DISPENSER_PARALLEL_DISTANCE_THRESHOLD = 30;
-    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 57;
+    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 40;
 
     public static final int TURBIDITY_MINIMUM= 5;
     public static final int TURBIDITY_MAXIMUM = 750;
@@ -1005,7 +1010,7 @@ public class MainForm {
             if (fromLocation == FieldDirection.WATER_WELL) {
 
 
-                movePastDistance(BUCKET_FORWARD, motorSpeed,WATER_WELL_REVERSE_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
+                movePastDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_REVERSE_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
 
                 turnRight(BUCKET_FORWARD);
 
@@ -1028,6 +1033,9 @@ public class MainForm {
                     System.out.println("Sideways diff = " + (startingSideDistance - currentServoPingDistance));
 
                     currentDistance = PingDirection.BUCKET == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
+
+                    System.out.println(currentDistance + " " + DISPENSER_DISTANCE_THRESHOLD);
 
                     if(r.getVerbose()) {
                         System.out.println(currentDistance + " " + DISPENSER_DISTANCE_THRESHOLD);
@@ -1132,6 +1140,8 @@ public class MainForm {
 
         }
 
+        r.sleep(800);
+
         updateGuiLocation();
     }
 
@@ -1145,13 +1155,26 @@ public class MainForm {
 
 
         // Move past the current dispenser
+        move(BUCKET_FORWARD, 350);
+
+        /*
         move(BUCKET_FORWARD, 100);
+
+        r.sleep(MEDIUM_DELAY);
 
         if(turnLeftFirst) {
             moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_PARALLEL_DISTANCE_THRESHOLD, PingDirection.CRANE_LEFT);
         } else {
             moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_PARALLEL_DISTANCE_THRESHOLD, PingDirection.CRANE_RIGHT);
         }
+
+        r.sleep(MEDIUM_DELAY);
+
+        move(CRANE_FORWARD, 100);
+
+        r.sleep(MEDIUM_DELAY);
+        */
+
 
         if(turnLeftFirst) {
             turnRight(BUCKET_FORWARD);
@@ -1164,7 +1187,54 @@ public class MainForm {
 
         turn180();
 
-        moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+        //moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+
+        readPingSensor(PingDirection.BUCKET);
+
+        readPingSensor(PingDirection.CRANE_RIGHT);
+
+
+        System.out.println("starting");
+
+        int d = currentServoPingDistance;
+
+        System.out.println(currentBucketPingDistance);
+
+        while(currentBucketPingDistance > 20) {
+
+
+            System.out.println("in the loop");
+            r.sleep(50);
+            move(BUCKET_FORWARD, 500);
+
+            r.sleep(50);
+            System.out.println("move up a little");
+
+
+
+            readPingSensor(PingDirection.CRANE_RIGHT);
+            System.out.println("read sensor");
+
+            System.out.println(currentServoPingDistance + " " + d);
+
+            if(currentServoPingDistance > d) {
+                // Move left a little
+                turnLeft(BUCKET_FORWARD, 10);
+                System.out.println("left");
+            } else if (currentServoPingDistance == d) {
+                // Straight
+                System.out.println("starigt");
+            } else {
+                // Move right a little
+                turnRight(BUCKET_FORWARD, 10);
+                System.out.println("right");
+            }
+
+            readPingSensor(PingDirection.BUCKET);
+        }
+
+        System.out.println("finished loop");
+
 
     }
 
@@ -1330,10 +1400,15 @@ public class MainForm {
 
     public void moveUntilDistance(int direction, int speed, int distanceThreshold, PingDirection servoDirection)
     {
-        // Start moving forward
-        moveAsync(direction, speed);
+
 
         readPingSensor(servoDirection);
+
+        r.sleep(MEDIUM_DELAY);
+        r.sleep(MEDIUM_DELAY);
+
+        // Start moving forward
+        moveAsync(direction, speed);
 
         int currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
 
@@ -1342,6 +1417,8 @@ public class MainForm {
 
 
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
+
+            System.out.println(currentDistance + " " + distanceThreshold);
 
             if(r.getVerbose()) {
                 System.out.println(currentDistance + " " + distanceThreshold);
@@ -1395,7 +1472,7 @@ public class MainForm {
                 RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_01_TICKS * degrees
         );
 
-        r.sleep(MEDIUM_DELAY);
+        r.sleep(LONG_DELAY);
     }
 
 
@@ -1417,7 +1494,7 @@ public class MainForm {
                 RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_01_TICKS * degrees
         );
 
-        r.sleep(MEDIUM_DELAY);
+        r.sleep(LONG_DELAY);
 
     }
 
@@ -1428,7 +1505,7 @@ public class MainForm {
                 RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * BUCKET_FORWARD, TURN_180_TICKS
         );
 
-        r.sleep(QUICK_DELAY);
+        r.sleep(LONG_DELAY);
     }
 
     public void readPingSensor(PingDirection direction) {
@@ -1466,9 +1543,13 @@ public class MainForm {
 
         r.moveServo(PING_SERVO, degrees);
 
+        r.sleep(LONG_DELAY);
+
         currentServoPingDistance =  r.getPing(PING_DYNAMIC);
 
         updateServoPingLabel();
+
+
     }
 
     public void readLightSensor() {
@@ -1480,9 +1561,11 @@ public class MainForm {
 
     public void extendArm() {
         r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_EXTEND * MOTOR_SPEED_FAST, 500);
+        r.sleep(MEDIUM_DELAY);
     }
 
     public void retractArm() {
         r.runMotor(SOCCER_BALL_ARM_MOTOR, SOCCER_BALL_ARM_RETRACT * MOTOR_SPEED_FAST, 500);
+        r.sleep(MEDIUM_DELAY);
     }
 }
