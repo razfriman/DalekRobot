@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="RXTXRobot" level="project" />
+    <orderEntry type="library" name="phidget21" level="project" />
   </component>
 </module>
 

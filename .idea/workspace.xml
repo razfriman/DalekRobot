@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04ed5312-f06d-47df-b961-12a8179df15f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/RXTXRobot.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DalekRobot.iml" afterPath="$PROJECT_DIR$/DalekRobot.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -70,9 +72,8 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1001" column="12" selection-start="31695" selection-end="31695" vertical-scroll-proportion="-3.0664856" vertical-offset="6775" max-vertical-offset="13665">
+            <state line="735" column="25" selection-start="23821" selection-end="23821" vertical-scroll-proportion="1.1125828" vertical-offset="5790" max-vertical-offset="18495">
               <folding>
-                <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
                 <element signature="e#4459#4485#0" expanded="false" />
                 <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
                 <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -82,8 +83,8 @@
                 <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
                 <element signature="method#main#0;class#MainForm#0" expanded="false" />
                 <element signature="e#22111#22131#0" expanded="false" />
-                <element signature="e#25176#25196#0" expanded="false" />
-                <element signature="e#26300#26320#0" expanded="false" />
+                <element signature="e#25202#25222#0" expanded="false" />
+                <element signature="e#26326#26346#0" expanded="false" />
                 <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
                 <element signature="method#setup#0;class#MainForm#0" expanded="false" />
                 <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -205,8 +206,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SMU-KNW2300/RXTXRobot/dist/RXTXRobot.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/RXTXRobot.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="OverrideImplement.combined" value="true" />
@@ -382,10 +383,6 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -404,6 +401,10 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -753,7 +754,8 @@
       <workItem from="1398088850355" duration="2674000" />
       <workItem from="1398093871964" duration="981000" />
       <workItem from="1398094978260" duration="2222000" />
-      <workItem from="1398126013081" duration="11306000" />
+      <workItem from="1398126013081" duration="11359000" />
+      <workItem from="1398177433729" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -843,11 +845,15 @@
       <created>1398136473078</created>
       <updated>1398136473078</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Reformat the code to be split up into separate categories">
+      <created>1398142680343</created>
+      <updated>1398142680343</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96169000" />
+    <option name="totallyTimeSpent" value="96832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -866,7 +872,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -880,6 +885,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880098" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -918,7 +924,8 @@
     <MESSAGE value="Added methods to specify angles for turning.&#10;Added tooltip text to all buttons so users know exactly what they do." />
     <MESSAGE value="Partial support to move straight across to the next dispenser" />
     <MESSAGE value="save changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="save changes" />
+    <MESSAGE value="Reformat the code to be split up into separate categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformat the code to be split up into separate categories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -932,7 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="425" column="48" selection-start="13027" selection-end="13027" vertical-scroll-proportion="0.0" vertical-offset="6375" max-vertical-offset="15225">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -942,8 +948,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -963,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="0" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15135">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -973,8 +978,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -999,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="378" column="45" selection-start="11443" selection-end="11443" vertical-scroll-proportion="0.0" vertical-offset="5670" max-vertical-offset="13035">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1009,8 +1013,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1030,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="145" column="49" selection-start="3872" selection-end="3872" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="11085">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1040,8 +1043,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1061,7 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="560" column="0" selection-start="17406" selection-end="17406" vertical-scroll-proportion="0.0" vertical-offset="8400" max-vertical-offset="11010">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1071,8 +1073,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1092,7 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="452" column="16" selection-start="14346" selection-end="14346" vertical-scroll-proportion="0.0" vertical-offset="6780" max-vertical-offset="11010">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1102,8 +1103,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1123,7 +1124,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="400" column="4" selection-start="12986" selection-end="12986" vertical-scroll-proportion="0.0" vertical-offset="6000" max-vertical-offset="10995">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1133,8 +1133,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1154,7 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="700" column="21" selection-start="21087" selection-end="21087" vertical-scroll-proportion="0.0" vertical-offset="10500" max-vertical-offset="10995">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1164,8 +1163,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1185,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="16" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="10965">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1195,8 +1193,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1211,7 +1209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="804" column="0" selection-start="24844" selection-end="24844" vertical-scroll-proportion="0.0" vertical-offset="10665" max-vertical-offset="10665">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1221,8 +1218,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1242,7 +1239,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="683" column="0" selection-start="20910" selection-end="20910" vertical-scroll-proportion="0.0" vertical-offset="10245" max-vertical-offset="10695">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1252,8 +1248,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1273,7 +1269,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="400" column="17" selection-start="13411" selection-end="13420" vertical-scroll-proportion="0.0" vertical-offset="6000" max-vertical-offset="10335">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1283,8 +1278,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1304,7 +1299,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="440" column="31" selection-start="14429" selection-end="14429" vertical-scroll-proportion="0.0" vertical-offset="6600" max-vertical-offset="10335">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1314,8 +1308,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1335,7 +1329,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="587" column="0" selection-start="18724" selection-end="18724" vertical-scroll-proportion="0.0" vertical-offset="8805" max-vertical-offset="9360">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1345,8 +1338,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1366,7 +1359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="456" column="32" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="6840" max-vertical-offset="8970">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1376,8 +1368,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1397,7 +1389,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="456" column="32" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="6840" max-vertical-offset="8970">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1407,8 +1398,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1428,7 +1419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="414" column="27" selection-start="13742" selection-end="13742" vertical-scroll-proportion="0.0" vertical-offset="6210" max-vertical-offset="8415">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1438,8 +1428,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1459,7 +1449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="386" column="5" selection-start="13011" selection-end="13011" vertical-scroll-proportion="0.0" vertical-offset="5790" max-vertical-offset="8325">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1469,8 +1458,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1485,7 +1474,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="386" column="5" selection-start="13011" selection-end="13011" vertical-scroll-proportion="0.0" vertical-offset="5790" max-vertical-offset="8325">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1495,8 +1483,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1516,7 +1504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="317" column="0" selection-start="0" selection-end="22157" vertical-scroll-proportion="0.0" vertical-offset="4755" max-vertical-offset="7515">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1526,8 +1513,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1547,7 +1534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="13" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="2940">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1557,8 +1543,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1625,9 +1611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1001" column="12" selection-start="31695" selection-end="31695" vertical-scroll-proportion="-3.0664856" vertical-offset="6775" max-vertical-offset="13665">
+        <state line="735" column="25" selection-start="23821" selection-end="23821" vertical-scroll-proportion="1.1125828" vertical-offset="5790" max-vertical-offset="18495">
           <folding>
-            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
             <element signature="e#4459#4485#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
@@ -1637,8 +1622,8 @@
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
             <element signature="e#22111#22131#0" expanded="false" />
-            <element signature="e#25176#25196#0" expanded="false" />
-            <element signature="e#26300#26320#0" expanded="false" />
+            <element signature="e#25202#25222#0" expanded="false" />
+            <element signature="e#26326#26346#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
@@ -1656,10 +1641,10 @@
         <settings>
           <artifact-editor>
             <show-content>
+              <type id="library" />
               <type id="artifact" />
               <type id="javaee-facet-resources" />
               <type id="jpa-descriptors" />
-              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>DalekRobot:jar</last-edited>
@@ -1735,7 +1720,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>RXTXRobot</last-edited>
+          <last-edited>phidget21</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

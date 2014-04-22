@@ -703,7 +703,7 @@ public class MainForm {
     public static final int CRANE_FORWARD = 1;
     public static final int BUCKET_FORWARD = -1;
 
-    public static final int CRANE_DOWN_POSITION = 170;
+    public static final int CRANE_DOWN_POSITION = 175;
     public static final int CRANE_UP_POSITION = 90;
 
     public static final int CARGO_CLOSED_POSITION = 90;
@@ -733,6 +733,7 @@ public class MainForm {
     public static final double TICK_TO_INCH_CONVERSION = 0.07;
     public static final double INCH_TO_TICK_CONVERSION = 14.28571428571429;
 
+    // Light measurements
     // white = 50
     // grey = 25
     // black = 2,3,4
@@ -950,10 +951,19 @@ public class MainForm {
         }
 
 
+        if(turnLeftFirst) {
+            readPingSensor(PingDirection.CRANE_LEFT);
+        } else {
+            readPingSensor(PingDirection.CRANE_RIGHT);
+        }
+
+        r.sleep(MEDIUM_DELAY);
+
         // Move past the current dispenser
         move(BUCKET_FORWARD, 350);
 
-        /*
+
+        /* Use ping sensor -- Unreliable
         move(BUCKET_FORWARD, 100);
 
         r.sleep(MEDIUM_DELAY);
@@ -999,7 +1009,7 @@ public class MainForm {
 
             r.sleep(50);
 
-            
+
             move(BUCKET_FORWARD, 170, MOTOR_SPEED_SLOW);
 
 
@@ -1010,33 +1020,33 @@ public class MainForm {
                 break;
             }
 
-            // Keep reading until we get a valid value
-            /*
-            while(Math.abs(currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL) > 20) {
+            // Attempt to read again if the first reading appears invalid
+            if(Math.abs(currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL) > 20) {
                 readPingSensor(PingDirection.CRANE_RIGHT);
             }
-            */
 
 
-            System.out.println("TARGET D: " + LONG_PARALLEL_DISTANCE_FROM_WALL + " CURRENT D:" + currentServoPingDistance);
+            System.out.println("TARGET D: " + LONG_PARALLEL_DISTANCE_FROM_WALL);
+            System.out.println("CURRENT D:" + currentServoPingDistance);
 
-            int ADJUSTMENT_LIMIT = 2;
+            int ADJUSTMENT_LIMIT = 3;
+
+            int turnDegrees = 15;
 
             int difference = currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL;
             if(difference > ADJUSTMENT_LIMIT) {
 
                 // Move left a little
-                turnLeft(BUCKET_FORWARD, 15);
+                turnLeft(BUCKET_FORWARD, turnDegrees);
                 System.out.println("ADJUST LEFT");
 
             } else if (difference < ADJUSTMENT_LIMIT) {
 
                 // Move right a little
-                turnRight(BUCKET_FORWARD, 15);
+                turnRight(BUCKET_FORWARD, turnDegrees);
                 System.out.println("ADJUST RIGHT");
 
             } else {
-
                 // Straight
                 System.out.println("NO ADJUSTMENT");
             }
@@ -1052,8 +1062,10 @@ public class MainForm {
 
         int materialLeft = isSalinity ? salinityRemediationAmount : turbidityRemediationAmount;
 
-        // 5 - 750 NTU
+        // 5-750 NTU
         //50's and 5's
+
+        // 2500-12000 uS
         //100's 1000's
 
         while(materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT - 50 : TURBIDITY_LARGE_AMOUNT - 3)) {
@@ -1140,11 +1152,6 @@ public class MainForm {
         goToLocation(lastLocation, FieldDirection.DROP_OFF_LOCATION);
 
         openBucket();
-
-        // Wait for all of the materials to be released
-        r.sleep(2000);
-
-        closeBucket();
     }
 
     public void findBridge() {
@@ -1277,7 +1284,7 @@ public class MainForm {
 
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
 
-            System.out.println(currentDistance + "/" + distanceThreshold);
+            System.out.println("Moving until distance: " + currentDistance + "/" + distanceThreshold);
 
         }
 
@@ -1303,9 +1310,7 @@ public class MainForm {
 
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
 
-            if(r.getVerbose()) {
-                System.out.println(currentDistance + "/" + distanceThreshold);
-            }
+            System.out.println("Moving until distance: " + currentDistance + "/" + distanceThreshold);
         }
 
         stopMotors();
@@ -1488,7 +1493,7 @@ public class MainForm {
 
                 turnRight(BUCKET_FORWARD);
 
-                moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+                moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
                 lastLocation = toLocation;
             } else if (fromLocation == FieldDirection.SALINITY_DISPENSER_TOP) {
@@ -1555,8 +1560,8 @@ public class MainForm {
         if(toLocation == FieldDirection.DROP_OFF_LOCATION) {
 
             if(fromLocation == FieldDirection.AFTER_CROSS_BRIDGE) {
-                // Start moving forward
 
+                // Start moving forward
                 readPingSensorStationary();
 
                 r.sleep(MEDIUM_DELAY);
@@ -1578,6 +1583,8 @@ public class MainForm {
 
                 turnRight(BUCKET_FORWARD);
 
+
+                // Move towards the bridge
                 move(BUCKET_FORWARD, 200);
 
                 lastLocation = toLocation;
@@ -1589,9 +1596,7 @@ public class MainForm {
 
             // Cross the bridge
 
-            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, CROSS_BRIDGE_DISTANCE_THRESHOLD, PingDirection.BUCKET);
-
-            stopMotors();
+            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW + 50, CROSS_BRIDGE_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
             move(CRANE_FORWARD, 100);
 
