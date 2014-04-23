@@ -986,7 +986,8 @@ public class MainForm {
 
 
         // New method - Uses parallel ping
-        //turn180();
+
+        turn180();
 
         move(BUCKET_FORWARD, 50);
 
