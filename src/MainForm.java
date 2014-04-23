@@ -56,6 +56,7 @@ public class MainForm {
     private JButton readServoPingButton;
     private JLabel servoPingLabel;
     private JSlider servoPingSlider;
+    private JButton testErrorCorrectionButton;
 
     private final JFrame frame;
 
@@ -168,8 +169,23 @@ public class MainForm {
                     @Override
                     public void run() {
                         setup();
-                        //testWater();
+                        testWater();
+                    }
+                };
 
+                t.start();
+
+            }
+        });
+
+        testErrorCorrectionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Thread t = new Thread() {
+                    @Override
+                    public void run() {
+                        setup();
                         goToNextDispenserType(true);
                     }
                 };
