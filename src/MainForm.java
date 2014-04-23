@@ -695,7 +695,7 @@ public class MainForm {
     public static final int CRANE_FORWARD = 1;
     public static final int BUCKET_FORWARD = -1;
 
-    public static final int CRANE_DOWN_POSITION = 175;
+    public static final int CRANE_DOWN_POSITION = 180;
     public static final int CRANE_UP_POSITION = 90;
 
     public static final int CARGO_CLOSED_POSITION = 90;
@@ -744,10 +744,12 @@ public class MainForm {
     public static final int TURBIDITY_LARGE_AMOUNT = 50;
     public static final int TURBIDITY_SMALL_AMOUNT = 5;
 
-    public static final int SALINITY_MINIMUM = 2500;
-    public static final int SALINITY_MAXIMUM = 12000;
-    public static final int SALINITY_LARGE_AMOUNT = 1000;
-    public static final int SALINITY_SMALL_AMOUNT = 100;
+    public static final int SALINITY_MINIMUM = 250;
+    public static final int SALINITY_MAXIMUM = 2500;
+    public static final int SALINITY_LARGE_AMOUNT = 200;
+    public static final int SALINITY_SMALL_AMOUNT = 20;
+
+    public static final int DISPENSER_MATERIAL_LIMIT = 12;
 
     public static final int PING_SERVO_LEFT = 0;
     public static final int PING_SERVO_MIDDLE = 80;
@@ -837,15 +839,14 @@ public class MainForm {
 
         lowerCrane();
 
+        r.sleep(8000);
 
-        readSalinitySensor();
+        readTurbiditySensor();
+        readTurbiditySensor();
         readTurbiditySensor();
 
         readSalinitySensor();
-        readTurbiditySensor();
-
         readSalinitySensor();
-        readTurbiditySensor();
 
         calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
 
@@ -891,7 +892,7 @@ public class MainForm {
 
         turbidityRemediationAmount = (int) Math.round(-1.7519 * turbidityValue + 990.3);
 
-        salinityRemediationAmount = (int) (25692 * Math.pow(Math.E, -0.007 * conductivityValue));
+        salinityRemediationAmount = (int) (37355 * Math.pow(Math.E, -0.008 * conductivityValue));
 
 
         turbidityRemediationAmount = Math.min(turbidityRemediationAmount, TURBIDITY_MAXIMUM);
@@ -1067,10 +1068,12 @@ public class MainForm {
         // 5-750 NTU
         //50's and 5's
 
-        // 2500-12000 uS
-        //100's 1000's
+        // 250-2500 uS
+        //20's 200's
 
-        while(materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT - 50 : TURBIDITY_LARGE_AMOUNT - 3)) {
+        int dispenserLimit = DISPENSER_MATERIAL_LIMIT;
+
+        while(dispenserLimit > 0 && materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT - 10 : TURBIDITY_LARGE_AMOUNT - 3)) {
             collectMaterial(isSalinity, true);
             materialLeft -= isSalinity ?  SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT;
 
@@ -1085,10 +1088,13 @@ public class MainForm {
                     isSalinity ? SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT,
                     isSalinity ? salinityAmountCollected : turbidityAmountCollected,
                     isSalinity ? salinityRemediationAmount : turbidityRemediationAmount));
+
+            dispenserLimit--;
         }
 
-        // 2,500 - 12,000 us
-        while(materialLeft >= (isSalinity? SALINITY_SMALL_AMOUNT - 50 : TURBIDITY_SMALL_AMOUNT - 3)) {
+        dispenserLimit = DISPENSER_MATERIAL_LIMIT;
+
+        while(dispenserLimit > 0 &&  materialLeft >= (isSalinity? SALINITY_SMALL_AMOUNT - 10 : TURBIDITY_SMALL_AMOUNT - 3)) {
             collectMaterial(isSalinity, false);
             materialLeft -= isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT;
 
@@ -1103,6 +1109,8 @@ public class MainForm {
                     isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT,
                     isSalinity ? salinityAmountCollected : turbidityAmountCollected,
                     isSalinity ? salinityRemediationAmount : turbidityRemediationAmount));
+
+            dispenserLimit--;
         }
 
 
