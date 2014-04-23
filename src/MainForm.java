@@ -1,5 +1,5 @@
 /**
- * Created by Raz on 3/2/14.
+ * Created by Raz Friman on 3/2/14.
  */
 
 import rxtxrobot.*;
@@ -10,15 +10,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
-// Close Dispenser:
-// side ping =  57-67
-
-// Far Dispenser:
-// side ping = 118-125
-
-
-
 
 public class MainForm {
     private JButton connectButton;
@@ -38,7 +29,6 @@ public class MainForm {
     private JButton dispenseBallsButton;
     private JButton deliverMaterialsButton;
     private JButton turnLeftButton;
-    private JPanel debugPanel;
     private JButton turnRightButton;
     private JButton moveForwardButton;
     private JButton moveBackwardButton;
@@ -178,7 +168,9 @@ public class MainForm {
                     @Override
                     public void run() {
                         setup();
-                        testWater();
+                        //testWater();
+
+                        goToNextDispenserType(true);
                     }
                 };
 
@@ -765,8 +757,8 @@ public class MainForm {
     public static final int LONG_PARALLEL_DISTANCE_FROM_WALL = 121;
     public static final int SHORT_PARALLEL_DISTANCE_FROM_WALL = 62;
 
-    public static final int PUSH_DISPENSER_TICKS = 80;
-    public static final int REVERSE_DISPENSER_TICKS = 160;
+    public static final int PUSH_DISPENSER_TICKS = 130;
+    public static final int REVERSE_DISPENSER_TICKS = 80;
 
     ////////////////////
     // VARIABLES
@@ -845,12 +837,6 @@ public class MainForm {
 
         lowerCrane();
 
-        r.sleep(200);
-
-
-        // TODO - Take an average???
-        readSalinitySensor();
-        readTurbiditySensor();
 
         readSalinitySensor();
         readTurbiditySensor();
@@ -858,7 +844,9 @@ public class MainForm {
         readSalinitySensor();
         readTurbiditySensor();
 
-        // calculate the amount of remediation materials needed
+        readSalinitySensor();
+        readTurbiditySensor();
+
         calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
 
         raiseCrane(true);
@@ -998,19 +986,23 @@ public class MainForm {
 
 
         // New method - Uses parallel ping
-        turn180();
+        //turn180();
 
         move(BUCKET_FORWARD, 50);
 
         readPingSensor(PingDirection.BUCKET);
         readPingSensor(PingDirection.CRANE_RIGHT);
 
+
+        int targetDistance = isFarSide ? LONG_PARALLEL_DISTANCE_FROM_WALL : SHORT_PARALLEL_DISTANCE_FROM_WALL;
+
+
         while(currentBucketPingDistance > CROSS_DISPENSERS_DISTANCE_THRESHOLD) {
 
             r.sleep(50);
 
 
-            move(BUCKET_FORWARD, 170, MOTOR_SPEED_SLOW);
+            move(BUCKET_FORWARD, 80, MOTOR_SPEED_MEDIUM);
 
 
             readPingSensorStationary();
@@ -1021,26 +1013,35 @@ public class MainForm {
             }
 
             // Attempt to read again if the first reading appears invalid
-            if(Math.abs(currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL) > 20) {
-                readPingSensor(PingDirection.CRANE_RIGHT);
+            if(isFarSide) {
+
+
+                while(Math.abs(currentServoPingDistance - targetDistance) > 25) {
+
+                    r.sleep(200);
+                    System.out.println("Invalid ping value [" + currentServoPingDistance + "] - Reading again");
+                    readPingSensor(PingDirection.CRANE_RIGHT);
+                }
             }
 
 
-            System.out.println("TARGET D: " + LONG_PARALLEL_DISTANCE_FROM_WALL);
+            System.out.println("TARGET D: " + targetDistance);
             System.out.println("CURRENT D:" + currentServoPingDistance);
 
-            int ADJUSTMENT_LIMIT = 3;
+            int ADJUSTMENT_LIMIT = 4;
 
             int turnDegrees = 15;
 
-            int difference = currentServoPingDistance - LONG_PARALLEL_DISTANCE_FROM_WALL;
-            if(difference > ADJUSTMENT_LIMIT) {
+            int difference = currentServoPingDistance - targetDistance;
+
+
+            if(difference > 0 && difference > ADJUSTMENT_LIMIT) {
 
                 // Move left a little
                 turnLeft(BUCKET_FORWARD, turnDegrees);
                 System.out.println("ADJUST LEFT");
 
-            } else if (difference < ADJUSTMENT_LIMIT) {
+            } else if (difference < 0 && difference <  -1 * ADJUSTMENT_LIMIT) {
 
                 // Move right a little
                 turnRight(BUCKET_FORWARD, turnDegrees);
