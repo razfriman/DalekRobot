@@ -779,13 +779,13 @@ public class MainForm {
     public static final int CROSS_DISPENSERS_DISTANCE_THRESHOLD = 20;
 
     public static final int TURBIDITY_MINIMUM= 5;
-    public static final int TURBIDITY_MAXIMUM = 750;
-    public static final int TURBIDITY_LARGE_AMOUNT = 50;
+    public static final int TURBIDITY_MAXIMUM = 240;
+    public static final int TURBIDITY_LARGE_AMOUNT = 15;
     public static final int TURBIDITY_SMALL_AMOUNT = 5;
 
     public static final int SALINITY_MINIMUM = 250;
-    public static final int SALINITY_MAXIMUM = 2500;
-    public static final int SALINITY_LARGE_AMOUNT = 200;
+    public static final int SALINITY_MAXIMUM = 2040;
+    public static final int SALINITY_LARGE_AMOUNT = 150;
     public static final int SALINITY_SMALL_AMOUNT = 20;
 
     public static final int DISPENSER_MATERIAL_LIMIT = 12;
@@ -932,15 +932,16 @@ public class MainForm {
 
         turbidityRemediationAmount = (int) Math.round(-1.7519 * turbidityValue + 990.3);
 
-        salinityRemediationAmount = (int) (37355 * Math.pow(Math.E, -0.008 * conductivityValue));
+        salinityRemediationAmount = (int) (13737 * Math.pow(Math.E, -0.007 * conductivityValue));
 
 
         turbidityRemediationAmount = Math.min(turbidityRemediationAmount, TURBIDITY_MAXIMUM);
         turbidityRemediationAmount = Math.max(turbidityRemediationAmount, TURBIDITY_MINIMUM);
 
         salinityRemediationAmount = Math.min(salinityRemediationAmount, SALINITY_MAXIMUM);
-        salinityRemediationAmount = Math.max(turbidityRemediationAmount, SALINITY_MINIMUM);
+        salinityRemediationAmount = Math.max(salinityRemediationAmount, SALINITY_MINIMUM);
 
+        System.out.println(salinityRemediationAmount);
 
         turbidityAmountCollected = 0;
         salinityAmountCollected = 0;
@@ -1080,6 +1081,10 @@ public class MainForm {
 
         int dispenserLimit = DISPENSER_MATERIAL_LIMIT;
 
+        // 5, 15
+        // 20, 150
+        // 200
+        // 140
         while(dispenserLimit > 0 && materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT - 10 : TURBIDITY_LARGE_AMOUNT - 3)) {
             collectMaterial(isSalinity, true);
             materialLeft -= isSalinity ?  SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT;
