@@ -568,9 +568,9 @@ public class MainForm {
 
     public void setDebugView(boolean showDebugView) {
         if(showDebugView) {
-            frame.setSize(new Dimension(840, 700));
+            frame.setSize(new Dimension(840, 730));
         } else {
-            frame.setSize(new Dimension(840, 570));
+            frame.setSize(new Dimension(840, 600));
         }
     }
 
@@ -711,7 +711,7 @@ public class MainForm {
         frame.setVisible(true);
         frame.setTitle("Dalek Robot");
 
-        frame.setSize(new Dimension(840, 570));
+        frame.setSize(new Dimension(840, 600));
     }
 
     ////////////////////
@@ -771,11 +771,11 @@ public class MainForm {
 
 
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
-    public static final int WATER_WELL_DISTANCE_THRESHOLD = 38;
+    public static final int WATER_WELL_DISTANCE_THRESHOLD = 39;
     public static final int WATER_WELL_PARALLEL_WALL_DISTANCE = 111;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
-    public static final int DISPENSER_DISTANCE_THRESHOLD = 34;
-    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 38;
+    public static final int DISPENSER_DISTANCE_THRESHOLD = 38;
+    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 35;
     public static final int CROSS_DISPENSERS_DISTANCE_THRESHOLD = 20;
 
     public static final int TURBIDITY_MINIMUM= 5;
@@ -973,6 +973,11 @@ public class MainForm {
 
     public void switchDispensers(boolean turnLeftFirst) {
 
+
+        // Backup a little bit
+        move(CRANE_FORWARD, 20);
+        //movePastDistance(CRANE_FORWARD, 20, PingDirection.BUCKET);
+
         if(turnLeftFirst) {
             turnLeft(BUCKET_FORWARD);
         } else {
@@ -1027,6 +1032,9 @@ public class MainForm {
 
 
         // New method - Uses parallel ping
+
+        // Backup a little bit
+        movePastDistance(CRANE_FORWARD, 20, PingDirection.BUCKET);
 
         turn180();
 
@@ -1137,6 +1145,16 @@ public class MainForm {
         int pushTicks = PUSH_DISPENSER_TICKS;
         int reverseTicks = REVERSE_DISPENSER_TICKS;
 
+        readPingSensorStationary();
+
+        if(currentBucketPingDistance > 35 && currentBucketPingDistance < 100) {
+            System.out.println("Moving closer to dispenser by ping");
+            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, 35, PingDirection.BUCKET);
+            move(CRANE_FORWARD, 40);
+        } else if(currentBucketPingDistance >= 100) {
+            System.out.println("Warning: Distance very far from dispenser -  [" + currentBucketPingDistance + "]");
+        }
+
         // Push the dispenser
         move(BUCKET_FORWARD, pushTicks, MOTOR_SPEED_FAST);
 
@@ -1177,7 +1195,9 @@ public class MainForm {
 
             if(soccerBallOnLeft) {
                 turnLeft(BUCKET_FORWARD);
+                moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW,5,PingDirection.BUCKET);
                 extendAndRetractArm();
+                move(CRANE_FORWARD, 60);
                 turnRight(BUCKET_FORWARD);
                 turnRight(BUCKET_FORWARD);
             } else {
@@ -1373,7 +1393,7 @@ public class MainForm {
 
             currentDistance = servoDirection == PingDirection.BUCKET ? currentBucketPingDistance : currentServoPingDistance;
 
-            System.out.println("Moving until distance: " + currentDistance + "/" + distanceThreshold);
+            System.out.println("Moving past distance: " + currentDistance + "/" + distanceThreshold);
         }
 
         stopMotors();
@@ -1477,7 +1497,7 @@ public class MainForm {
 
             r.sleep(200);
             System.out.println("Invalid ping value [" + currentServoPingDistance + "] - Reading again");
-            readPingSensor(PingDirection.CRANE_RIGHT);
+            readPingSensor(pingDirection);
         }
 
         if(isUseMedian) {

@@ -519,7 +519,10 @@
           <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <majorTickSpacing value="30"/>
           <maximum value="180"/>
+          <paintLabels value="true"/>
+          <paintTicks value="true"/>
           <toolTipText value="Adjust the location of the servo ping."/>
           <value value="90"/>
         </properties>
