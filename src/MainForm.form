@@ -190,6 +190,7 @@
             </constraints>
             <properties>
               <model>
+                <item value="IGNORE"/>
                 <item value="LEFT"/>
                 <item value="RIGHT"/>
               </model>
@@ -475,7 +476,7 @@
         </constraints>
         <properties>
           <text value="Find Bridge"/>
-          <toolTipText value="Starts at the top turbidity dispenser. Turns right. Moves towards the canyon. Turns right. Moves straight until it detects the bridge. Turns left to face the bridge."/>
+          <toolTipText value="Moves straight until it detects the bridge. Turns left to face the bridge."/>
         </properties>
       </component>
       <component id="9f8e2" class="javax.swing.JButton" binding="crossBridgeButton" default-binding="true">
@@ -546,6 +547,7 @@
         </constraints>
         <properties>
           <text value="Test Error Correction"/>
+          <toolTipText value="Crosses from the top salinity dispenser to the top turbidity dispenser using the Ping sensor to correct errors in movement"/>
         </properties>
       </component>
     </children>

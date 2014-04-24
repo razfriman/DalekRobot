@@ -235,7 +235,15 @@ public class MainForm {
 
                 int index = turbidityComboBox.getSelectedIndex();
 
-                soccerBallOnLeft = index == 0;
+                if(index == 0) {
+                 isCaptureSoccerBall = false;
+                } else if (index == 1) {
+                     isCaptureSoccerBall = true;
+                    soccerBallOnLeft = true;
+                } else if (index == 2) {
+                    isCaptureSoccerBall = true;
+                    soccerBallOnLeft = false;
+                }
             }
         });
 
@@ -509,7 +517,7 @@ public class MainForm {
             public void actionPerformed(ActionEvent e) {
                 setup();
                 lastLocation = FieldDirection.TURBIDITY_DISPENSER_TOP;
-                findBridge();
+                findBridge(true);
             }
         });
 
@@ -831,6 +839,7 @@ public class MainForm {
     public boolean salinityLargeOnTop = false;
     public boolean turbidityLargeOnTop = false;
     public boolean soccerBallOnLeft = false;
+    public boolean isCaptureSoccerBall = false;
 
     public int motorSpeed = MOTOR_SPEED_MEDIUM;
     public boolean debugMode = false;
@@ -1145,7 +1154,12 @@ public class MainForm {
 
     public void dropOffMaterials() {
 
-        findBridge();
+
+        goToLocation(lastLocation, FieldDirection.BEFORE_CROSS_BRIDGE_LEFT);
+
+        captureSoccerBall();
+
+        findBridge(!isCaptureSoccerBall || soccerBallOnLeft);
 
         crossBridge();
 
@@ -1154,11 +1168,41 @@ public class MainForm {
         openBucket();
     }
 
-    public void findBridge() {
+    public void captureSoccerBall() {
 
-        goToLocation(lastLocation, FieldDirection.BEFORE_CROSS_BRIDGE_LEFT);
+        if(!isCaptureSoccerBall) {
+            turnRight(BUCKET_FORWARD);
 
-        turnRight(BUCKET_FORWARD);
+        } else {
+
+            if(soccerBallOnLeft) {
+                turnLeft(BUCKET_FORWARD);
+                extendAndRetractArm();
+                turnRight(BUCKET_FORWARD);
+                turnRight(BUCKET_FORWARD);
+            } else {
+                turnRight(BUCKET_FORWARD);
+                moveUntilDistance(BUCKET_FORWARD, 30, PingDirection.BUCKET);
+                extendAndRetractArm();
+
+                turn180();
+            }
+        }
+    }
+
+    public void extendAndRetractArm() {
+        extendArm();
+        extendArm();
+        extendArm();
+
+        r.sleep(500);
+
+        retractArm();
+        retractArm();
+        retractArm();
+    }
+
+    public void findBridge(boolean turnLeftAtEnd) {
 
         readLightSensor();
 
@@ -1166,14 +1210,34 @@ public class MainForm {
 
         readLightSensor();
 
+        /*
+        Old Method - Finds 1 match before stopping motors
         while(currentLightValue < BRIDGE_LIGHT_MARKER_THRESHOLD) {
             readLightSensor();
         }
+        */
+
+        int consecutiveHits = 0;
+
+        while(consecutiveHits < 3) {
+            if(currentLightValue >= BRIDGE_LIGHT_MARKER_THRESHOLD) {
+                consecutiveHits++;
+            } else {
+                consecutiveHits = 0;
+            }
+
+            readLightSensor();
+        }
+
 
         stopMotors();
 
         // Face the bridge
-        turnLeft(BUCKET_FORWARD);
+        if(turnLeftAtEnd) {
+            turnLeft(BUCKET_FORWARD);
+        } else {
+            turnRight(BUCKET_FORWARD);
+        }
     }
 
     public void crossBridge() {
