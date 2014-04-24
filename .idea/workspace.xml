@@ -74,23 +74,31 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="24" selection-start="5522" selection-end="5522" vertical-scroll-proportion="0.046357617" vertical-offset="2200" max-vertical-offset="16005">
+            <state line="1511" column="0" selection-start="46038" selection-end="46038" vertical-scroll-proportion="0.7761194" vertical-offset="4183" max-vertical-offset="5205">
               <folding>
-                <element signature="e#4001#4775#0" expanded="true" />
-                <element signature="e#4394#4420#0" expanded="false" />
-                <element signature="e#4764#4765#0" expanded="true" />
+                <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+                <element signature="e#4465#4491#0" expanded="false" />
                 <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+                <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
                 <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
                 <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
                 <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
                 <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
                 <element signature="method#main#0;class#MainForm#0" expanded="false" />
-                <element signature="e#22496#22516#0" expanded="false" />
-                <element signature="e#25643#25663#0" expanded="false" />
-                <element signature="e#26767#26787#0" expanded="false" />
+                <element signature="e#22955#22975#0" expanded="false" />
+                <element signature="e#26158#26178#0" expanded="false" />
+                <element signature="e#27282#27302#0" expanded="false" />
+                <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
                 <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+                <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
                 <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+                <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+                <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+                <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
                 <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+                <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+                <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+                <element signature="e#33420#33432#0" expanded="false" />
                 <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
                 <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
                 <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -114,14 +122,27 @@
                 <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
                 <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
                 <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+                <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+                <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
                 <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
                 <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
                 <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+                <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
                 <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
                 <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
                 <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
                 <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+                <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FieldDirection.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FieldDirection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="22" selection-start="257" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="315">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -413,10 +434,6 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -435,6 +452,10 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -788,7 +809,12 @@
       <workItem from="1398177433729" duration="1121000" />
       <workItem from="1398217309086" duration="3873000" />
       <workItem from="1398283435694" duration="1192000" />
-      <workItem from="1398292819085" duration="512000" />
+      <workItem from="1398292819085" duration="537000" />
+      <workItem from="1398295399970" duration="9138000" />
+      <workItem from="1398312997804" duration="8000" />
+      <workItem from="1398345033440" duration="334000" />
+      <workItem from="1398345467652" duration="1946000" />
+      <workItem from="1398347831915" duration="1317000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -898,17 +924,20 @@
       <created>1398293234077</created>
       <updated>1398293234077</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Dedicated button for testing movement error correction">
+      <created>1398293349018</created>
+      <updated>1398293349018</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102920000" />
+    <option name="totallyTimeSpent" value="115688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22401172" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -922,7 +951,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -931,10 +959,12 @@
       <window_info id="ANTLR Parse Tree" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13616398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48454884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22401172" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880098" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925835" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -950,7 +980,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="The UI can be functionally used to manually run through the course. This will make testing and automation much easier. Switched to JNumberTextField for numbered text boxes" />
     <MESSAGE value="Begin to make the UI run on separate threads for better user interaction" />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Bug Fix" />
@@ -975,7 +1004,8 @@
     <MESSAGE value="Fix ping sensor code" />
     <MESSAGE value="Save changes" />
     <MESSAGE value="Update salinity equation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update salinity equation" />
+    <MESSAGE value="Dedicated button for testing movement error correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dedicated button for testing movement error correction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -989,21 +1019,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="425" column="48" selection-start="13027" selection-end="13027" vertical-scroll-proportion="0.0" vertical-offset="6375" max-vertical-offset="15225">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1027,13 +1065,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1047,21 +1089,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="0" selection-start="1819" selection-end="1819" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15135">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1085,13 +1135,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1110,21 +1164,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="378" column="45" selection-start="11443" selection-end="11443" vertical-scroll-proportion="0.0" vertical-offset="5670" max-vertical-offset="13035">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1148,13 +1210,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1168,21 +1234,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="145" column="49" selection-start="3872" selection-end="3872" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="11085">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1206,13 +1280,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1226,21 +1304,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="560" column="0" selection-start="17406" selection-end="17406" vertical-scroll-proportion="0.0" vertical-offset="8400" max-vertical-offset="11010">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1264,13 +1350,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1284,21 +1374,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="452" column="16" selection-start="14346" selection-end="14346" vertical-scroll-proportion="0.0" vertical-offset="6780" max-vertical-offset="11010">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1322,13 +1420,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1342,21 +1444,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="400" column="4" selection-start="12986" selection-end="12986" vertical-scroll-proportion="0.0" vertical-offset="6000" max-vertical-offset="10995">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1380,13 +1490,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1400,21 +1514,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="700" column="21" selection-start="21087" selection-end="21087" vertical-scroll-proportion="0.0" vertical-offset="10500" max-vertical-offset="10995">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1438,13 +1560,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1458,21 +1584,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="16" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="10965">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1496,13 +1630,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1511,21 +1649,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="804" column="0" selection-start="24844" selection-end="24844" vertical-scroll-proportion="0.0" vertical-offset="10665" max-vertical-offset="10665">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1549,13 +1695,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1569,21 +1719,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="683" column="0" selection-start="20910" selection-end="20910" vertical-scroll-proportion="0.0" vertical-offset="10245" max-vertical-offset="10695">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1607,13 +1765,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1627,21 +1789,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="400" column="17" selection-start="13411" selection-end="13420" vertical-scroll-proportion="0.0" vertical-offset="6000" max-vertical-offset="10335">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1665,13 +1835,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1685,21 +1859,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="440" column="31" selection-start="14429" selection-end="14429" vertical-scroll-proportion="0.0" vertical-offset="6600" max-vertical-offset="10335">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1723,13 +1905,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1743,21 +1929,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="587" column="0" selection-start="18724" selection-end="18724" vertical-scroll-proportion="0.0" vertical-offset="8805" max-vertical-offset="9360">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1781,13 +1975,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1801,21 +1999,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="456" column="32" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="6840" max-vertical-offset="8970">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1839,13 +2045,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1859,21 +2069,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="456" column="32" selection-start="15215" selection-end="15215" vertical-scroll-proportion="0.0" vertical-offset="6840" max-vertical-offset="8970">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1897,13 +2115,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1917,21 +2139,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="414" column="27" selection-start="13742" selection-end="13742" vertical-scroll-proportion="0.0" vertical-offset="6210" max-vertical-offset="8415">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -1955,13 +2185,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1975,21 +2209,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="386" column="5" selection-start="13011" selection-end="13011" vertical-scroll-proportion="0.0" vertical-offset="5790" max-vertical-offset="8325">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -2013,13 +2255,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2028,21 +2274,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="386" column="5" selection-start="13011" selection-end="13011" vertical-scroll-proportion="0.0" vertical-offset="5790" max-vertical-offset="8325">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -2066,13 +2320,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2086,21 +2344,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="317" column="0" selection-start="0" selection-end="22157" vertical-scroll-proportion="0.0" vertical-offset="4755" max-vertical-offset="7515">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -2124,13 +2390,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2144,21 +2414,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="13" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="2940">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -2182,13 +2460,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2215,14 +2497,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JNumberTextField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="31" selection-start="522" selection-end="522" vertical-scroll-proportion="0.33203885" vertical-offset="39" max-vertical-offset="3375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FieldDirection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
+        <state line="18" column="31" selection-start="522" selection-end="522" vertical-scroll-proportion="0.33203885" vertical-offset="39" max-vertical-offset="3375" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RXTXRobot.java">
@@ -2242,6 +2517,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FieldDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="22" selection-start="257" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -2249,23 +2531,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="24" selection-start="5522" selection-end="5522" vertical-scroll-proportion="0.046357617" vertical-offset="2200" max-vertical-offset="16005">
+        <state line="1511" column="0" selection-start="46038" selection-end="46038" vertical-scroll-proportion="0.7761194" vertical-offset="4183" max-vertical-offset="5205">
           <folding>
-            <element signature="e#4001#4775#0" expanded="true" />
-            <element signature="e#4394#4420#0" expanded="false" />
-            <element signature="e#4764#4765#0" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" expanded="false" />
+            <element signature="e#4465#4491#0" expanded="false" />
             <element signature="method#setDebugView#0;class#MainForm#0" expanded="false" />
+            <element signature="method#updateRunButtons#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateGuiLocation#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateBucketPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateServoPingLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#updateLightLabel#0;class#MainForm#0" expanded="false" />
             <element signature="method#main#0;class#MainForm#0" expanded="false" />
-            <element signature="e#22496#22516#0" expanded="false" />
-            <element signature="e#25643#25663#0" expanded="false" />
-            <element signature="e#26767#26787#0" expanded="false" />
+            <element signature="e#22955#22975#0" expanded="false" />
+            <element signature="e#26158#26178#0" expanded="false" />
+            <element signature="e#27282#27302#0" expanded="false" />
+            <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
             <element signature="method#setup#0;class#MainForm#0" expanded="false" />
+            <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
+            <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectRemediationMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
+            <element signature="method#collectMaterials#0;class#MainForm#0" expanded="false" />
+            <element signature="e#33420#33432#0" expanded="false" />
             <element signature="method#collectMaterial#0;class#MainForm#0" expanded="false" />
             <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
@@ -2289,13 +2579,17 @@
             <element signature="method#turnRight#0;class#MainForm#0" expanded="false" />
             <element signature="method#turnRight#1;class#MainForm#0" expanded="false" />
             <element signature="method#turn180#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#0;class#MainForm#0" expanded="false" />
+            <element signature="method#adjustTurn#1;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingSensorStationary#0;class#MainForm#0" expanded="false" />
             <element signature="method#readPingDynamic#0;class#MainForm#0" expanded="false" />
+            <element signature="method#readPingDynamic#1;class#MainForm#0" expanded="false" />
             <element signature="method#readLightSensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#retractArm#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToLocation#0;class#MainForm#0" expanded="false" />
+            <element signature="method#goToLocation#1;class#MainForm#0" expanded="false" />
           </folding>
         </state>
       </provider>

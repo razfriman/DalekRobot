@@ -6,6 +6,7 @@ import rxtxrobot.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -57,6 +58,7 @@ public class MainForm {
     private JLabel servoPingLabel;
     private JSlider servoPingSlider;
     private JButton testErrorCorrectionButton;
+    private JTextField turnTicksTextField;
 
     private final JFrame frame;
 
@@ -170,6 +172,8 @@ public class MainForm {
                     public void run() {
                         setup();
                         testWater();
+
+                        goToLocation(FieldDirection.SALINITY_DISPENSER_BOTTOM);
                     }
                 };
 
@@ -186,6 +190,7 @@ public class MainForm {
                     @Override
                     public void run() {
                         setup();
+
                         goToNextDispenserType(true);
                     }
                 };
@@ -322,6 +327,14 @@ public class MainForm {
                 salinitySensorReading = salinitySensorTextField.getInt();
 
                 calculateRemediationAmounts(salinitySensorReading, turbiditySensorReading);
+            }
+        });
+
+        turnTicksTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TURN_90_TICKS = Integer.parseInt(turnTicksTextField.getText());
+                TURN_180_TICKS = TURN_90_TICKS * 2;
             }
         });
 
@@ -704,7 +717,7 @@ public class MainForm {
 
     public static final int MOTOR_SPEED_FAST = 450;
     public static final int MOTOR_SPEED_MEDIUM = 300;
-    public static final int MOTOR_SPEED_SLOW = 170;
+    public static final int MOTOR_SPEED_SLOW = 200;
 
     public static final int CRANE_INTERVAL = 10;
 
@@ -730,9 +743,10 @@ public class MainForm {
     public static final int SOCCER_BALL_ARM_EXTEND = 1;
     public static final int SOCCER_BALL_ARM_RETRACT = -1;
 
-    public static final int TURN_01_TICKS = 180 / 90;
-    public static final int TURN_90_TICKS = 180;
-    public static final int TURN_180_TICKS = TURN_90_TICKS * 2;
+    public static final double TURN_01_TICKS = 2.0;
+
+    public static int TURN_90_TICKS = 170;
+    public static int TURN_180_TICKS = TURN_90_TICKS * 2;
 
     public static final int QUICK_DELAY = 3;
     public static final int MEDIUM_DELAY = 200;
@@ -745,11 +759,12 @@ public class MainForm {
     // white = 50
     // grey = 25
     // black = 2,3,4
-    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 22;
+    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 30;
 
 
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
     public static final int WATER_WELL_DISTANCE_THRESHOLD = 38;
+    public static final int WATER_WELL_PARALLEL_WALL_DISTANCE = 111;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
     public static final int DISPENSER_DISTANCE_THRESHOLD = 34;
     public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 38;
@@ -855,7 +870,7 @@ public class MainForm {
 
         lowerCrane();
 
-        r.sleep(8000);
+        //r.sleep(8000);
 
         readTurbiditySensor();
         readTurbiditySensor();
@@ -1020,57 +1035,16 @@ public class MainForm {
             r.sleep(50);
 
 
-            move(BUCKET_FORWARD, 80, MOTOR_SPEED_MEDIUM);
+            move(BUCKET_FORWARD, 250, MOTOR_SPEED_FAST);
 
 
             readPingSensorStationary();
-            readPingSensor(PingDirection.CRANE_RIGHT);
 
             if(currentBucketPingDistance < CROSS_DISPENSERS_DISTANCE_THRESHOLD) {
                 break;
             }
 
-            // Attempt to read again if the first reading appears invalid
-            if(isFarSide) {
-
-
-                while(Math.abs(currentServoPingDistance - targetDistance) > 25) {
-
-                    r.sleep(200);
-                    System.out.println("Invalid ping value [" + currentServoPingDistance + "] - Reading again");
-                    readPingSensor(PingDirection.CRANE_RIGHT);
-                }
-            }
-
-
-            System.out.println("TARGET D: " + targetDistance);
-            System.out.println("CURRENT D:" + currentServoPingDistance);
-
-            int ADJUSTMENT_LIMIT = 4;
-
-            int turnDegrees = 15;
-
-            int difference = currentServoPingDistance - targetDistance;
-
-
-            if(difference > 0 && difference > ADJUSTMENT_LIMIT) {
-
-                // Move left a little
-                turnLeft(BUCKET_FORWARD, turnDegrees);
-                System.out.println("ADJUST LEFT");
-
-            } else if (difference < 0 && difference <  -1 * ADJUSTMENT_LIMIT) {
-
-                // Move right a little
-                turnRight(BUCKET_FORWARD, turnDegrees);
-                System.out.println("ADJUST RIGHT");
-
-            } else {
-                // Straight
-                System.out.println("NO ADJUSTMENT");
-            }
-
-            System.out.println("");
+            adjustTurn(PingDirection.CRANE_RIGHT, targetDistance, BUCKET_FORWARD, 10, 20,4,15,true);
 
             readPingSensorStationary();
         }
@@ -1296,7 +1270,6 @@ public class MainForm {
 
 
         readPingSensor(servoDirection);
-
         r.sleep(MEDIUM_DELAY);
 
         // Start moving forward
@@ -1358,9 +1331,19 @@ public class MainForm {
 
         boolean isBucketForward = direction == BUCKET_FORWARD;
 
+        int ticks = (int) (TURN_01_TICKS * degrees);
+
+
+        if(degrees == 90) {
+            ticks = TURN_90_TICKS;
+        } else if (degrees == 180)
+        {
+            ticks = TURN_180_TICKS;
+        }
+
         r.runEncodedMotor(
-                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_01_TICKS * degrees,
-                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_01_TICKS * degrees
+                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), ticks,
+                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), ticks
         );
 
         r.sleep(LONG_DELAY);
@@ -1380,9 +1363,19 @@ public class MainForm {
 
         boolean isBucketForward = direction == BUCKET_FORWARD;
 
+        int ticks = (int) (TURN_01_TICKS * degrees);
+
+
+        if(degrees == 90) {
+            ticks = TURN_90_TICKS;
+        } else if (degrees == 180)
+        {
+            ticks = TURN_180_TICKS;
+        }
+
         r.runEncodedMotor(
-                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), TURN_01_TICKS * degrees,
-                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), TURN_01_TICKS * degrees
+                RXTXRobot.MOTOR1, MOTOR_SPEED_SLOW * (isBucketForward ? BUCKET_FORWARD : CRANE_FORWARD), ticks,
+                RXTXRobot.MOTOR2, MOTOR_SPEED_SLOW * (isBucketForward ? CRANE_FORWARD : BUCKET_FORWARD), ticks
         );
 
         r.sleep(LONG_DELAY);
@@ -1405,6 +1398,65 @@ public class MainForm {
 
 
 
+    public void adjustTurn(PingDirection pingDirection, int targetDistance, int direction, int upperLimit, int upperTurn, int lowerLimit, int lowerTurn) {
+        adjustTurn(pingDirection, targetDistance, direction, upperLimit, upperTurn, lowerLimit, lowerTurn, false);
+
+    }
+
+    public void adjustTurn(PingDirection pingDirection, int targetDistance, int direction, int upperLimit, int upperTurn, int lowerLimit, int lowerTurn, boolean isUseMedian) {
+
+        readPingSensor(pingDirection);
+
+        int servoDistance = currentServoPingDistance;
+
+        while(Math.abs(currentServoPingDistance - targetDistance) > upperLimit * 2) {
+
+            r.sleep(200);
+            System.out.println("Invalid ping value [" + currentServoPingDistance + "] - Reading again");
+            readPingSensor(PingDirection.CRANE_RIGHT);
+        }
+
+        if(isUseMedian) {
+
+            ArrayList<Integer> distances = new ArrayList();
+            for(int i = 0; i < 5; i++) {
+                readPingSensor(pingDirection);
+                distances.add(currentServoPingDistance);
+            }
+            java.util.Collections.sort(distances);
+            servoDistance = distances.get(distances.size() / 2 - 1);
+        }
+
+
+        int diff = servoDistance - targetDistance;
+
+        boolean isAboveLowerLimit = diff > lowerLimit;
+        boolean isAboveUpperLimit = diff > upperLimit;
+
+        boolean isBelowLowerLimit = diff < -lowerLimit;
+        boolean isBelowUpperLimit = diff < -upperLimit;
+
+        boolean isLeftIfBigger = (direction == CRANE_FORWARD && pingDirection == PingDirection.CRANE_LEFT) ||
+                (direction == BUCKET_FORWARD && pingDirection == PingDirection.CRANE_RIGHT);
+
+        if(isAboveLowerLimit) {
+
+            if(isLeftIfBigger) {
+                turnLeft(direction, isAboveUpperLimit ? upperTurn : lowerTurn);
+            } else {
+                turnRight(direction, isAboveUpperLimit ? upperTurn : lowerTurn);
+            }
+
+        } else if (isBelowLowerLimit) {
+
+            if(isLeftIfBigger) {
+                turnRight(direction, isBelowUpperLimit ? upperTurn : lowerTurn);
+            } else {
+                turnLeft(direction, isBelowUpperLimit ? upperTurn : lowerTurn);
+            }
+        }
+    }
+
 
 
 
@@ -1415,6 +1467,8 @@ public class MainForm {
         } else {
             readPingDynamic(direction);
         }
+
+        r.sleep(300);
     }
 
     public void readPingSensorStationary() {
@@ -1439,23 +1493,21 @@ public class MainForm {
         }
 
         readPingDynamic(degrees);
+
+        r.sleep(100);
     }
 
     public void readPingDynamic(int degrees) {
 
-        r.moveServo(PING_SERVO, degrees);
-
-        r.sleep(LONG_DELAY);
+        if(r.getServoPosition(PING_SERVO) != degrees) {
+            r.moveServo(PING_SERVO, degrees);
+            r.sleep(800);
+        }
 
         currentServoPingDistance =  r.getPing(PING_DYNAMIC);
 
         updateServoPingLabel();
-
-
     }
-
-
-
 
 
 
@@ -1502,6 +1554,12 @@ public class MainForm {
             if (fromLocation == FieldDirection.START_LOCATION) {
 
 
+
+
+                moveUntilDistance(CRANE_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_DISTANCE_THRESHOLD + 40, PingDirection.CRANE_MIDDLE);
+
+                adjustTurn(PingDirection.CRANE_LEFT, WATER_WELL_PARALLEL_WALL_DISTANCE, CRANE_FORWARD, 10,10,3,5);
+
                 moveUntilDistance(CRANE_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
 
                 r.sleep(MEDIUM_DELAY);
@@ -1518,6 +1576,10 @@ public class MainForm {
                 movePastDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, WATER_WELL_REVERSE_DISTANCE_THRESHOLD, PingDirection.CRANE_MIDDLE);
 
                 turnRight(BUCKET_FORWARD);
+
+                moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, DISPENSER_DISTANCE_THRESHOLD + 30, PingDirection.BUCKET);
+
+                adjustTurn(PingDirection.CRANE_LEFT, SHORT_PARALLEL_DISTANCE_FROM_WALL, BUCKET_FORWARD, 10,20,3,10);
 
                 moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, DISPENSER_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
@@ -1611,7 +1673,7 @@ public class MainForm {
 
 
                 // Move towards the bridge
-                move(BUCKET_FORWARD, 200);
+                move(BUCKET_FORWARD, 260);
 
                 lastLocation = toLocation;
             }
@@ -1622,7 +1684,7 @@ public class MainForm {
 
             // Cross the bridge
 
-            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW + 50, CROSS_BRIDGE_DISTANCE_THRESHOLD, PingDirection.BUCKET);
+            moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW + 100, CROSS_BRIDGE_DISTANCE_THRESHOLD, PingDirection.BUCKET);
 
             move(CRANE_FORWARD, 100);
 
@@ -1632,5 +1694,6 @@ public class MainForm {
 
         updateGuiLocation();
     }
+
 
 }
