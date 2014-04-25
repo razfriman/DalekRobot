@@ -1066,6 +1066,7 @@ public class MainForm {
         }
 
 
+        move(CRANE_FORWARD, 25);
 
     }
 
@@ -1789,7 +1790,7 @@ public class MainForm {
 
 
                 // Move towards the bridge
-                move(BUCKET_FORWARD, 260);
+                move(BUCKET_FORWARD, 240);
 
                 lastLocation = toLocation;
             }

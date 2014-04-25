@@ -73,7 +73,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="934" column="87" selection-start="30294" selection-end="30294" vertical-scroll-proportion="0.45730028" vertical-offset="10799" max-vertical-offset="24195">
+            <state line="1792" column="39" selection-start="54380" selection-end="54380" vertical-scroll-proportion="0.6639118" vertical-offset="23519" max-vertical-offset="24210">
               <folding />
             </state>
           </provider>
@@ -760,7 +760,7 @@
       <workItem from="1398366693270" duration="1187000" />
       <workItem from="1398371679079" duration="3043000" />
       <workItem from="1398375378619" duration="1283000" />
-      <workItem from="1398379769255" duration="11040000" />
+      <workItem from="1398379769255" duration="11635000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -898,11 +898,15 @@
       <created>1398395148537</created>
       <updated>1398395148537</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Update turbidity equation">
+      <created>1398399035817</created>
+      <updated>1398399035817</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133555000" />
+    <option name="totallyTimeSpent" value="134150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -950,7 +954,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Ping sensor button&#10;" />
     <MESSAGE value="more code" />
     <MESSAGE value="Prep for demo 2" />
     <MESSAGE value="Added soccer ball location combo box" />
@@ -975,7 +978,8 @@
     <MESSAGE value="Update remediation amounts" />
     <MESSAGE value="Light sensor work" />
     <MESSAGE value="save changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="save changes" />
+    <MESSAGE value="Update turbidity equation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update turbidity equation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1283,7 +1287,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="934" column="87" selection-start="30294" selection-end="30294" vertical-scroll-proportion="0.45730028" vertical-offset="10799" max-vertical-offset="24195">
+        <state line="1792" column="39" selection-start="54380" selection-end="54380" vertical-scroll-proportion="0.6639118" vertical-offset="23519" max-vertical-offset="24210">
           <folding />
         </state>
       </provider>
