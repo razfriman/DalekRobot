@@ -970,7 +970,7 @@ public class MainForm {
         goToLocation(lastLocation, FieldDirection.SALINITY_DISPENSER_BOTTOM);
         collectMaterials(true);
 
-        goToLocation(lastLocation, turbidityLargeLocation);
+        goToLocation(lastLocation, FieldDirection.TURBIDITY_DISPENSER_BOTTOM);
         collectMaterials(false);
     }
 
@@ -1080,12 +1080,20 @@ public class MainForm {
         // 250-2500 uS
         //20's 200's
 
+        if(isSalinity ? salinityLargeOnTop : turbidityLargeOnTop) {
+            materialLeft = collectSmallMaterials(isSalinity, materialLeft);
+            materialLeft = collectLargeMaterials(isSalinity, materialLeft);
+        } else {
+            materialLeft = collectLargeMaterials(isSalinity, materialLeft);
+            materialLeft = collectSmallMaterials(isSalinity, materialLeft);
+        }
+    }
+
+
+    public int collectLargeMaterials(boolean isSalinity, int materialLeft) {
+
         int dispenserLimit = DISPENSER_MATERIAL_LIMIT;
 
-        // 5, 15
-        // 20, 150
-        // 200
-        // 140
         while(dispenserLimit > 0 && materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT - 10 : TURBIDITY_LARGE_AMOUNT - 3)) {
             collectMaterial(isSalinity, true);
             materialLeft -= isSalinity ?  SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT;
@@ -1105,10 +1113,18 @@ public class MainForm {
             dispenserLimit--;
         }
 
-        dispenserLimit = DISPENSER_MATERIAL_LIMIT;
+        return materialLeft;
+    }
+
+
+    public int collectSmallMaterials(boolean isSalinity, int materialLeft) {
+
+        int dispenserLimit = DISPENSER_MATERIAL_LIMIT;
 
         while(dispenserLimit > 0 &&  materialLeft >= (isSalinity? SALINITY_SMALL_AMOUNT - 10 : TURBIDITY_SMALL_AMOUNT - 3)) {
+
             collectMaterial(isSalinity, false);
+
             materialLeft -= isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT;
 
             if(isSalinity) {
@@ -1126,7 +1142,7 @@ public class MainForm {
             dispenserLimit--;
         }
 
-
+        return materialLeft;
     }
 
     public void collectMaterial(boolean isSalinity, boolean isLargeAmount) {
