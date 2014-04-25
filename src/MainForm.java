@@ -838,8 +838,8 @@ public class MainForm {
     // PARAMETERS
     ////////////////////
 
-    public boolean salinityLargeOnTop = false;
-    public boolean turbidityLargeOnTop = false;
+    public boolean salinityLargeOnTop = true;
+    public boolean turbidityLargeOnTop = true;
     public boolean soccerBallOnLeft = false;
     public boolean isCaptureSoccerBall = false;
 
@@ -1080,17 +1080,34 @@ public class MainForm {
         // 250-2500 uS
         //20's 200's
 
+        int largeAmount = 0;
+        int smallAmount = 0;
+
+        int dispenserLimit = 12;
+
+        while(dispenserLimit > 0 && materialLeft >= (isSalinity ? SALINITY_LARGE_AMOUNT - 10 : TURBIDITY_LARGE_AMOUNT - 3)) {
+            largeAmount += isSalinity ?  SALINITY_LARGE_AMOUNT : TURBIDITY_LARGE_AMOUNT;
+            dispenserLimit --;
+        }
+
+        dispenserLimit = 12;
+        while(dispenserLimit > 0 &&  materialLeft >= (isSalinity? SALINITY_SMALL_AMOUNT - 10 : TURBIDITY_SMALL_AMOUNT - 3)) {
+            smallAmount += isSalinity ? SALINITY_SMALL_AMOUNT : TURBIDITY_SMALL_AMOUNT;
+            dispenserLimit--;
+        }
+
+
         if(isSalinity ? salinityLargeOnTop : turbidityLargeOnTop) {
-            materialLeft = collectSmallMaterials(isSalinity, materialLeft);
-            materialLeft = collectLargeMaterials(isSalinity, materialLeft);
+            collectSmallMaterials(isSalinity, smallAmount);
+            collectLargeMaterials(isSalinity, largeAmount);
         } else {
-            materialLeft = collectLargeMaterials(isSalinity, materialLeft);
-            materialLeft = collectSmallMaterials(isSalinity, materialLeft);
+            collectLargeMaterials(isSalinity, largeAmount);
+            collectSmallMaterials(isSalinity, smallAmount);
         }
     }
 
 
-    public int collectLargeMaterials(boolean isSalinity, int materialLeft) {
+    public void collectLargeMaterials(boolean isSalinity, int materialLeft) {
 
         int dispenserLimit = DISPENSER_MATERIAL_LIMIT;
 
@@ -1113,11 +1130,10 @@ public class MainForm {
             dispenserLimit--;
         }
 
-        return materialLeft;
     }
 
 
-    public int collectSmallMaterials(boolean isSalinity, int materialLeft) {
+    public void collectSmallMaterials(boolean isSalinity, int materialLeft) {
 
         int dispenserLimit = DISPENSER_MATERIAL_LIMIT;
 
@@ -1141,8 +1157,6 @@ public class MainForm {
 
             dispenserLimit--;
         }
-
-        return materialLeft;
     }
 
     public void collectMaterial(boolean isSalinity, boolean isLargeAmount) {

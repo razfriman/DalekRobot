@@ -73,7 +73,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1075" column="0" selection-start="33967" selection-end="33967" vertical-scroll-proportion="1.0613811" vertical-offset="8375" max-vertical-offset="14220">
+            <state line="1109" column="15" selection-start="35049" selection-end="35049" vertical-scroll-proportion="0.91184574" vertical-offset="9119" max-vertical-offset="15000">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4465#4491#0" expanded="false" />
@@ -88,16 +88,13 @@
                 <element signature="e#26533#26553#0" expanded="false" />
                 <element signature="e#27657#27677#0" expanded="false" />
                 <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-                <element signature="method#setup#0;class#MainForm#0" expanded="false" />
                 <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
                 <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
                 <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
                 <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
                 <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
                 <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-                <element signature="e#32861#32895#0" expanded="false" />
-                <element signature="e#33976#33988#0" expanded="false" />
-                <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+                <element signature="e#32859#32893#0" expanded="false" />
                 <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
                 <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
                 <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -818,7 +815,7 @@
       <workItem from="1398371679079" duration="3043000" />
       <workItem from="1398375378619" duration="1283000" />
       <workItem from="1398379769255" duration="11676000" />
-      <workItem from="1398437196728" duration="890000" />
+      <workItem from="1398437196728" duration="1264000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -964,11 +961,15 @@
       <created>1398399636908</created>
       <updated>1398399636908</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="same order of dispnser naviation">
+      <created>1398438101795</created>
+      <updated>1398438101795</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135081000" />
+    <option name="totallyTimeSpent" value="135455000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -988,7 +989,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4499382" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -996,7 +997,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Parse Tree" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13616398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48454884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48454884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1016,7 +1017,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Prep for demo 2" />
     <MESSAGE value="Added soccer ball location combo box" />
     <MESSAGE value="Create ENUM for fieldDirection&#10;More prep for demo 2" />
     <MESSAGE value="Use sensors for movement for water well finding" />
@@ -1041,7 +1041,8 @@
     <MESSAGE value="save changes" />
     <MESSAGE value="Update turbidity equation" />
     <MESSAGE value="save" />
-    <option name="LAST_COMMIT_MESSAGE" value="save" />
+    <MESSAGE value="same order of dispnser naviation" />
+    <option name="LAST_COMMIT_MESSAGE" value="same order of dispnser naviation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1068,16 +1069,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1137,16 +1135,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1211,16 +1206,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1280,16 +1272,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1349,16 +1338,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1418,16 +1404,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1487,16 +1470,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1556,16 +1536,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1625,16 +1602,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1689,16 +1663,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1758,16 +1729,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1827,16 +1795,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1896,16 +1861,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -1965,16 +1927,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2034,16 +1993,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2103,16 +2059,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2172,16 +2125,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2241,16 +2191,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2305,16 +2252,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2374,16 +2318,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2443,16 +2384,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
@@ -2546,7 +2484,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1075" column="0" selection-start="33967" selection-end="33967" vertical-scroll-proportion="1.0613811" vertical-offset="8375" max-vertical-offset="14220">
+        <state line="1109" column="15" selection-start="35049" selection-end="35049" vertical-scroll-proportion="0.91184574" vertical-offset="9119" max-vertical-offset="15000">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4465#4491#0" expanded="false" />
@@ -2561,16 +2499,13 @@
             <element signature="e#26533#26553#0" expanded="false" />
             <element signature="e#27657#27677#0" expanded="false" />
             <element signature="method#runAll#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setup#0;class#MainForm#0" expanded="false" />
             <element signature="method#testWater#0;class#MainForm#0" expanded="false" />
             <element signature="method#readSalinitySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#readTurbiditySensor#0;class#MainForm#0" expanded="false" />
             <element signature="method#calculateRemediationAmounts#0;class#MainForm#0" expanded="false" />
             <element signature="method#switchDispensers#0;class#MainForm#0" expanded="false" />
             <element signature="method#goToNextDispenserType#0;class#MainForm#0" expanded="false" />
-            <element signature="e#32861#32895#0" expanded="false" />
-            <element signature="e#33976#33988#0" expanded="false" />
-            <element signature="method#activateDispenser#0;class#MainForm#0" expanded="false" />
+            <element signature="e#32859#32893#0" expanded="false" />
             <element signature="method#dropOffMaterials#0;class#MainForm#0" expanded="false" />
             <element signature="method#captureSoccerBall#0;class#MainForm#0" expanded="false" />
             <element signature="method#extendAndRetractArm#0;class#MainForm#0" expanded="false" />
