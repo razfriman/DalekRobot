@@ -191,9 +191,9 @@ public class MainForm {
                     public void run() {
                         setup();
 
-                        //goToNextDispenserType(true);
+                        goToNextDispenserType(true);
 
-                        switchDispensers(true);
+                        //switchDispensers(true);
                     }
                 };
 
@@ -769,15 +769,15 @@ public class MainForm {
     // white = 50
     // grey = 25
     // black = 2,3,4
-    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 13;
+    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 49;
 
 
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
     public static final int WATER_WELL_DISTANCE_THRESHOLD = 39;
-    public static final int WATER_WELL_PARALLEL_WALL_DISTANCE = 111;
+    public static final int WATER_WELL_PARALLEL_WALL_DISTANCE = 104;
     public static final int CROSS_BRIDGE_DISTANCE_THRESHOLD = 20;
     public static final int DISPENSER_DISTANCE_THRESHOLD = 38;
-    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 35;
+    public static final int WATER_WELL_REVERSE_DISTANCE_THRESHOLD = 30;
     public static final int CROSS_DISPENSERS_DISTANCE_THRESHOLD = 20;
 
     public static final int TURBIDITY_MINIMUM= 5;
@@ -798,7 +798,7 @@ public class MainForm {
 
 
     public static final int LONG_PARALLEL_DISTANCE_FROM_WALL = 121;
-    public static final int SHORT_PARALLEL_DISTANCE_FROM_WALL = 62;
+    public static final int SHORT_PARALLEL_DISTANCE_FROM_WALL = 57;
 
     public static final int PUSH_DISPENSER_TICKS = 130;
     public static final int REVERSE_DISPENSER_TICKS = 80;
@@ -1035,12 +1035,13 @@ public class MainForm {
         // Backup a little bit
         movePastDistance(CRANE_FORWARD, 20, PingDirection.BUCKET);
 
+
         turn180();
 
-        move(BUCKET_FORWARD, 50);
+        move(CRANE_FORWARD, 50);
 
         readPingSensor(PingDirection.BUCKET);
-        readPingSensor(PingDirection.CRANE_RIGHT);
+        //readPingSensor(PingDirection.CRANE_MIDDLE);
 
 
         int targetDistance = isFarSide ? LONG_PARALLEL_DISTANCE_FROM_WALL : SHORT_PARALLEL_DISTANCE_FROM_WALL;
@@ -1054,7 +1055,7 @@ public class MainForm {
             move(BUCKET_FORWARD, 250, MOTOR_SPEED_FAST);
 
 
-            readPingSensorStationary();
+            readPingSensor(PingDirection.BUCKET);
 
             if(currentBucketPingDistance < CROSS_DISPENSERS_DISTANCE_THRESHOLD) {
                 break;
@@ -1062,8 +1063,10 @@ public class MainForm {
 
             adjustTurn(PingDirection.CRANE_RIGHT, targetDistance, BUCKET_FORWARD, 10, 20,4,15,true);
 
-            readPingSensorStationary();
+            readPingSensor(PingDirection.BUCKET);
         }
+
+
 
     }
 

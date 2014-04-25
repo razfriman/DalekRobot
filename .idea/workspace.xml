@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04ed5312-f06d-47df-b961-12a8179df15f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RXTXRobot.jar" afterPath="$PROJECT_DIR$/RXTXRobot.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -74,7 +73,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1248" column="33" selection-start="39107" selection-end="39107" vertical-scroll-proportion="0.16804408" vertical-offset="15539" max-vertical-offset="24075">
+            <state line="1065" column="47" selection-start="33734" selection-end="33734" vertical-scroll-proportion="0.33333334" vertical-offset="12734" max-vertical-offset="24120">
               <folding />
             </state>
           </provider>
@@ -761,7 +760,7 @@
       <workItem from="1398366693270" duration="1187000" />
       <workItem from="1398371679079" duration="3043000" />
       <workItem from="1398375378619" duration="1283000" />
-      <workItem from="1398379769255" duration="5140000" />
+      <workItem from="1398379769255" duration="10184000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -891,11 +890,15 @@
       <created>1398377247976</created>
       <updated>1398377247976</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Light sensor work">
+      <created>1398388849437</created>
+      <updated>1398388849437</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127655000" />
+    <option name="totallyTimeSpent" value="132699000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -943,7 +946,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Ping sensor button" />
     <MESSAGE value="Ping sensor button&#10;" />
     <MESSAGE value="more code" />
     <MESSAGE value="Prep for demo 2" />
@@ -968,7 +970,8 @@
     <MESSAGE value="Add soccer ball code. &#10;Added an option to omit the soccer ball code on the GUI" />
     <MESSAGE value="More changes to prepare for demo" />
     <MESSAGE value="Update remediation amounts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update remediation amounts" />
+    <MESSAGE value="Light sensor work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Light sensor work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1276,7 +1279,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1248" column="33" selection-start="39107" selection-end="39107" vertical-scroll-proportion="0.16804408" vertical-offset="15539" max-vertical-offset="24075">
+        <state line="1065" column="47" selection-start="33734" selection-end="33734" vertical-scroll-proportion="0.33333334" vertical-offset="12734" max-vertical-offset="24120">
           <folding />
         </state>
       </provider>
