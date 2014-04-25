@@ -73,7 +73,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1065" column="47" selection-start="33734" selection-end="33734" vertical-scroll-proportion="0.33333334" vertical-offset="12734" max-vertical-offset="24120">
+            <state line="934" column="87" selection-start="30294" selection-end="30294" vertical-scroll-proportion="0.45730028" vertical-offset="10799" max-vertical-offset="24195">
               <folding />
             </state>
           </provider>
@@ -760,7 +760,7 @@
       <workItem from="1398366693270" duration="1187000" />
       <workItem from="1398371679079" duration="3043000" />
       <workItem from="1398375378619" duration="1283000" />
-      <workItem from="1398379769255" duration="10184000" />
+      <workItem from="1398379769255" duration="11040000" />
     </task>
     <task id="LOCAL-00001" summary="Update the demo code">
       <created>1394026136063</created>
@@ -894,11 +894,15 @@
       <created>1398388849437</created>
       <updated>1398388849437</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="save changes">
+      <created>1398395148537</created>
+      <updated>1398395148537</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132699000" />
+    <option name="totallyTimeSpent" value="133555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="22" width="1366" height="878" extended-state="6" />
@@ -959,7 +963,6 @@
     <MESSAGE value="More updates for autonomous movement" />
     <MESSAGE value="Added methods to specify angles for turning.&#10;Added tooltip text to all buttons so users know exactly what they do." />
     <MESSAGE value="Partial support to move straight across to the next dispenser" />
-    <MESSAGE value="save changes" />
     <MESSAGE value="Reformat the code to be split up into separate categories" />
     <MESSAGE value="Oragnize Code.&#10;Add all JAR files to project folder" />
     <MESSAGE value="Fix ping sensor code" />
@@ -971,7 +974,8 @@
     <MESSAGE value="More changes to prepare for demo" />
     <MESSAGE value="Update remediation amounts" />
     <MESSAGE value="Light sensor work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Light sensor work" />
+    <MESSAGE value="save changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="save changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1279,7 +1283,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1065" column="47" selection-start="33734" selection-end="33734" vertical-scroll-proportion="0.33333334" vertical-offset="12734" max-vertical-offset="24120">
+        <state line="934" column="87" selection-start="30294" selection-end="30294" vertical-scroll-proportion="0.45730028" vertical-offset="10799" max-vertical-offset="24195">
           <folding />
         </state>
       </provider>

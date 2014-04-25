@@ -797,7 +797,7 @@ public class MainForm {
     public static final int PING_SERVO_RIGHT = 170;
 
 
-    public static final int LONG_PARALLEL_DISTANCE_FROM_WALL = 121;
+    public static final int LONG_PARALLEL_DISTANCE_FROM_WALL = 119;
     public static final int SHORT_PARALLEL_DISTANCE_FROM_WALL = 57;
 
     public static final int PUSH_DISPENSER_TICKS = 130;
@@ -932,7 +932,7 @@ public class MainForm {
     public void calculateRemediationAmounts(int conductivityValue, int turbidityValue) {
 
 
-        turbidityRemediationAmount = (int) Math.round(-1.7519 * turbidityValue + 990.3);
+        turbidityRemediationAmount = (int) Math.round(-1.3846 * turbidityValue + 699.18);
 
         salinityRemediationAmount = (int) (13737 * Math.pow(Math.E, -0.007 * conductivityValue));
 
@@ -1035,12 +1035,11 @@ public class MainForm {
         // Backup a little bit
         movePastDistance(CRANE_FORWARD, 20, PingDirection.BUCKET);
 
-
         turn180();
 
-        move(CRANE_FORWARD, 50);
+        move(BUCKET_FORWARD, 50);
 
-        readPingSensor(PingDirection.BUCKET);
+        readPingSensor(PingDirection.CRANE_RIGHT);
         //readPingSensor(PingDirection.CRANE_MIDDLE);
 
 
@@ -1052,7 +1051,7 @@ public class MainForm {
             r.sleep(50);
 
 
-            move(BUCKET_FORWARD, 250, MOTOR_SPEED_FAST);
+            move(BUCKET_FORWARD, 200, MOTOR_SPEED_FAST);
 
 
             readPingSensor(PingDirection.BUCKET);
@@ -1061,7 +1060,7 @@ public class MainForm {
                 break;
             }
 
-            adjustTurn(PingDirection.CRANE_RIGHT, targetDistance, BUCKET_FORWARD, 10, 20,4,15,true);
+            adjustTurn(PingDirection.CRANE_RIGHT, targetDistance, BUCKET_FORWARD, 10, 15,4,10,true);
 
             readPingSensor(PingDirection.BUCKET);
         }
@@ -1535,9 +1534,11 @@ public class MainForm {
                 distances.add(currentServoPingDistance);
             }
             java.util.Collections.sort(distances);
-            servoDistance = distances.get(distances.size() / 2 - 1);
+            //servoDistance = distances.get(distances.size() / 2 - 1);
+            servoDistance = distances.get(distances.size() - 1);
         }
 
+        System.out.println(servoDistance + " " + targetDistance);
 
         int diff = servoDistance - targetDistance;
 
@@ -1554,16 +1555,20 @@ public class MainForm {
 
             if(isLeftIfBigger) {
                 turnLeft(direction, isAboveUpperLimit ? upperTurn : lowerTurn);
+                System.out.println("left1");
             } else {
                 turnRight(direction, isAboveUpperLimit ? upperTurn : lowerTurn);
+                System.out.println("right1");
             }
 
         } else if (isBelowLowerLimit) {
 
             if(isLeftIfBigger) {
                 turnRight(direction, isBelowUpperLimit ? upperTurn : lowerTurn);
+                System.out.println("right2");
             } else {
                 turnLeft(direction, isBelowUpperLimit ? upperTurn : lowerTurn);
+                System.out.println("left2");
             }
         }
     }
