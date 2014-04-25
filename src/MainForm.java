@@ -191,7 +191,9 @@ public class MainForm {
                     public void run() {
                         setup();
 
-                        goToNextDispenserType(true);
+                        //goToNextDispenserType(true);
+
+                        switchDispensers(true);
                     }
                 };
 
@@ -767,7 +769,7 @@ public class MainForm {
     // white = 50
     // grey = 25
     // black = 2,3,4
-    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 30;
+    public static final int BRIDGE_LIGHT_MARKER_THRESHOLD = 13;
 
 
     public static final int DROP_OFF_LOCATION_DISTANCE_THRESHOLD = 35;
@@ -992,22 +994,18 @@ public class MainForm {
             readPingSensor(PingDirection.CRANE_RIGHT);
         }
 
-        r.sleep(MEDIUM_DELAY);
 
         // Move past the current dispenser
         move(BUCKET_FORWARD, 350);
 
 
-        /* Use ping sensor -- Unreliable
+        /*
+        //Use ping sensor -- Unreliable
         move(BUCKET_FORWARD, 100);
 
         r.sleep(MEDIUM_DELAY);
 
-        if(turnLeftFirst) {
-            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_PARALLEL_DISTANCE_THRESHOLD, PingDirection.CRANE_LEFT);
-        } else {
-            moveUntilDistance(BUCKET_FORWARD, motorSpeed, DISPENSER_PARALLEL_DISTANCE_THRESHOLD, PingDirection.CRANE_RIGHT);
-        }
+        moveUntilDistance(BUCKET_FORWARD, MOTOR_SPEED_SLOW, 40, PingDirection.BUCKET);
 
         r.sleep(MEDIUM_DELAY);
 
@@ -1231,7 +1229,9 @@ public class MainForm {
 
         readLightSensor();
 
-        moveAsync(BUCKET_FORWARD, MOTOR_SPEED_SLOW);
+        r.resetEncodedMotorPosition(RXTXRobot.MOTOR1);
+
+        moveAsync(BUCKET_FORWARD, MOTOR_SPEED_SLOW - 50);
 
         readLightSensor();
 
@@ -1244,7 +1244,9 @@ public class MainForm {
 
         int consecutiveHits = 0;
 
-        while(consecutiveHits < 3) {
+        boolean isGoingForward = true;
+
+        while(consecutiveHits < 2) {
             if(currentLightValue >= BRIDGE_LIGHT_MARKER_THRESHOLD) {
                 consecutiveHits++;
             } else {
@@ -1252,6 +1254,23 @@ public class MainForm {
             }
 
             readLightSensor();
+
+
+            if(isGoingForward) {
+                readPingSensorStationary();
+            }  else {
+                readPingDynamic(PingDirection.CRANE_MIDDLE);
+            }
+
+
+            if(isGoingForward && currentBucketPingDistance < 25) {
+                moveAsync(CRANE_FORWARD, MOTOR_SPEED_SLOW - 50);
+
+                isGoingForward = false;
+            } else if (!isGoingForward && currentServoPingDistance < 25) {
+                moveAsync(BUCKET_FORWARD, MOTOR_SPEED_SLOW - 50);
+                isGoingForward = true;
+            }
         }
 
 
